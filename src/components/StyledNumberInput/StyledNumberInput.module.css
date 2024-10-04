@@ -1,0 +1,21 @@
+.styled-number-input {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.styled-number-input__root {
+}
+
+.styled-number-input__input {
+    background-color: transparent;
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #2F240E;
+    width: 40px;
+    text-align: center;
+}

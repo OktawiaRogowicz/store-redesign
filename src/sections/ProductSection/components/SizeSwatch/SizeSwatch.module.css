@@ -1,0 +1,10 @@
+.size-swatch {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+}
+
+.size-swatch__sizes {
+    display: flex;
+    gap: 24px;
+}

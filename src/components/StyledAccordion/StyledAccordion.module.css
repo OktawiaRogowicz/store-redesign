@@ -1,0 +1,32 @@
+.styled-accordion__root {
+    background-color: transparent;
+}
+
+.styled-accordion__item {
+    padding: 0;
+    border-bottom: none;
+}
+
+.styled-accordion__control {
+    background-color: transparent;
+    padding: 0;
+}
+
+.styled-accordion__control:hover {
+    background-color: transparent;
+}
+
+.styled-accordion__chevron {}
+
+.styled-accordion__label {}
+
+.styled-accordion__icon {}
+
+.styled-accordion__item-title {}
+
+.styled-accordion__panel {
+}
+
+.styled-accordion__content {
+    padding: 0;
+}

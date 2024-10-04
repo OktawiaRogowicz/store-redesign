@@ -1,0 +1,25 @@
+.cart-product {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    gap: 24px;
+}
+
+.cart-product__description {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 16px;
+}
+
+.cart-product__description-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cart-product__description-actions {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    justify-content: space-between;
+}

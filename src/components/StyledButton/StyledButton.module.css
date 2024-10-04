@@ -1,0 +1,53 @@
+.styled-button {
+    position: relative;
+}
+
+.styled-button--transparent::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 48px);
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 4px;
+    left: 24px;
+    background-color: #FADE85;
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-out;
+}
+
+.styled-button--transparent-white::after {
+    background-color: #FAF6EF;
+}
+
+.styled-button--transparent-yellow::after {
+    background-color: #FADE85;
+}
+
+.styled-button--transparent-black::after {
+    background-color: #2F240E;
+}
+
+.styled-button--transparent-inherit::after {
+    background-color: inherit;
+}
+
+.styled-button:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.styled-button--size-S {
+    padding: 8px 4px;
+}
+
+.styled-button--size-M {
+    padding: 12px 24px;
+}
+
+.styled-button--size-L {
+    padding: 16px 40px;
+}
+
+.styled-button--size-no-padding {
+    padding: 0;
+}

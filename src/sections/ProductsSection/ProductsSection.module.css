@@ -1,0 +1,26 @@
+.products-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.products-section__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.products-section__title {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.products-section__products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    height: 100%;
+}

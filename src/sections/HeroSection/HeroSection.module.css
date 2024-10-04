@@ -1,0 +1,25 @@
+.hero-section {
+    position: relative;
+    height: 100vh;
+    margin-top: -96px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media only screen and (min-width: 992px) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.hero-section__title {
+    position: absolute;
+    z-index: 1;
+    place-self: center;
+    text-align: center;
+    width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}

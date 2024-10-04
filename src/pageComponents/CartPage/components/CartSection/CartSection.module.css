@@ -1,0 +1,11 @@
+.cart-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.cart-section__header {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+}

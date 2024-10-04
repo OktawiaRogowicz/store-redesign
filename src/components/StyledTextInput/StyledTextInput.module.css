@@ -1,0 +1,43 @@
+.styled-text-input__wrapper {
+}
+
+.styled-text-input__root {
+}
+
+.styled-text-input__input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #2F240E;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 20px 8px;
+
+    font-size: 14px;
+    font-weight: 300;
+    color: #2F240E;
+}
+
+.styled-text-input__input--with-left-section {
+    padding: 20px 40px;
+}
+
+.styled-text-input__input::placeholder {
+    color: #95897A
+}
+
+.styled-text-input__section{
+    color: #2F240E;
+}
+
+.styled-text-input__required{
+}
+
+.styled-text-input__label{
+}
+
+.styled-text-input__description{
+}
+
+.styled-text-input__error{
+}

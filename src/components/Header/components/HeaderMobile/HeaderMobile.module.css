@@ -1,0 +1,28 @@
+.header-mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+}
+
+.header__left-column {
+  display: flex;
+  gap: 40px;
+  justify-content: start;
+}
+
+.header__logo {
+  margin-right: 10px;
+}
+
+.header__right-column {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}

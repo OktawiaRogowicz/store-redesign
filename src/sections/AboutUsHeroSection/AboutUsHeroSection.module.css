@@ -1,0 +1,22 @@
+.about-us-hero-section {
+    margin-top: -96px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.about-us-hero-section__image-wrapper {
+    position: relative;
+    height: 500px;
+}
+
+.about-us-hero-section__image {
+    object-fit: cover;
+}
+
+.about-us-hero-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 196px 96px 96px 40px;
+}

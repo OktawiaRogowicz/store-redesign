@@ -1,0 +1,47 @@
+.styled-checkbox__root {
+    --checkbox-size: 16px;
+}
+
+.styled-checkbox__input {
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border-radius: 0;
+    border: 1px solid #2F240E;
+}
+
+.styled-checkbox__input:checked {
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border-radius: 0;
+    border: 1px solid #2F240E;
+}
+
+.styled-checkbox__icon {
+}
+
+.styled-checkbox__inner {
+
+}
+
+.styled-checkbox__body {
+
+}
+
+.styled-checkbox__labelWrapper {
+
+}
+
+.styled-checkbox__label {
+
+}
+
+.styled-checkbox__description {
+
+}
+
+.styled-checkbox__error {
+
+}
+

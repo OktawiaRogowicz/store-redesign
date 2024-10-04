@@ -1,0 +1,9 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.product-card__description {
+    padding: 24px 24px 40px 24px;
+}

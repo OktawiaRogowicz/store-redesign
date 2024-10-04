@@ -1,0 +1,49 @@
+
+.section-container--size-S {
+  padding: 0 16px;
+
+  @media only screen and (min-width: 475px) {
+    padding: 0 24px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    padding: 0 40px;
+  }
+}
+
+.section-container--size-M {
+  padding: 0 16px;
+
+
+  @media only screen and (min-width: 475px) {
+    padding: 0 40px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    padding: 0 96px;
+  }
+}
+
+.section-container--size-L {
+  padding: 0 24px;
+
+  @media only screen and (min-width: 475px) {
+    padding: 0 40px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    padding: 0 196px;
+  }
+}
+
+.section-container--size-XL {
+  padding: 0 40px;
+
+  @media only screen and (min-width: 475px) {
+    padding: 0 128px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    padding: 0 256px;
+  }
+}

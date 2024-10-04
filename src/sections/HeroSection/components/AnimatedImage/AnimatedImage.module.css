@@ -1,0 +1,27 @@
+.animated-image--top-to-bottom {
+    object-fit: cover;
+    animation: fadeInTopToBottom 5s ease-in-out;
+}
+
+.animated-image--bottom-to-top {
+    object-fit: cover;
+    animation: fadeInBottomToTop 5s ease-in-out;
+}
+
+@keyframes fadeInBottomToTop {
+    0% {
+        transform: translateY(-100%);
+    }
+    20% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes fadeInTopToBottom {
+    0% {
+        transform: translateY(100%);
+    }
+    20% {
+        transform: translateY(0%);
+    }
+}

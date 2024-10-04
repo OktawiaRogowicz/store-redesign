@@ -9,18 +9,39 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/core": "^7.12.2",
+    "@mantine/form": "^7.12.2",
+    "@mantine/hooks": "^7.12.2",
+    "@next/env": "^14.2.14",
+    "@sanity-typed/types": "^6.3.6",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/react-loader": "^1.10.7",
+    "@sanity/types": "^3.59.0",
+    "@sanity/vision": "^3.57.3",
+    "@tabler/icons-react": "^3.17.0",
+    "classnames": "^2.5.1",
+    "next": "14.2.8",
+    "next-intl": "^3.19.1",
+    "next-sanity": "^9.4.7",
+    "next-sanity-image": "^6.1.1",
+    "node": "^22.8.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.8"
+    "react-icons": "^5.3.0",
+    "sanity": "^3.59.0",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
     "eslint": "^8",
-    "eslint-config-next": "14.2.8"
+    "eslint-config-next": "14.2.8",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }

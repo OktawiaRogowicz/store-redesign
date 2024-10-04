@@ -1,0 +1,9 @@
+.background-image__image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.background-image__image {
+    object-fit: cover;
+    transform: translateX(0%);
+}

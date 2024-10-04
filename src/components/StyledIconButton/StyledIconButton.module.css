@@ -1,0 +1,47 @@
+.styled-icon-button {
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: #2F240E;
+}
+.styled-icon-button:hover {
+    background-color: transparent;
+    color: #2F240E;
+}
+
+.styled-icon-button--black {
+    color: #2F240E;
+}
+.styled-icon-button--black:hover {
+    color: #2F240E;
+}
+
+.styled-icon-button--yellow {
+    color: #FADE85;
+}
+.styled-icon-button--yellow:hover {
+    color: #FADE85;
+}
+
+.styled-icon-button--beige {
+    color: #95897A;
+}
+.styled-icon-button--beige:hover {
+    color: #95897A;
+}
+
+.styled-icon-button--white {
+    color: #FAF6EF;
+}
+.styled-icon-button--white:hover {
+    color: #FAF6EF;
+}
+
+.styled-icon-button--inherit {
+    color: inherit;
+}
+.styled-icon-button--hover {
+    color: inherit;
+}

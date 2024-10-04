@@ -1,0 +1,24 @@
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #2F240E;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.divider--black-color {
+    background-color: #2F240E;
+}
+
+.divider--beige-color {
+    background-color: #95897A;
+}
+
+.divider--yellow-color {
+    background-color: #FADE85;
+}
+
+.divider--white-color {
+    background-color: #FAF6EF;
+}

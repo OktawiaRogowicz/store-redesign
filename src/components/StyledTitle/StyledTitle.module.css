@@ -1,0 +1,63 @@
+.styled-title {
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+.styled-title--h1 {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
+
+    @media only screen and (min-width: 992px) {
+        font-size: 64px;
+    }
+}
+.styled-title--h2 {
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.2;
+
+    @media only screen and (min-width: 992px) {
+        font-size: 48px;
+    }
+}
+.styled-title--h3 {
+    font-size: 27px;
+    font-weight: 300;
+    line-height: 1.2;
+
+    @media only screen and (min-width: 992px) {
+        font-size: 36px;
+    }
+}
+.styled-title--h4 {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.2;
+
+    @media only screen and (min-width: 992px) {
+        font-size: 24px;
+    }
+}
+.styled-title--h5 {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+.styled-title--h6 {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.styled-title--color-black {
+    color: #2F240E;
+}
+
+.styled-title--color-yellow {
+    color: #FADE85;
+}
+
+.styled-title--color-white {
+    color: #FAF6EF;
+}

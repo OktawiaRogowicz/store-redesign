@@ -1,0 +1,26 @@
+.icon-description-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.icon-description-card__header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-description-card__image-wrapper {
+    position: relative;
+    height: 64px;
+    width: 64px;
+}
+
+.icon-description-card__image {
+    object-fit: cover;
+}

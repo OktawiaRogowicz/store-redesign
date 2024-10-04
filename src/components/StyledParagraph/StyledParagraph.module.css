@@ -1,0 +1,121 @@
+.styled-paragraph {
+    position: relative;
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    align-items: center;
+    white-space: pre-wrap;
+}
+
+.styled-paragraph > a {
+    cursor: pointer;
+}
+
+.styled-paragraph--black-color, .styled-paragraph > a {
+    color: #2F240E;
+}
+
+.styled-paragraph--beige-color, .styled-paragraph > a {
+    color: #95897A;
+}
+
+.styled-paragraph--yellow-color, .styled-paragraph > a {
+    color: #FADE85
+}
+
+.styled-paragraph--white-color, .styled-paragraph > a {
+    color: #FAF6EF;
+}
+
+.styled-paragraph--inherit-color, .styled-paragraph > a {
+    color: inherit;
+}
+
+.styled-paragraph--size-L-light--italic {
+    font-family: Newsreader, i;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.styled-paragraph--size-XL-semi-bold {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.styled-paragraph--size-L-semi-bold {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.styled-paragraph--size-M-semi-bold {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.styled-paragraph--size-S-semi-bold {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.styled-paragraph--size-L-light {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 300;
+}
+
+.styled-paragraph--size-M-light {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 300;
+}
+
+.styled-paragraph--size-M-regular {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+}
+
+.styled-paragraph--size-S-light {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 300;
+}
+
+.styled-paragraph--left-alignment {
+    text-align: left;
+    justify-content: left;
+}
+
+.styled-paragraph--center-alignment {
+    text-align: center;
+    justify-content: center;
+}
+
+.styled-paragraph--right-alignment {
+    text-align: right;
+    justify-content: right;
+}
+
+.styled-paragraph--underline {
+    text-underline-offset: 2px;
+    text-decoration: underline;
+}
+
+.styled-paragraph--line-through {
+    text-decoration: line-through;
+}

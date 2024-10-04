@@ -1,0 +1,23 @@
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cart-summary__costs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cart-summary__info-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+}
+
+.cart-summary__button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
