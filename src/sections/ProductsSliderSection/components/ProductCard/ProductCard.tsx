@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useMediaQuery } from "@mantine/hooks";
 import { useRouter } from "next/navigation";
 
 import StyledImage from "@/components/StyledImage";
@@ -8,7 +9,7 @@ import StyledParagraph from "@/components/StyledParagraph";
 import { ROUTES } from "@/config";
 
 import classes from "./ProductCard.module.css";
-import { useMediaQuery } from "@mantine/hooks";
+import StyledButton from "@/components/StyledButton";
 
 type ProductCardType = {
   product: any;
@@ -22,7 +23,13 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
   const isMobile = useMediaQuery("(max-width: 992px)");
   const router = useRouter();
 
-  const handleClick = (e, path) => {
+  const handleClick = ({
+    e,
+    path,
+  }: {
+    e: React.MouseEvent<HTMLButtonElement>;
+    path: string;
+  }) => {
     e?.preventDefault();
     router.push(path);
   };
@@ -42,7 +49,13 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
           height: isMobile ? 350 : 500,
         })}
         {...(fill && { aspectRatio: 35 / 50 })}
-      />
+      >
+        <div className={classes["product-card__hover-section"]}>
+          <StyledButton variant="outline" fullWidth>
+            Dodaj do koszyka
+          </StyledButton>
+        </div>
+      </StyledImage>
       <div className={classes["product-card__description"]}>
         <StyledParagraph type="size-M-light">{product?.title}</StyledParagraph>
         <StyledParagraph type="size-M-semi-bold">

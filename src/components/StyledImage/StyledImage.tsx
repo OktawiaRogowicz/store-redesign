@@ -7,6 +7,7 @@ type StyledImageType = {
   width?: string | number;
   height?: string | number;
   aspectRatio?: number;
+  children?: React.ReactNode;
 } & Omit<ImageProps, "width" | "height">;
 
 const StyledImage: React.FunctionComponent<StyledImageType> = ({
@@ -17,6 +18,7 @@ const StyledImage: React.FunctionComponent<StyledImageType> = ({
   alt,
   fill = true,
   priority,
+  children,
   ...props
 }) => {
   return (
@@ -30,6 +32,7 @@ const StyledImage: React.FunctionComponent<StyledImageType> = ({
         className={classes["styled-image__image"]}
         {...props}
       />
+      {children}
     </div>
   );
 };

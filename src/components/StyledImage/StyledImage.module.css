@@ -1,5 +1,6 @@
 .styled-image__wrapper {
     position: relative;
+    overflow: hidden;
 }
 
 .styled-image__image {
