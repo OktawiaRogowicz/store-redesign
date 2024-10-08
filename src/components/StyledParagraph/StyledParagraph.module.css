@@ -27,6 +27,10 @@
     color: #FAF6EF;
 }
 
+.styled-paragraph--red-color, .styled-paragraph > a {
+    color: #D84646;
+}
+
 .styled-paragraph--inherit-color, .styled-paragraph > a {
     color: inherit;
 }

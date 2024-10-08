@@ -15,7 +15,7 @@ type StyledParagraphPropsType = {
     | "size-M-light"
     | "size-S-light"
     | "size-M-regular";
-  color?: "black" | "beige" | "yellow" | "white" | "inherit";
+  color?: "black" | "beige" | "yellow" | "white" | "red" | "inherit";
   alignment?: "left" | "center" | "right";
   textDecoration?: {
     underline?: boolean;
