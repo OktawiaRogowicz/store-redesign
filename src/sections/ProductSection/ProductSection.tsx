@@ -16,20 +16,22 @@ import SizeSwatch from "@/sections/ProductSection/components/SizeSwatch";
 import classes from "./ProductSection.module.css";
 import ProductStickyHeader from "@/pageComponents/ProductPage/components/ProductStickyHeader";
 import { IconHeart } from "@tabler/icons-react";
+import { ProductType } from "@/sanity/lib/getters/getProduct";
 
 type ProductSectionType = {
-  product: any;
+  product: ProductType;
 };
 
 const ProductSection: React.FunctionComponent<ProductSectionType> = ({
   product,
 }) => {
   const cartContext = useCartContext();
+  console.log("product: ", product);
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [isDetailsSectionVisible, setIsDetailsSectionVisible] = useState(false);
 
-  const callbackFunction = (entries) => {
+  const callbackFunction = (entries: IntersectionObserverEntry[]) => {
     const [entry] = entries;
     setIsDetailsSectionVisible(entry.isIntersecting);
   };
@@ -38,29 +40,36 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
 
   const options = {
     root: null,
-    rootMargin: "0",
+    rootMargin: "0px",
     threshold: 0.01,
-  };
+  } as IntersectionObserverInit;
 
   useEffect(() => {
     const observer = new IntersectionObserver(callbackFunction, options);
-    if (containerRef.current) observer.observe(containerRef.current);
+    if (containerRef?.current) observer.observe(containerRef.current);
 
     return () => {
-      if (containerRef.current) observer.unobserve(containerRef.current);
+      if (containerRef?.current) observer.unobserve(containerRef.current);
     };
   }, [containerRef, options]);
+
+  console.log("product?: ", product);
 
   return (
     <>
       <div className={classes["product-section"]}>
         <div className={classes["product-section__images"]}>
-          <StyledImage
-            src={product.store.previewImageUrl}
-            alt={product.store.alt}
-            fill
-            priority
-          />
+          {product.product.images.map((image) => {
+            return (
+              <StyledImage
+                src={image.src}
+                alt={image.alt}
+                fill
+                priority
+                height="100vh"
+              />
+            );
+          })}
         </div>
         <div ref={containerRef} className={classes["product-section__details"]}>
           <div className={classes["product-section__details-content"]}>
@@ -70,12 +79,12 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
                   { href: ROUTES.home.href, title: "MIIÓ", id: "miió" },
                   {
                     href: ROUTES.home.href,
-                    title: product.store.category,
+                    title: "to do",
                     id: "category",
                   },
                 ]}
               />
-              <StyledTitle order={2}>{product.store.title}</StyledTitle>
+              <StyledTitle order={2}>{product.product.title}</StyledTitle>
             </div>
 
             <div className={classes["product-section__description"]}>
@@ -87,12 +96,12 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
                 {/*  {`${product.price.sale} ${product.price.currency}`}*/}
                 {/*</StyledParagraph>*/}
               </div>
-              {product.description?.main && (
+              {product.product?.description?.main && (
                 <StyledParagraph type="size-M-light">
                   {product.description.main}
                 </StyledParagraph>
               )}
-              {product.description?.more && (
+              {product.product?.description?.more && (
                 <StyledAccordion
                   items={[
                     {

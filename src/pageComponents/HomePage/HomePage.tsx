@@ -9,12 +9,10 @@ import HeroSection from "@/sections/HeroSection";
 import ProductsSliderSection from "@/sections/ProductsSliderSection";
 
 import classes from "./HomePage.module.css";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 
 type SectionContainerType = {
-  siteConfiguration: {
-    footer: any;
-    header: any;
-  };
+  siteConfiguration: SiteConfigurationContentType;
   homePageContent: any;
 };
 

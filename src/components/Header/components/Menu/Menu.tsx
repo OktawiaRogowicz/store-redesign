@@ -4,13 +4,14 @@ import { IconX } from "@tabler/icons-react";
 
 import StyledIconButton from "@/components/StyledIconButton";
 import StyledParagraph from "@/components/StyledParagraph";
+import { HeaderContentType } from "@/sanity/schemas/documents/header";
 
 import classes from "./Menu.module.css";
 
 type MenuType = {
   isOpen: boolean;
   handleClose: () => void;
-  menuContent: any;
+  menuContent: HeaderContentType["menu"];
 };
 
 const Menu: React.FunctionComponent<MenuType> = ({
@@ -46,8 +47,17 @@ const Menu: React.FunctionComponent<MenuType> = ({
             <div className={classes["menu__items"]}>
               {menuContent.selected.map((item) => {
                 return (
-                  <StyledParagraph type="size-S-semi-bold" key={item._key}>
-                    <a className={classes["menu__item-link"]}>{item.title}</a>
+                  <StyledParagraph
+                    type="size-S-semi-bold"
+                    key={item._key}
+                    color={item.isColored ? "red" : "black"}
+                  >
+                    <a
+                      className={classes["menu__item-link"]}
+                      href={`/${item.slug.current}`}
+                    >
+                      {item.title}
+                    </a>
                   </StyledParagraph>
                 );
               })}
@@ -58,7 +68,12 @@ const Menu: React.FunctionComponent<MenuType> = ({
               {menuContent.collections.map((item) => {
                 return (
                   <StyledParagraph type="size-L-light--italic" key={item._key}>
-                    <a className={classes["menu__item-link"]}>{item.title}</a>
+                    <a
+                      className={classes["menu__item-link"]}
+                      href={`/${item.slug.current}`}
+                    >
+                      {item.title}
+                    </a>
                   </StyledParagraph>
                 );
               })}
@@ -69,7 +84,12 @@ const Menu: React.FunctionComponent<MenuType> = ({
               {menuContent.categories.map((item) => {
                 return (
                   <StyledParagraph type="size-M-light" key={item._key}>
-                    <a className={classes["menu__item-link"]}>{item.title}</a>
+                    <a
+                      className={classes["menu__item-link"]}
+                      href={`/${item.slug.current}`}
+                    >
+                      {item.title}
+                    </a>
                   </StyledParagraph>
                 );
               })}

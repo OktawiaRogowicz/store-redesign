@@ -18,7 +18,12 @@ const Breadcrumbs: React.FunctionComponent<SectionWrapperType> = ({
   return (
     <div className={classes["breadcrumbs"]}>
       {items.map((item, index) => (
-        <StyledButton variant="text" size="no-padding">
+        <StyledButton
+          key={item.id}
+          variant="text"
+          size="no-padding"
+          href={item.href}
+        >
           {item.title} {index !== items.length - 1 && "/"}
         </StyledButton>
       ))}

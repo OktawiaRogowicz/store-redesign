@@ -3,10 +3,10 @@ import { notFound } from "next/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import { locales } from "@/config";
-import ReturnsPage from "@/pageComponents/ReturnsPage";
-import { SearchParamsType } from "@/types/searchParams";
+import RegulationsPage from "@/pageComponents/RegulationsPage";
 import { getSiteConfiguration } from "@/sanity/lib/getters/getSiteConfiguration";
-import { getReturnsPage } from "@/sanity/lib/getters/getReturnsPage";
+import { getRegulationsPage } from "@/sanity/lib/getters/getRegulationsPage";
+import { SearchParamsType } from "@/types/searchParams";
 
 type PageParamsType = {
   params: {
@@ -15,7 +15,7 @@ type PageParamsType = {
   searchParams: SearchParamsType;
 };
 
-export default async function Returns({
+export default async function Regulations({
   params: { locale },
   searchParams,
 }: PageParamsType) {
@@ -23,12 +23,12 @@ export default async function Returns({
   unstable_setRequestLocale(locale);
 
   const siteConfiguration = await getSiteConfiguration();
-  const returnPageContent = await getReturnsPage();
+  const regulationsPageContent = await getRegulationsPage();
 
   return (
-    <ReturnsPage
+    <RegulationsPage
       siteConfiguration={siteConfiguration}
-      returnPageContent={returnPageContent}
+      regulationsPageContent={regulationsPageContent}
     />
   );
 }

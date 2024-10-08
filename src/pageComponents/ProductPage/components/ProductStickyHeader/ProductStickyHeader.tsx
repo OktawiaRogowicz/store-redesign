@@ -10,9 +10,10 @@ import { useCartContext } from "@/contexts/Cart/useCart";
 
 import classes from "./ProductStickyHeader.module.css";
 import { IconHeart } from "@tabler/icons-react";
+import { ProductType } from "@/sanity/lib/getters/getProduct";
 
 type ProductPageType = {
-  product: any;
+  product: ProductType;
   isVisible?: boolean;
 };
 
@@ -29,14 +30,14 @@ const ProductStickyHeader: React.FunctionComponent<ProductPageType> = ({
       })}
     >
       <div className={classes["product-sticky-header__header"]}>
-        <StyledTitle order={4}>{product.store.title}</StyledTitle>
+        <StyledTitle order={4}>{product.product.title}</StyledTitle>
         <StyledParagraph type="size-M-semi-bold">0 PLN</StyledParagraph>
       </div>
       <div className={classes["product-sticky-header__buttons"]}>
         <StyledButton
           variant="filled"
           fullWidth
-          onClick={() => cartContext.addCartProducts(product.store)}
+          // onClick={() => cartContext.addCartProducts(product.store)} todo
         >
           Dodaj do koszyka
         </StyledButton>
@@ -44,7 +45,7 @@ const ProductStickyHeader: React.FunctionComponent<ProductPageType> = ({
           variant="text"
           size="M"
           fullWidth={false}
-          onClick={() => cartContext.addCartProducts(product.store)}
+          // onClick={() => cartContext.addCartProducts(product.store)} todo
         >
           Dodaj do ulubionych <IconHeart stroke="1px" width={18} height={18} />
         </StyledButton>

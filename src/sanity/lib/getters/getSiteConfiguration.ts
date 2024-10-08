@@ -17,17 +17,18 @@ export async function getSiteConfiguration() {
       menu {
         selected[] {
           title,
-           "slug": Link->slug
+          "slug": Link->slug,
+          isColored
         },
           collections[] {
           title,
-           "slug": Link->slug
+          "slug": Link->slug
         },
           categories[] {
           title,
-           "slug": Link->slug
+          "slug": Link->slug
         },
-        }
+      }
     }`;
 
   const query = groq`{
@@ -36,7 +37,9 @@ export async function getSiteConfiguration() {
     }
   `;
 
-  const siteConfigurationQuery = await client.fetch(query);
+  const siteConfigurationQuery = await client.fetch(query, {
+    cache: "no-store",
+  });
 
   return siteConfigurationQuery;
 }

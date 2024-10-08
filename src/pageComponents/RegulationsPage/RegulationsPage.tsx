@@ -11,16 +11,16 @@ import StyledTitle from "@/components/StyledTitle";
 import { useCartContext } from "@/contexts/Cart/useCart";
 import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 
-import classes from "./ReturnsPage.module.css";
+import classes from "./RegulationsPage.module.css";
 
 type ReturnsPageType = {
   siteConfiguration: SiteConfigurationContentType;
-  returnPageContent: any;
+  regulationsPageContent: any;
 };
 
-const ReturnsPage: React.FunctionComponent<ReturnsPageType> = ({
+const RegulationsPage: React.FunctionComponent<ReturnsPageType> = ({
   siteConfiguration,
-  returnPageContent,
+  regulationsPageContent,
 }) => {
   const cartContext = useCartContext();
 
@@ -48,4 +48,4 @@ const ReturnsPage: React.FunctionComponent<ReturnsPageType> = ({
   );
 };
 
-export default ReturnsPage;
+export default RegulationsPage;

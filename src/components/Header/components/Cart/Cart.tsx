@@ -1,18 +1,22 @@
 import React from "react";
 import { Modal } from "@mantine/core";
 
+import Divider from "@/components/Divider";
 import CartProduct from "@/components/Header/components/Cart/components/CartProduct";
 import StyledTitle from "@/components/StyledTitle";
+import { CartContextType } from "@/contexts/Cart/CartProvider";
 import CartSummary from "@/pageComponents/CartPage/components/CartSummary";
 
 import classes from "./Cart.module.css";
-import Divider from "@/components/Divider";
+import StyledButton from "@/components/StyledButton";
+import StyledParagraph from "@/components/StyledParagraph";
 
 type CartType = {
-  cartContext: any;
+  cartContext: CartContextType;
 };
 
 const Cart: React.FunctionComponent<CartType> = ({ cartContext }) => {
+  const isEmpty = cartContext.cart?.products?.length === 0;
   return (
     <Modal.Root
       opened={cartContext.cartMenuState?.isOpen}
@@ -39,25 +43,42 @@ const Cart: React.FunctionComponent<CartType> = ({ cartContext }) => {
             </div>
             <Modal.CloseButton />
           </div>
-          <div className={classes["cart__body-inner"]}>
-            {cartContext.cart?.products.map((product, index) => {
-              return (
-                <>
-                  <CartProduct
-                    key={product.id}
-                    product={product}
-                    cartContext={cartContext}
-                  />
-                  {index !== cartContext.cart?.products.length - 1 && (
-                    <Divider color="beige" />
-                  )}
-                </>
-              );
-            })}
-          </div>
-          <div className={classes["cart__footer"]}>
-            <CartSummary />
-          </div>
+
+          {isEmpty ? (
+            <div className={classes["cart__body-inner"]}>
+              <StyledParagraph type="size-M-light" alignment="center">
+                Koszyk jest pusty.
+              </StyledParagraph>
+              <StyledButton
+                variant="filled"
+                onClick={cartContext.closeCartMenu}
+              >
+                kontynuuj zakupy
+              </StyledButton>
+            </div>
+          ) : (
+            <>
+              <div className={classes["cart__body-inner"]}>
+                {cartContext.cart?.products.map((product, index) => {
+                  return (
+                    <>
+                      <CartProduct
+                        key={product.id}
+                        product={product}
+                        cartContext={cartContext}
+                      />
+                      {index !== cartContext.cart?.products.length - 1 && (
+                        <Divider color="beige" />
+                      )}
+                    </>
+                  );
+                })}
+              </div>
+              <div className={classes["cart__footer"]}>
+                <CartSummary />
+              </div>
+            </>
+          )}
         </Modal.Body>
       </Modal.Content>
     </Modal.Root>

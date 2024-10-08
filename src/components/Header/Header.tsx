@@ -12,9 +12,10 @@ import Search from "@/components/Header/components/Search";
 import { CartContextType } from "@/contexts/Cart/CartProvider";
 
 import classes from "./Header.module.css";
+import { HeaderContentType } from "@/sanity/schemas/documents/header";
 
 type HeaderPropsType = {
-  header: any;
+  header: HeaderContentType;
   variant?: "black" | "yellow";
   colored?: boolean;
   coloredOnMobile?: boolean;
@@ -56,7 +57,7 @@ const Header: React.FunctionComponent<HeaderPropsType> = ({
         <div
           className={cx(classes["header--color-off"], {
             [classes["header--colored-on-mobile"]]:
-              isScrolled && coloredOnMobile,
+              colored && isScrolled && coloredOnMobile,
             [classes["header--color-on"]]: colored && isScrolled,
           })}
         />

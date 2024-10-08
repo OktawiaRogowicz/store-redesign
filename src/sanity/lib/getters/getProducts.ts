@@ -5,7 +5,7 @@ import { client } from "@/sanity/lib/client";
 export async function getProducts() {
   const query = groq`*[_type == "product"]`;
 
-  const products = await client.fetch(query);
+  const products = await client.fetch(query, { cache: "no-store" });
 
   return products;
 }

@@ -1,6 +1,5 @@
-import type { StructureResolver } from "sanity/structure";
-
 import { MdCallToAction } from "react-icons/md";
+import type { StructureResolver } from "sanity/structure";
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -8,7 +7,8 @@ export const structure: StructureResolver = (S) =>
     .items([
       S.divider(),
       S.listItem().title("Categories").child(S.documentTypeList("category")),
-      S.listItem().title("Collections").child(S.documentTypeList("page")),
+      S.listItem().title("Pages").child(S.documentTypeList("page")),
+      S.listItem().title("Collections").child(S.documentTypeList("collection")),
       S.listItem().title("Products").child(S.documentTypeList("product")),
       S.listItem()
         .title("Custom pages")

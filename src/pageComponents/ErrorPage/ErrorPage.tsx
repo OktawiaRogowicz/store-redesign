@@ -11,9 +11,12 @@ import { useCartContext } from "@/contexts/Cart/useCart";
 import classes from "./ErrorPage.module.css";
 import SectionWrapper from "@/components/SectionWrapper";
 import SectionContainer from "@/components/SectionContainer";
+import { FooterContentType } from "@/sanity/schemas/documents/footer";
+import { HeaderContentType } from "@/sanity/schemas/documents/header";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 
 type ErrorPageType = {
-  siteConfiguration: { footer: any; header: any };
+  siteConfiguration: SiteConfigurationContentType;
   errorPageContent: any;
 };
 

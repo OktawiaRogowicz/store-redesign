@@ -2,18 +2,19 @@
 
 import React, { useState } from "react";
 
+import StyledCheckbox from "@/components/StyledCheckbox";
 import SectionContainer from "@/components/SectionContainer";
 import StyledIconButton from "@/components/StyledIconButton";
 import StyledParagraph from "@/components/StyledParagraph";
 import StyledTextInput from "@/components/StyledTextInput";
 import SectionWrapper from "@/components/SectionWrapper";
 import { ArrowRightIconSmall } from "@/icons";
+import { FooterContentType } from "@/sanity/schemas/documents/footer";
 
 import classes from "./Footer.module.css";
-import StyledCheckbox from "@/components/StyledCheckbox";
 
 type FooterPropsType = {
-  footer: any;
+  footer: FooterContentType;
   opened?: boolean;
 };
 
@@ -23,7 +24,7 @@ const Footer: React.FunctionComponent<FooterPropsType> = ({ footer }) => {
 
   const designComponent = (
     <StyledParagraph type="size-S-light" color="beige">
-      {footer.credits}
+      {footer?.credits}
       {"\n"}Design & development: Oktawia Rogowicz
     </StyledParagraph>
   );
@@ -70,9 +71,10 @@ const Footer: React.FunctionComponent<FooterPropsType> = ({ footer }) => {
           {footer?.menu.length > 0 && (
             <div className={classes["footer__info-column"]}>
               {footer.menu.map((menuItem) => {
+                if (!menuItem.slug) return;
                 return (
                   <StyledParagraph type="size-M-light">
-                    <a href={menuItem.slug}>{menuItem.title}</a>
+                    <a href={`/${menuItem.slug}`}>{menuItem.title}</a>
                   </StyledParagraph>
                 );
               })}
@@ -89,7 +91,10 @@ const Footer: React.FunctionComponent<FooterPropsType> = ({ footer }) => {
               <StyledTextInput
                 placeholder="Wpisz swój adres e-mail"
                 rightSection={
-                  <StyledIconButton icon={<ArrowRightIconSmall />} />
+                  <StyledIconButton
+                    icon={<ArrowRightIconSmall />}
+                    onClick={() => console.log("to do")}
+                  />
                 }
                 value={newsletterInputValue}
                 onChange={(event) =>

@@ -23,7 +23,7 @@ const ProductsSection: React.FunctionComponent<ProductsSliderSectionType> = ({
         <div className={classes["products-section"]}>
           <div className={classes["products-section__header"]}>
             <div className={classes["products-section__title"]}>
-              <StyledTitle order={2}>Sukienki</StyledTitle>
+              <StyledTitle order={2}>{title}</StyledTitle>
               <StyledTitle order={3}>({products?.length ?? 0})</StyledTitle>
             </div>
             <StyledButton variant="underline">Filtruj</StyledButton>

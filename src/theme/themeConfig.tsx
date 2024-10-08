@@ -116,7 +116,7 @@ export const themeConfiguration = createTheme({
             root: {
               position: "relative",
               height: "fit-content",
-              backgroundColor: "transparent",
+              backgroundColor: "#FAF6EF",
               borderRadius: 0,
               border: "1px solid #2F240E",
               color: "#2F240E",

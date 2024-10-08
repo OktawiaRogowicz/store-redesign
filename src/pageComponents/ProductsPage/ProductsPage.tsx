@@ -8,9 +8,10 @@ import { useCartContext } from "@/contexts/Cart/useCart";
 import ProductsSection from "@/sections/ProductsSection";
 
 import classes from "./ProductsPage.module.css";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 
 type ProductPageType = {
-  siteConfiguration: { footer: any; header: any };
+  siteConfiguration: SiteConfigurationContentType;
   products: any[];
 };
 

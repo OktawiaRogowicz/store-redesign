@@ -6,9 +6,7 @@ import StyledParagraph from "@/components/StyledParagraph";
 import classes from "./StyledCheckbox.module.css";
 import { IconX } from "@tabler/icons-react";
 
-type StyledTextInputType = {
-  children: React.ReactNode;
-} & CheckboxProps;
+type StyledTextInputType = CheckboxProps;
 
 const StyledCheckbox: React.FunctionComponent<StyledTextInputType> = ({
   label,

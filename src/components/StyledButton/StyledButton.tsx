@@ -12,7 +12,7 @@ type StyledButtonPropsType = {
   color?: "black" | "yellow" | "white" | "inherit";
   size?: "no-padding" | "S" | "M" | "L";
   href?: string;
-  onClick: () => void;
+  onClick?: () => void;
 } & ButtonProps;
 
 const StyledButton: React.FunctionComponent<StyledButtonPropsType> = ({

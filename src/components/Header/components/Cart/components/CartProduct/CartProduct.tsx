@@ -5,13 +5,13 @@ import StyledImage from "@/components/StyledImage";
 import StyledNumberInput from "@/components/StyledNumberInput";
 import StyledParagraph from "@/components/StyledParagraph";
 import StyledTitle from "@/components/StyledTitle";
-import { CartProductType } from "@/contexts/Cart/CartProvider";
+import { CartContextType, CartProductType } from "@/contexts/Cart/CartProvider";
 
 import classes from "./CartProduct.module.css";
 
 type CartType = {
   product: CartProductType;
-  cartContext: any;
+  cartContext: CartContextType;
 };
 
 const CartProduct: React.FunctionComponent<CartType> = ({

@@ -5,19 +5,16 @@ import React, { useEffect, useRef, useState } from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { useCartContext } from "@/contexts/Cart/useCart";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 import ProductSection from "@/sections/ProductSection";
 import ProductsSliderSection from "@/sections/ProductsSliderSection";
 
 import classes from "./ProductPage.module.css";
-import StyledTitle from "@/components/StyledTitle";
-import StyledButton from "@/components/StyledButton";
-import cx from "classnames";
-import StyledParagraph from "@/components/StyledParagraph";
-import ProductStickyHeader from "@/pageComponents/ProductPage/components/ProductStickyHeader";
+import { ProductType } from "@/sanity/lib/getters/getProduct";
 
 type ProductPageType = {
-  siteConfiguration: { footer: any; header: any };
-  product: any;
+  siteConfiguration: SiteConfigurationContentType;
+  product: ProductType;
 };
 
 const ProductPage: React.FunctionComponent<ProductPageType> = ({
@@ -28,7 +25,7 @@ const ProductPage: React.FunctionComponent<ProductPageType> = ({
   const [isVisible, setIsVisible] = useState(false);
   const cartContext = useCartContext();
 
-  const callbackFunction = (entries) => {
+  const callbackFunction = (entries: IntersectionObserverEntry[]) => {
     const [entry] = entries;
     setIsVisible(entry.isIntersecting);
   };
@@ -37,7 +34,7 @@ const ProductPage: React.FunctionComponent<ProductPageType> = ({
     root: null,
     rootMargin: "0px",
     threshold: 0,
-  };
+  } as IntersectionObserverInit;
 
   useEffect(() => {
     const observer = new IntersectionObserver(callbackFunction, options);
@@ -54,18 +51,17 @@ const ProductPage: React.FunctionComponent<ProductPageType> = ({
         colored={isVisible}
         coloredOnMobile={true}
         variant="black"
-        header={siteConfiguration?.header}
+        header={siteConfiguration.header}
         cartContext={cartContext}
       />
-      <ProductSection product={product} cartContext={cartContext} />
-      {/*<ProductStickyHeader product={product} />*/}
+      <ProductSection product={product} />
       <div ref={containerRef}>
         <ProductsSliderSection
           title={"Mogą ci się także spodobać"}
-          products={product.moreProductsSection}
+          products={product.sections.moreProductSection}
         />
       </div>
-      <Footer footer={siteConfiguration?.footer} />
+      <Footer footer={siteConfiguration.footer} />
     </div>
   );
 };

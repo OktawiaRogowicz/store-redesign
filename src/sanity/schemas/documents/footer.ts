@@ -1,6 +1,34 @@
 import { MdOutlineCategory } from "react-icons/md";
 import { defineType, defineField } from "sanity";
 
+export type FooterContentType = {
+  name: string;
+  customerService: {
+    title: string;
+    phoneNumber: string;
+    email: string;
+    openingHours: string;
+  };
+  contact: {
+    title: string;
+    street: string;
+    postalCode: string;
+    city: string;
+    country: string;
+  };
+  credits: string;
+  menu: {
+    title: string;
+    link: any;
+  }[];
+  newsletter: {
+    title: string;
+    description: string;
+    inputPlaceholder: string;
+    termsOfService: string;
+  };
+};
+
 export const footer = defineType({
   name: "footer",
   title: "Footer",
@@ -75,6 +103,17 @@ export const footer = defineType({
               name: "title",
               title: "Title",
               type: "string",
+            }),
+            defineField({
+              title: "Slug",
+              name: "slug",
+              type: "slug",
+              options: {
+                source: "title",
+                maxLength: 200, // will be ignored if slugify is set
+                slugify: (input) =>
+                  input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+              },
             }),
             defineField({
               name: "link",

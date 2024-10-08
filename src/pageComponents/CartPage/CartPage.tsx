@@ -8,9 +8,12 @@ import { useCartContext } from "@/contexts/Cart/useCart";
 import CartSection from "@/pageComponents/CartPage/components/CartSection";
 
 import classes from "./CartPage.module.css";
+import { FooterContentType } from "@/sanity/schemas/documents/footer";
+import { HeaderContentType } from "@/sanity/schemas/documents/header";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 
 type CartPageType = {
-  siteConfiguration: { footer: any; header: any };
+  siteConfiguration: SiteConfigurationContentType;
 };
 
 const CartPage: React.FunctionComponent<CartPageType> = ({

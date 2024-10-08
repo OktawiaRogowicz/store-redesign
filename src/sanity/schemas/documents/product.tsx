@@ -3,6 +3,7 @@ import { TagIcon } from "@sanity/icons";
 import pluralize from "pluralize-esm";
 
 import ShopifyDocumentStatus from "@/sanity/components/ShopifyDocumentStatus";
+import { SanityProductType } from "@/sanity/types/SanityProductType";
 
 // import ShopifyIcon from '../../components/icons/Shopify'
 // import ProductHiddenInput from '../../components/inputs/ProductHidden'
@@ -26,6 +27,11 @@ const GROUPS = [
     title: "SEO",
   },
 ];
+
+export type ProductContentType = {
+  moreProductsSection: any[];
+  store: SanityProductType;
+};
 
 export default defineType({
   name: "product",
