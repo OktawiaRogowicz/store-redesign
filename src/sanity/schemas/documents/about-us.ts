@@ -1,5 +1,26 @@
 import { MdOutlineCategory } from "react-icons/md";
 import { defineType, defineField } from "sanity";
+import { SanityProductType } from "@/sanity/types/SanityProductType";
+
+export type AboutUsContentType = {
+  name: string;
+  slug: string;
+  headerSection: {
+    title: string;
+    description: string;
+    image: any;
+  };
+  iconDescriptionsSection: {
+    icon: any;
+    title: string;
+    description: string;
+  }[];
+  twoImagesSection: {
+    title: string;
+    productLeft: SanityProductType;
+    productRight: SanityProductType;
+  };
+};
 
 export const aboutUs = defineType({
   name: "aboutUsPage",
@@ -14,7 +35,7 @@ export const aboutUs = defineType({
     defineField({
       name: "slug",
       type: "string",
-      readOnly: true,
+      // readOnly: true,
     }),
     defineField({
       name: "headerSection",
@@ -68,6 +89,18 @@ export const aboutUs = defineType({
         defineField({
           name: "title",
           type: "string",
+        }),
+        defineField({
+          name: "productLeft",
+          title: "Product on the left",
+          type: "reference",
+          to: [{ type: "product" }],
+        }),
+        defineField({
+          name: "productRight",
+          title: "Product on the right",
+          type: "reference",
+          to: [{ type: "product" }],
         }),
       ],
     }),

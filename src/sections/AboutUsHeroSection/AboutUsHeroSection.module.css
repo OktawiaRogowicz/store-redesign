@@ -1,17 +1,13 @@
 .about-us-hero-section {
     margin-top: -96px;
+    display: flex;
+    flex-direction: column-reverse;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
 
-.about-us-hero-section__image-wrapper {
-    position: relative;
-    height: 500px;
-}
-
-.about-us-hero-section__image {
-    object-fit: cover;
+    @media only screen and (min-width: 992px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .about-us-hero-section__content {

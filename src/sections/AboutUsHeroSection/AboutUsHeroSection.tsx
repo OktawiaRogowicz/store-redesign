@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 
+import StyledImage from "@/components/StyledImage";
 import StyledTitle from "@/components/StyledTitle";
 import StyledParagraph from "@/components/StyledParagraph";
 import { urlFor } from "@/sanity/lib/image";
@@ -24,15 +25,14 @@ const AboutUsHeroSection: React.FunctionComponent<AboutUsHeroSectionType> = ({
 
   return (
     <div className={classes["about-us-hero-section"]}>
-      <div className={classes["about-us-hero-section__image-wrapper"]}>
-        <Image
-          src={src}
-          alt="Picture of the author"
-          fill
-          className={classes["about-us-hero-section__image"]}
-          priority
-        />
-      </div>
+      <StyledImage
+        src={src}
+        alt="Picture of the author"
+        fill
+        height={500}
+        width="100%"
+        priority
+      />
       <div className={classes["about-us-hero-section__content"]}>
         <StyledTitle order={1}>{title}</StyledTitle>
         <StyledParagraph type="size-M-light">{description}</StyledParagraph>
