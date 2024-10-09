@@ -1,0 +1,4 @@
+.product-section__price {
+    display: flex;
+    gap: 8px;
+}

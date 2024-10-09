@@ -1,3 +1,18 @@
 {
-  "test": "test"
+
+  "components": {
+    "size-swatch": {
+      "title": "Size",
+      "guide": "Size guide"
+    }
+  },
+
+  "sections":{
+    "product-section": {
+      "buttons": {
+        "add-to-cart": "Add to cart",
+        "add-to-favourites": "Add to favourites"
+      }
+    }
+  }
 }

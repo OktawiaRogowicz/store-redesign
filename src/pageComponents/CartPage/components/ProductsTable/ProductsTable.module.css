@@ -61,4 +61,11 @@
     gap: 8px;
 }
 
-
+.products-table__empty {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}

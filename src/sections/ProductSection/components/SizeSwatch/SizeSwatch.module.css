@@ -1,7 +1,22 @@
 .size-swatch {
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+
+    @media only screen and (min-width: 992px) {
+        grid-template-columns: auto 1fr auto;
+        gap: 24px;
+    }
+}
+
+.size-swatch button {
+    grid-column: span 2;
+    place-self: flex-end;
+
+    @media only screen and (min-width: 992px) {
+        grid-column: auto;
+        place-self: start;
+    }
 }
 
 .size-swatch__sizes {

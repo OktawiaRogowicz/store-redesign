@@ -1,42 +1,77 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { IconHeart } from "@tabler/icons-react";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
+import HtmlContent from "@/components/HtmlContent";
+import ProductPrice from "@/components/ProductPrice";
 import StyledAccordion from "@/components/StyledAccordion";
 import StyledButton from "@/components/StyledButton";
 import StyledImage from "@/components/StyledImage";
-import StyledParagraph from "@/components/StyledParagraph";
 import StyledTitle from "@/components/StyledTitle";
 import { ROUTES } from "@/config";
 import { useCartContext } from "@/contexts/Cart/useCart";
+import ProductStickyHeader from "@/pageComponents/ProductPage/components/ProductStickyHeader";
+import {
+  ProductOptionType,
+  ProductType,
+  ProductVariantType,
+} from "@/sanity/lib/getters/getProduct";
 import ColorSwatch from "@/sections/ProductSection/components/ColorSwatch";
 import SizeSwatch from "@/sections/ProductSection/components/SizeSwatch";
 
 import classes from "./ProductSection.module.css";
-import ProductStickyHeader from "@/pageComponents/ProductPage/components/ProductStickyHeader";
-import { IconHeart } from "@tabler/icons-react";
-import { ProductType } from "@/sanity/lib/getters/getProduct";
+import { useTranslations } from "next-intl";
 
 type ProductSectionType = {
   product: ProductType;
 };
 
+const convertToSizes = ({
+  option,
+  variants,
+  isChosen,
+}: {
+  option: ProductOptionType;
+  variants: ProductVariantType[];
+  isChosen: boolean;
+}) => {
+  const result = option.values.map((size) => {
+    const products = variants.filter((variant) => variant.option1 === size);
+
+    return {
+      name: size,
+      isAvailable: products.length > 0,
+      isChosen: isChosen,
+    };
+  });
+  return result;
+};
+
 const ProductSection: React.FunctionComponent<ProductSectionType> = ({
   product,
 }) => {
+  const t = useTranslations("sections");
   const cartContext = useCartContext();
-  console.log("product: ", product);
-
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const sizes = convertToSizes({
+    option: product.product.options[0],
+    variants: product.product.variants,
+  });
+
   const [isDetailsSectionVisible, setIsDetailsSectionVisible] = useState(false);
+  const [chosenSize, setChosenSize] = useState<string>(null);
+
+  const handleSizeClick = (value: string) => {
+    setChosenSize(value);
+  };
 
   const callbackFunction = (entries: IntersectionObserverEntry[]) => {
     const [entry] = entries;
     setIsDetailsSectionVisible(entry.isIntersecting);
   };
-
-  console.log("isDetailsSectionVisible: ", isDetailsSectionVisible);
 
   const options = {
     root: null,
@@ -63,7 +98,7 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
             return (
               <StyledImage
                 src={image.src}
-                alt={image.alt}
+                alt={image.alt ?? product.product.title}
                 fill
                 priority
                 height="100vh"
@@ -88,19 +123,12 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
             </div>
 
             <div className={classes["product-section__description"]}>
-              <div className={classes["product-section__price"]}>
-                {/*<StyledParagraph type="size-L-semi-bold">*/}
-                {/*  {`${product.price.price} ${product.price.currency}`}*/}
-                {/*</StyledParagraph>*/}
-                {/*<StyledParagraph type="size-L-semi-bold">*/}
-                {/*  {`${product.price.sale} ${product.price.currency}`}*/}
-                {/*</StyledParagraph>*/}
-              </div>
-              {product.product?.description?.main && (
-                <StyledParagraph type="size-M-light">
-                  {product.description.main}
-                </StyledParagraph>
-              )}
+              <ProductPrice
+                type="size-L-semi-bold"
+                price={product.product.variants[0].price}
+                compare_at_price={product.product.variants[0].compare_at_price}
+              />
+              <HtmlContent htmlString={product.product.body_html} />
               {product.product?.description?.more && (
                 <StyledAccordion
                   items={[
@@ -123,11 +151,9 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
               colors={[{ hex: "#222222", name: "purple", isPicked: true }]}
             />
             <SizeSwatch
-              sizes={[
-                { name: "S", isAvailable: true, isChosen: true },
-                { name: "M", isAvailable: true, isChosen: false },
-                { name: "L", isAvailable: true, isChosen: false },
-              ]}
+              sizes={sizes}
+              handleSizeClick={handleSizeClick}
+              chosenSize={chosenSize}
             />
 
             <div className={classes["product-section__buttons"]}>
@@ -136,10 +162,10 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
                 fullWidth
                 onClick={() => cartContext.addCartProducts(product.store)}
               >
-                Dodaj do koszyka
+                {t("product-section.buttons.add-to-cart")}
               </StyledButton>
               <StyledButton variant="outline" fullWidth>
-                Dodaj do ulubionych
+                {t("product-section.buttons.add-to-favourites")}
                 <IconHeart stroke="1.2px" height={24} width={24} />
               </StyledButton>
             </div>

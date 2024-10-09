@@ -10,6 +10,7 @@ import { ROUTES } from "@/config";
 
 import classes from "./ProductCard.module.css";
 import StyledButton from "@/components/StyledButton";
+import ProductPrice from "@/components/ProductPrice";
 
 type ProductCardType = {
   product: any;
@@ -27,7 +28,7 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
     e,
     path,
   }: {
-    e: React.MouseEvent<HTMLButtonElement>;
+    e: React.MouseEvent<HTMLDivElement>;
     path: string;
   }) => {
     e?.preventDefault();
@@ -38,7 +39,10 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
     <div
       className={classes["product-card"]}
       onClick={(e) =>
-        handleClick(e, `${ROUTES.products.href}/${product.slug.current}`)
+        handleClick({
+          e,
+          path: `${ROUTES.products.href}/${product.slug.current}`,
+        })
       }
     >
       <StyledImage
@@ -58,9 +62,11 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
       </StyledImage>
       <div className={classes["product-card__description"]}>
         <StyledParagraph type="size-M-light">{product?.title}</StyledParagraph>
-        <StyledParagraph type="size-M-semi-bold">
-          {product?.priceRange?.minVariantPrice}
-        </StyledParagraph>
+        <ProductPrice
+          type="size-M-semi-bold"
+          price={product.variants[0].price}
+          compare_at_price={product.variants[0].compare_at_price}
+        />
       </div>
     </div>
   );

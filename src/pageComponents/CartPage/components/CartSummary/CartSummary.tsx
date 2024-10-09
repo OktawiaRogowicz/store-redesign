@@ -18,7 +18,7 @@ const CartSummary: React.FunctionComponent = () => {
         <div className={classes["cart-summary__info-row"]}>
           <StyledParagraph type="size-M-light">Produkty</StyledParagraph>
           <StyledParagraph type="size-L-semi-bold">
-            {cartContext?.cart?.cost?.subtotalAmount ?? 0}
+            {cartContext?.cart?.cost?.subtotalAmount.amount ?? 0}
           </StyledParagraph>
         </div>
         <div className={classes["cart-summary__info-row"]}>
@@ -34,7 +34,7 @@ const CartSummary: React.FunctionComponent = () => {
       <div className={classes["cart-summary__info-row"]}>
         <StyledParagraph type="size-L-semi-bold">Razem</StyledParagraph>
         <StyledParagraph type="size-L-semi-bold">
-          {cartContext?.cart?.cost?.totalAmount ?? 0}
+          {cartContext?.cart?.cost?.totalAmount.amount ?? 0}
         </StyledParagraph>
       </div>
       <div className={classes["cart-summary__button-container"]}>

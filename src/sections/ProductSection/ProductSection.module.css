@@ -14,6 +14,7 @@
     display: grid;
     grid-auto-flow: row;
     grid-auto-rows: 1fr;
+    gap: 4px;
 }
 
 .product-section__details {
@@ -45,11 +46,6 @@
 .product-section__header {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-}
-
-.product-section__price {
-    display: flex;
     gap: 8px;
 }
 
