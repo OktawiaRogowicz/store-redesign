@@ -4,7 +4,7 @@ import { Text, TextProps } from "@mantine/core";
 
 import classes from "./StyledParagraph.module.css";
 
-type StyledParagraphPropsType = {
+export type StyledParagraphType = {
   type:
     | "size-L-light--italic"
     | "size-XL-semi-bold"
@@ -22,9 +22,9 @@ type StyledParagraphPropsType = {
     lineThrough?: boolean;
   };
   children: React.ReactNode;
-} & TextProps;
+} & Omit<TextProps, "color">;
 
-const StyledParagraph: React.FunctionComponent<StyledParagraphPropsType> = ({
+const StyledParagraph: React.FunctionComponent<StyledParagraphType> = ({
   type,
   color = "black",
   alignment,

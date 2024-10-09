@@ -68,7 +68,7 @@ export const themeConfiguration = createTheme({
         lineHeight: "1.2",
       },
     },
-  },
+  } as any,
   components: {
     Button: Button.extend({
       vars: (theme, props) => {
@@ -139,9 +139,9 @@ export const themeConfiguration = createTheme({
 
         return { root: {} };
       },
-    }),
+    } as any),
     Indicator: Indicator.extend({
-      vars: (theme, props) => {
+      vars: () => {
         return {
           root: {
             fontSize: "12px",
@@ -153,4 +153,4 @@ export const themeConfiguration = createTheme({
       },
     }),
   },
-});
+} as any);

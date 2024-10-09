@@ -8,7 +8,7 @@ import classes from "./StyledNumberInput.module.css";
 
 type StyledNumberInputType = {
   value: number | string;
-  onChange: (number) => void;
+  onChange: (value: number) => void;
   handleDecrement: () => void;
   handleIncrement: () => void;
 };
