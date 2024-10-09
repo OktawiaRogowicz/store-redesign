@@ -28,7 +28,7 @@ const ProductsPage: React.FunctionComponent<ProductPageType> = ({
         header={siteConfiguration.header}
         cartContext={cartContext}
       />
-      <ProductsSection products={products} />
+      <ProductsSection title="Wszystkie produkty" products={products} />
       <Footer footer={siteConfiguration.footer} />
     </div>
   );

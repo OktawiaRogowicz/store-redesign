@@ -1,16 +1,15 @@
 import React from "react";
 import Image from "next/image";
 
+import Divider from "@/components/Divider";
 import StyledButton from "@/components/StyledButton";
 import StyledNumberInput from "@/components/StyledNumberInput";
 import StyledParagraph from "@/components/StyledParagraph";
 import StyledTitle from "@/components/StyledTitle";
 import { CartContextType } from "@/contexts/Cart/CartProvider";
+import CartSummary from "@/pageComponents/CartPage/components/CartSummary";
 
 import classes from "./ProductsTable.module.css";
-import Image1 from "../../../../../public/image1.png";
-import Divider from "@/components/Divider";
-import CartSummary from "@/pageComponents/CartPage/components/CartSummary";
 
 type ProductsTableType = {
   cartContext: CartContextType;
@@ -19,37 +18,7 @@ type ProductsTableType = {
 const ProductsTable: React.FunctionComponent<ProductsTableType> = ({
   cartContext,
 }) => {
-  const rows = (
-    cartContext.cart?.products ?? [
-      {
-        name: "Sukienka Emilia cynamon",
-        size: "M",
-        id: "1",
-        cost: "32 pln",
-        quantity: "2",
-        sum: "64 pln",
-        image: Image1,
-      },
-      {
-        name: "Sukienka Emilia cynamon",
-        size: "M",
-        id: "1",
-        cost: "32 pln",
-        quantity: "2",
-        sum: "64 pln",
-        image: Image1,
-      },
-      {
-        name: "Sukienka Emilia cynamon",
-        size: "M",
-        id: "1",
-        cost: "32 pln",
-        quantity: "2",
-        sum: "64 pln",
-        image: Image1,
-      },
-    ]
-  ).map((product) => (
+  const rows = cartContext.cart?.products.map((product) => (
     <div key={product.name} className={classes["products-table__tr"]}>
       <div className={classes["products-table__tr-product-title"]}>
         <div className={classes["products-table__td-product-image"]}>
@@ -117,14 +86,27 @@ const ProductsTable: React.FunctionComponent<ProductsTableType> = ({
           </StyledParagraph>
         </div>
       </div>
-      <div className={classes["products-table__tbody"]}>{rows}</div>
-      <Divider />
-      <div>
-        <div className={classes["products-table__tr"]}>
-          <div className={classes["products-table__tr-product-title"]} />
-          <CartSummary />
-        </div>
+      <div className={classes["products-table__tbody"]}>
+        {cartContext.cart?.products.length > 0 ? (
+          rows
+        ) : (
+          <div className={classes["products-table__empty"]}>
+            <StyledParagraph type="size-M-light" alignment="center">
+              Koszyk jest pusty.
+            </StyledParagraph>
+            <StyledButton variant="filled">Kontynuuj zakupy</StyledButton>
+          </div>
+        )}
       </div>
+      <Divider />
+      {cartContext.cart?.products.length > 0 && (
+        <div>
+          <div className={classes["products-table__tr"]}>
+            <div className={classes["products-table__tr-product-title"]} />
+            <CartSummary />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
