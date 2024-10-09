@@ -19,7 +19,9 @@ export type FooterContentType = {
   credits: string;
   menu: {
     title: string;
-    link: any;
+    slug: {
+      current: string;
+    };
   }[];
   newsletter: {
     title: string;

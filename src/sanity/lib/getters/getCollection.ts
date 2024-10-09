@@ -5,7 +5,7 @@ export async function getCollection({ slug }: { slug: string }) {
       headers: {
         "Content-Type": "application/json",
         "X-Shopify-Access-Token": process.env.NEXT_PUBLIC_SHOPIFY_ADMIN_KEY,
-      },
+      } as any,
     },
   );
 

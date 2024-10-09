@@ -30,7 +30,7 @@ const CartProduct: React.FunctionComponent<CartType> = ({
     setQuantity((prev) => prev + 1);
   };
 
-  const onProductQuantityChange = (value) => {
+  const onProductQuantityChange = (value: number) => {
     setQuantity(value);
     cartContext.updateCartProducts({ product, quantity: value });
   };

@@ -18,7 +18,53 @@ type ShopifyImageType = {
   variant_ids: [];
 };
 
-type ShopifyProductResponse = {
+export type ProductVariantType = {
+  id: number;
+  product_id: number;
+  title: string;
+  price: string;
+  position: number;
+  inventory_policy: string;
+  compare_at_price: string;
+  option1: string;
+  option2: null;
+  option3: null;
+  created_at: string;
+  updated_at: string;
+  taxable: boolean;
+  barcode: string;
+  fulfillment_service: string;
+  grams: number;
+  inventory_management: string;
+  requires_shipping: boolean;
+  sku: string;
+  weight: number;
+  weight_unit: string;
+  inventory_item_id: number;
+  inventory_quantity: number;
+  old_inventory_quantity: number;
+  presentment_prices: [
+    {
+      price: {
+        amount: string;
+        currency_code: string;
+      };
+      compare_at_price: null;
+    },
+  ];
+  admin_graphql_api_id: string;
+  image_id: number;
+};
+
+export type ProductOptionType = {
+  id: number;
+  product_id: number;
+  name: string;
+  position: number;
+  values: string[];
+};
+
+export type ShopifyProductResponse = {
   product: {
     id: number;
     title: string;
@@ -34,54 +80,8 @@ type ShopifyProductResponse = {
     tags: string;
     status: string;
     admin_graphql_api_id: string;
-    variants: [
-      {
-        id: number;
-        product_id: number;
-        title: string;
-        price: string;
-        position: number;
-        inventory_policy: string;
-        compare_at_price: null;
-        option1: string;
-        option2: null;
-        option3: null;
-        created_at: string;
-        updated_at: string;
-        taxable: boolean;
-        barcode: string;
-        fulfillment_service: string;
-        grams: number;
-        inventory_management: string;
-        requires_shipping: boolean;
-        sku: string;
-        weight: number;
-        weight_unit: string;
-        inventory_item_id: number;
-        inventory_quantity: number;
-        old_inventory_quantity: number;
-        presentment_prices: [
-          {
-            price: {
-              amount: string;
-              currency_code: string;
-            };
-            compare_at_price: null;
-          },
-        ];
-        admin_graphql_api_id: string;
-        image_id: number;
-      },
-    ];
-    options: [
-      {
-        id: number;
-        product_id: number;
-        name: string;
-        position: number;
-        values: string[];
-      },
-    ];
+    variants: ProductVariantType[];
+    options: ProductOptionType[];
     images: ShopifyImageType[];
     image: ShopifyImageType;
   };
@@ -123,13 +123,16 @@ export async function getProduct({
     store,
   }`;
 
-  const product = await client.fetch(query, { cache: "no-store" });
+  const product = await client.fetch(query, {
+    params: { cache: "no-store" },
+  } as any);
   const shopifyProductResponse = await fetch(
     `${process.env.NEXT_PUBLIC_SHOPIFY_API}products/${product.store.id}.json`,
     {
       headers: {
         "Content-Type": "application/json",
-        "X-Shopify-Access-Token": process.env.NEXT_PUBLIC_SHOPIFY_ADMIN_KEY,
+        "X-Shopify-Access-Token":
+          process.env.NEXT_PUBLIC_SHOPIFY_ADMIN_KEY ?? "",
       },
     },
   );

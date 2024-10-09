@@ -49,7 +49,7 @@ const Menu: React.FunctionComponent<MenuType> = ({
                 return (
                   <StyledParagraph
                     type="size-S-semi-bold"
-                    key={item._key}
+                    key={item.slug}
                     color={item.isColored ? "red" : "black"}
                   >
                     <a
@@ -67,7 +67,7 @@ const Menu: React.FunctionComponent<MenuType> = ({
             <div className={classes["menu__items"]}>
               {menuContent.collections.map((item) => {
                 return (
-                  <StyledParagraph type="size-L-light--italic" key={item._key}>
+                  <StyledParagraph type="size-L-light--italic" key={item.slug}>
                     <a
                       className={classes["menu__item-link"]}
                       href={`/${item.slug.current}`}
@@ -83,7 +83,7 @@ const Menu: React.FunctionComponent<MenuType> = ({
             <div className={classes["menu__items"]}>
               {menuContent.categories.map((item) => {
                 return (
-                  <StyledParagraph type="size-M-light" key={item._key}>
+                  <StyledParagraph type="size-M-light" key={item.slug}>
                     <a
                       className={classes["menu__item-link"]}
                       href={`/${item.slug.current}`}

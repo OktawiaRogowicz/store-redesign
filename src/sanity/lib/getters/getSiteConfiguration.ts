@@ -39,7 +39,7 @@ export async function getSiteConfiguration() {
 
   const siteConfigurationQuery = await client.fetch(query, {
     cache: "no-store",
-  });
+  } as any);
 
   return siteConfigurationQuery;
 }

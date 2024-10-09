@@ -56,7 +56,13 @@ export type CartContextType = {
   openCartMenu: () => void;
   closeCartMenu: () => void;
   addCartProducts: (product: CartProductType) => void;
-  updateCartProducts: (product: CartProductType) => void;
+  updateCartProducts: ({
+    product,
+    quantity,
+  }: {
+    product: CartProductType;
+    quantity: number;
+  }) => void;
   removeCartProducts: (product: CartProductType) => void;
 };
 

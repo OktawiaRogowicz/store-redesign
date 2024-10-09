@@ -71,10 +71,10 @@ const Footer: React.FunctionComponent<FooterPropsType> = ({ footer }) => {
           {footer?.menu.length > 0 && (
             <div className={classes["footer__info-column"]}>
               {footer.menu.map((menuItem) => {
-                if (!menuItem.slug) return;
+                if (!menuItem?.slug.current) return;
                 return (
                   <StyledParagraph type="size-M-light">
-                    <a href={`/${menuItem.slug}`}>{menuItem.title}</a>
+                    <a href={`/${menuItem.slug.current}`}>{menuItem.title}</a>
                   </StyledParagraph>
                 );
               })}

@@ -18,7 +18,7 @@ export async function getHomePage() {
     }
   }`;
 
-  const homePage = await client.fetch(query, { cache: "no-store" });
+  const homePage = await client.fetch(query, { cache: "no-store" } as any);
 
   return homePage;
 }

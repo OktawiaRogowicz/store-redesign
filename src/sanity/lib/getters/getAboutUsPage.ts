@@ -14,7 +14,7 @@ export async function getAboutUsPage() {
     }
   }`;
 
-  const aboutUsPage = await client.fetch(query, { cache: "no-store" });
+  const aboutUsPage = await client.fetch(query, { cache: "no-store" } as any);
 
   return aboutUsPage;
 }

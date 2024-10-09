@@ -7,8 +7,9 @@ import {
   revalidateSecret,
   studioUrl,
 } from "@/sanity/lib/api";
+import { SanityClient } from "sanity";
 
-export const client = createClient({
+export const client: SanityClient = createClient({
   projectId: "73vuarhv",
   dataset,
   apiVersion,
