@@ -10,6 +10,7 @@ import { CartContextType } from "@/contexts/Cart/CartProvider";
 import CartSummary from "@/pageComponents/CartPage/components/CartSummary";
 
 import classes from "./ProductsTable.module.css";
+import { useTranslations } from "next-intl";
 
 type ProductsTableType = {
   cartContext: CartContextType;
@@ -18,6 +19,8 @@ type ProductsTableType = {
 const ProductsTable: React.FunctionComponent<ProductsTableType> = ({
   cartContext,
 }) => {
+  const t = useTranslations("sections");
+
   const rows = cartContext.cart?.products.map((product) => (
     <div key={product.name} className={classes["products-table__tr"]}>
       <div className={classes["products-table__tr-product-title"]}>
@@ -37,7 +40,7 @@ const ProductsTable: React.FunctionComponent<ProductsTableType> = ({
           >
             <StyledTitle order={4}>{product.name}</StyledTitle>
             <StyledParagraph type="size-M-light">
-              Rozmiar: {product.size}
+              {t("products-table.product-preview.size")}: {product.size}
             </StyledParagraph>
           </div>
           <div>
@@ -46,14 +49,14 @@ const ProductsTable: React.FunctionComponent<ProductsTableType> = ({
               fullWidth={false}
               onClick={() => cartContext.removeCartProducts(product)}
             >
-              Usuń
+              {t("products-table.product-preview.delete")}
             </StyledButton>
           </div>
         </div>
       </div>
       <div className={classes["products-table__tr-product-actions"]}>
         <StyledParagraph type="size-M-semi-bold" alignment="left">
-          {product.cost}
+          {product.price}
         </StyledParagraph>
         <StyledNumberInput
           value={product.quantity}
@@ -72,34 +75,38 @@ const ProductsTable: React.FunctionComponent<ProductsTableType> = ({
       <div className={classes["products-table__thead"]}>
         <div className={classes["products-table__tr-product-title"]}>
           <span />
-          <StyledParagraph type="size-S-semi-bold">Produkt</StyledParagraph>
+          <StyledParagraph type="size-S-semi-bold">
+            {t("products-table.tr.product")}
+          </StyledParagraph>
         </div>
         <div className={classes["products-table__tr-product-actions"]}>
           <StyledParagraph type="size-S-semi-bold" alignment="left">
-            Cena
+            {t("products-table.tr.price")}
           </StyledParagraph>
           <StyledParagraph type="size-S-semi-bold" alignment="center">
-            Ilość
+            {t("products-table.tr.quantity")}
           </StyledParagraph>
           <StyledParagraph type="size-S-semi-bold" alignment="right">
-            Suma
+            {t("products-table.tr.sum")}
           </StyledParagraph>
         </div>
       </div>
       <div className={classes["products-table__tbody"]}>
-        {cartContext.cart?.products.length > 0 ? (
+        {cartContext.cart?.products && cartContext.cart.products?.length > 0 ? (
           rows
         ) : (
           <div className={classes["products-table__empty"]}>
             <StyledParagraph type="size-M-light" alignment="center">
-              Koszyk jest pusty.
+              {t("products-table.empty-state.description")}
             </StyledParagraph>
-            <StyledButton variant="filled">Kontynuuj zakupy</StyledButton>
+            <StyledButton variant="filled">
+              {t("products-table.empty-state.cta")}
+            </StyledButton>
           </div>
         )}
       </div>
       <Divider />
-      {cartContext.cart?.products.length > 0 && (
+      {cartContext.cart?.products && cartContext.cart.products.length > 0 && (
         <div>
           <div className={classes["products-table__tr"]}>
             <div className={classes["products-table__tr-product-title"]} />

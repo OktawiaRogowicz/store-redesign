@@ -44,8 +44,10 @@ const ErrorPage: React.FunctionComponent<ErrorPageType> = ({
               justifyContent: "center",
             }}
           >
-            <StyledTitle order={1}>Error 404</StyledTitle>
-            <StyledParagraph type="size-M-light">Not found :(</StyledParagraph>
+            <StyledTitle order={1}>TEXTTOCHANGEError 404</StyledTitle>
+            <StyledParagraph type="size-M-light">
+              TEXTTOCHANGENot found :(
+            </StyledParagraph>
           </div>
         </SectionContainer>
       </SectionWrapper>

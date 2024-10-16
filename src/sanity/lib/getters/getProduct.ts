@@ -93,7 +93,12 @@ export type ProductType = {
   sections: {
     moreProductSection: ProductContentType["moreProductsSection"];
   };
-  product: ShopifyProductResponse["product"];
+  product: ShopifyProductResponse["product"] & {
+    priceRange: {
+      minVariantPrice: number;
+      maxVariantPrice: number;
+    };
+  };
 };
 
 const convertToDetailedProductType = ({
@@ -103,13 +108,14 @@ const convertToDetailedProductType = ({
   sanityProduct: ProductContentType;
   shopifyProduct: ShopifyProductResponse;
 }): ProductType => {
-  console.log("sanityProduct: ", sanityProduct),
-    console.log("shopifyProduct: ", shopifyProduct);
   return {
     sections: {
       moreProductSection: sanityProduct.moreProductsSection,
     },
-    product: shopifyProduct.product,
+    product: {
+      ...shopifyProduct.product,
+      priceRange: sanityProduct.store.priceRange,
+    },
   };
 };
 
@@ -126,8 +132,9 @@ export async function getProduct({
   const product = await client.fetch(query, {
     params: { cache: "no-store" },
   } as any);
+
   const shopifyProductResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_SHOPIFY_API}products/${product.store.id}.json`,
+    `${process.env.NEXT_PUBLIC_SHOPIFY_ADMIN_API}products/${product.store.id}.json`,
     {
       headers: {
         "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 import React from "react";
+import { IconArrowLeft } from "@tabler/icons-react";
 
 import StyledButton from "@/components/StyledButton";
 
@@ -10,13 +11,16 @@ type SectionWrapperType = {
     href: string;
     title: string;
   }[];
+  withIcon?: boolean;
 };
 
 const Breadcrumbs: React.FunctionComponent<SectionWrapperType> = ({
   items,
+  withIcon = false,
 }) => {
   return (
     <div className={classes["breadcrumbs"]}>
+      {withIcon && <IconArrowLeft stroke="1px" width={16} height={16} />}
       {items.map((item, index) => (
         <StyledButton
           key={item.id}

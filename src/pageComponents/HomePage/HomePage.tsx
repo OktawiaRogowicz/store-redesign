@@ -10,6 +10,7 @@ import ProductsSliderSection from "@/sections/ProductsSliderSection";
 
 import classes from "./HomePage.module.css";
 import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
+import { ROUTES } from "@/config";
 
 type SectionContainerType = {
   siteConfiguration: SiteConfigurationContentType;
@@ -34,13 +35,13 @@ const HomePage: React.FunctionComponent<SectionContainerType> = ({
         title={homePageContent?.heroSection?.title}
         button={{
           text: homePageContent?.heroSection?.button,
-          href: "/",
+          href: `${ROUTES.category.href}/${homePageContent?.heroSection?.slug}`,
         }}
       />
       <ProductsSliderSection
         title={homePageContent?.productsSliderSection?.title}
         products={homePageContent?.productsSliderSection?.products}
-        href={"/"}
+        href={`${ROUTES.category.href}/${homePageContent?.productsSliderSection?.handle}`}
       />
       <Footer footer={siteConfiguration.footer} />
     </div>

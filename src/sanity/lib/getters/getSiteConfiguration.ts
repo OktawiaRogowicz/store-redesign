@@ -17,16 +17,19 @@ export async function getSiteConfiguration() {
       menu {
         selected[] {
           title,
-          "slug": Link->slug,
+          slug,
+          "route": Link->route,
           isColored
         },
           collections[] {
           title,
-          "slug": Link->slug
+          slug,
+          "route": Link->route
         },
           categories[] {
           title,
-          "slug": Link->slug
+          slug,
+          "route": Link->route
         },
       }
     }`;

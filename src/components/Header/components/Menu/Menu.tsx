@@ -4,6 +4,7 @@ import { IconX } from "@tabler/icons-react";
 
 import StyledIconButton from "@/components/StyledIconButton";
 import StyledParagraph from "@/components/StyledParagraph";
+import { ROUTES } from "@/config";
 import { HeaderContentType } from "@/sanity/schemas/documents/header";
 
 import classes from "./Menu.module.css";
@@ -19,6 +20,8 @@ const Menu: React.FunctionComponent<MenuType> = ({
   handleClose,
   menuContent,
 }) => {
+  console.log("menuContent: ", menuContent);
+
   return (
     <Modal.Root
       opened={isOpen}
@@ -54,7 +57,7 @@ const Menu: React.FunctionComponent<MenuType> = ({
                   >
                     <a
                       className={classes["menu__item-link"]}
-                      href={`/${item.slug.current}`}
+                      href={`${ROUTES.category.href}/${item.route}`}
                     >
                       {item.title}
                     </a>
@@ -70,7 +73,7 @@ const Menu: React.FunctionComponent<MenuType> = ({
                   <StyledParagraph type="size-L-light--italic" key={item.slug}>
                     <a
                       className={classes["menu__item-link"]}
-                      href={`/${item.slug.current}`}
+                      href={`${ROUTES.category.href}/${item.route}`}
                     >
                       {item.title}
                     </a>
@@ -86,7 +89,7 @@ const Menu: React.FunctionComponent<MenuType> = ({
                   <StyledParagraph type="size-M-light" key={item.slug}>
                     <a
                       className={classes["menu__item-link"]}
-                      href={`/${item.slug.current}`}
+                      href={`${ROUTES.category.href}/${item.route}`}
                     >
                       {item.title}
                     </a>

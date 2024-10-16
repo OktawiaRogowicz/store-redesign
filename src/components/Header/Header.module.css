@@ -25,10 +25,16 @@
 
 .header--colored-on-mobile {
   opacity: 1;
+  border-bottom: 1px solid #2F240E;
+
+  @media only screen and (min-width: 992px) {
+    opacity: 0;
+  }
 }
 
 .header--color-on {
   opacity: 1;
+  border-bottom: 1px solid #2F240E;
 }
 
 

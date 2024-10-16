@@ -10,7 +10,7 @@ type StyledIconButtonType = {
   icon?: React.ReactNode;
   color?: "black" | "beige" | "yellow" | "white" | "inherit";
   onClick?: () => void;
-} & ButtonProps;
+} & Omit<ButtonProps, "color">;
 
 const StyledIconButton: React.FunctionComponent<StyledIconButtonType> = ({
   image,

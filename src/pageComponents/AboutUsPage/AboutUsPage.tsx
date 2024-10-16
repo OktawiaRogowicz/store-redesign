@@ -23,8 +23,6 @@ const AboutUsPage: React.FunctionComponent<AboutUsPageType> = ({
 }) => {
   const cartContext = useCartContext();
 
-  console.log("aboutUsPageContent: ", aboutUsPageContent);
-
   return (
     <div className={classes["about-us-page"]}>
       <Header

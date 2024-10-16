@@ -1,4 +1,5 @@
 import React from "react";
+import { Indicator } from "@mantine/core";
 import Link from "next/link";
 import { IconMenu2, IconSearch, IconShoppingCart } from "@tabler/icons-react";
 
@@ -8,10 +9,9 @@ import { ROUTES } from "@/config";
 import LogoIconMobile from "@/icons/LogoIconMobile";
 
 import classes from "./HeaderMobile.module.css";
-import { Indicator } from "@mantine/core";
 
 type HeaderMobileType = {
-  variant?: "black" | "yellow";
+  variant: "black" | "yellow";
   cartContext: CartContextType;
   isMenuOpen: boolean;
   isSearchOpen: boolean;
@@ -57,6 +57,7 @@ const HeaderMobile: React.FunctionComponent<HeaderMobileType> = ({
           offset={7}
           label={cartContext.cart?.totalQuantity ?? 0}
           size={16}
+          className={classes["header-mobile__indicator"]}
         >
           <StyledIconButton
             color={isNonBlackFontColorApplied ? variant : "black"}

@@ -5,25 +5,37 @@ import { StyledParagraphType } from "@/components/StyledParagraph/StyledParagrap
 
 import classes from "./ProductPrice.module.css";
 
-type DividerType = {
+type ProductPriceType = {
   type: StyledParagraphType["type"];
-  price: string;
-  compare_at_price?: string;
+  price: string | number;
+  compareAtPrice?: string | number;
+  animationKey?: string | number;
 };
 
-const ProductPrice: React.FunctionComponent<DividerType> = ({
+const convertPrice = (value?: string | number) => {
+  if (!value) return "0.00";
+  if (typeof value === "string") return parseFloat(value).toFixed(2);
+  else {
+    return value.toFixed(2);
+  }
+};
+
+const ProductPrice: React.FunctionComponent<ProductPriceType> = ({
   type = "size-L-semi-bold",
   price,
-  compare_at_price,
+  compareAtPrice,
+  animationKey = "product-price",
 }) => {
+  const isOnSale = compareAtPrice && compareAtPrice !== price;
+
   return (
-    <div className={classes["product-section__price"]}>
-      <StyledParagraph type={type} color={!!compare_at_price ? "red" : "black"}>
-        {`${price} PLN`}
+    <div className={classes["product-section__price"]} key={animationKey}>
+      <StyledParagraph type={type} color={isOnSale ? "red" : "black"}>
+        {`${convertPrice(price)} PLN`}
       </StyledParagraph>
-      {compare_at_price && (
+      {isOnSale && (
         <StyledParagraph type={type} textDecoration={{ lineThrough: true }}>
-          {`${compare_at_price} PLN`}
+          {`${convertPrice(compareAtPrice)} PLN`}
         </StyledParagraph>
       )}
     </div>

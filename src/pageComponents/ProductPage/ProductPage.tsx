@@ -5,12 +5,12 @@ import React, { useEffect, useRef, useState } from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { useCartContext } from "@/contexts/Cart/useCart";
+import { ProductType } from "@/sanity/lib/getters/getProduct";
 import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 import ProductSection from "@/sections/ProductSection";
 import ProductsSliderSection from "@/sections/ProductsSliderSection";
 
 import classes from "./ProductPage.module.css";
-import { ProductType } from "@/sanity/lib/getters/getProduct";
 
 type ProductPageType = {
   siteConfiguration: SiteConfigurationContentType;
@@ -58,7 +58,25 @@ const ProductPage: React.FunctionComponent<ProductPageType> = ({
       <div ref={containerRef}>
         <ProductsSliderSection
           title={"Mogą ci się także spodobać"}
-          products={product.sections.moreProductSection}
+          products={product.sections.moreProductSection?.map((product) => ({
+            title: product.title,
+            id: product.id,
+            slug: product.slug.current,
+            priceRange: {
+              minVariantPrice: {
+                amount: product.priceRange.minVariantPrice,
+                currencyCode: "PLN",
+              },
+              maxVariantPrice: {
+                amount: product.priceRange.maxVariantPrice,
+                currencyCode: "PLN",
+              },
+            },
+            featuredImage: {
+              src: product.previewImageUrl,
+              altText: product.title,
+            },
+          }))}
         />
       </div>
       <Footer footer={siteConfiguration.footer} />

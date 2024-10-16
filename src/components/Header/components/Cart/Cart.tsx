@@ -1,21 +1,23 @@
 import React from "react";
 import { Modal } from "@mantine/core";
+import { useTranslations } from "next-intl";
 
+import StyledButton from "@/components/StyledButton";
 import Divider from "@/components/Divider";
 import CartProduct from "@/components/Header/components/Cart/components/CartProduct";
+import StyledParagraph from "@/components/StyledParagraph";
 import StyledTitle from "@/components/StyledTitle";
 import { CartContextType } from "@/contexts/Cart/CartProvider";
 import CartSummary from "@/pageComponents/CartPage/components/CartSummary";
 
 import classes from "./Cart.module.css";
-import StyledButton from "@/components/StyledButton";
-import StyledParagraph from "@/components/StyledParagraph";
 
 type CartType = {
   cartContext: CartContextType;
 };
 
 const Cart: React.FunctionComponent<CartType> = ({ cartContext }) => {
+  const t = useTranslations("components");
   const isEmpty = cartContext.cart?.products?.length === 0;
   return (
     <Modal.Root
@@ -36,9 +38,16 @@ const Cart: React.FunctionComponent<CartType> = ({ cartContext }) => {
         <Modal.Body className={classes["cart__body"]}>
           <div className={classes["cart__header"]}>
             <div className={classes["cart__title"]}>
-              <StyledTitle order={3}>Koszyk</StyledTitle>
+              <StyledTitle order={3}>{t("cart.title")}</StyledTitle>
               <StyledTitle order={4}>
-                ({cartContext.cart?.totalQuantity ?? 0})
+                (
+                <span
+                  className={classes["cart__animated-quantity"]}
+                  key={cartContext.cart?.totalQuantity}
+                >
+                  {cartContext.cart?.totalQuantity ?? 0}
+                </span>
+                )
               </StyledTitle>
             </div>
             <Modal.CloseButton />
@@ -47,32 +56,33 @@ const Cart: React.FunctionComponent<CartType> = ({ cartContext }) => {
           {isEmpty ? (
             <div className={classes["cart__body-inner"]}>
               <StyledParagraph type="size-M-light" alignment="center">
-                Koszyk jest pusty.
+                {t("cart.empty-state.description")}
               </StyledParagraph>
               <StyledButton
                 variant="filled"
                 onClick={cartContext.closeCartMenu}
               >
-                kontynuuj zakupy
+                {t("cart.empty-state.cta")}
               </StyledButton>
             </div>
           ) : (
             <>
               <div className={classes["cart__body-inner"]}>
-                {cartContext.cart?.products.map((product, index) => {
-                  return (
-                    <>
-                      <CartProduct
-                        key={product.id}
-                        product={product}
-                        cartContext={cartContext}
-                      />
-                      {index !== cartContext.cart?.products.length - 1 && (
-                        <Divider color="beige" />
-                      )}
-                    </>
-                  );
-                })}
+                {cartContext.cart?.products.length > 0 &&
+                  cartContext.cart?.products.map((product, index) => {
+                    return (
+                      <>
+                        <CartProduct
+                          key={`${product.id}-${product.size}`}
+                          product={product}
+                          cartContext={cartContext}
+                        />
+                        {index !== cartContext.cart?.products.length - 1 && (
+                          <Divider color="beige" />
+                        )}
+                      </>
+                    );
+                  })}
               </div>
               <div className={classes["cart__footer"]}>
                 <CartSummary />

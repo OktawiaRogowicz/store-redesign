@@ -8,6 +8,7 @@ export type HomeContentType = {
   heroSection: {
     title: string;
     button: string;
+    slug: string;
     images: { left: any; right: any }[];
   };
   productsSliderSection: {
@@ -45,6 +46,11 @@ export const home = defineType({
           type: "string",
         }),
         defineField({
+          name: "link",
+          type: "reference",
+          to: [{ type: "collection" }],
+        }),
+        defineField({
           name: "images",
           title: "images",
           type: "array",
@@ -71,25 +77,8 @@ export const home = defineType({
     defineField({
       name: "productsSliderSection",
       title: "Products slider section",
-      type: "object",
-      fields: [
-        defineField({
-          name: "title",
-          type: "string",
-        }),
-        defineField({
-          name: "products",
-          title: "Products",
-          type: "array",
-          of: [
-            defineField({
-              name: "product",
-              type: "reference",
-              to: [{ type: "product" }],
-            }),
-          ],
-        }),
-      ],
+      type: "reference",
+      to: [{ type: "collection" }],
     }),
   ],
 });

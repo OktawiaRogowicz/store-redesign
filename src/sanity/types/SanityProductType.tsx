@@ -11,9 +11,15 @@ export type SanityProductType = {
     values: string[];
   }[];
   previewImageUrl: string;
-  priceRange: { maxVariantPrice: 0; minVariantPrice: 0 };
+  priceRange: {
+    maxVariantPrice: number;
+    minVariantPrice: number;
+  };
   productType: string;
-  slug: { current: string; _type: string };
+  slug: {
+    current: string;
+    _type: string;
+  };
   status: string;
   tags: string;
   title: string;

@@ -12,12 +12,12 @@ import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationTy
 
 type ProductPageType = {
   siteConfiguration: SiteConfigurationContentType;
-  products: any[];
+  collection: any;
 };
 
 const ProductsPage: React.FunctionComponent<ProductPageType> = ({
   siteConfiguration,
-  products,
+  collection,
 }) => {
   const cartContext = useCartContext();
 
@@ -28,7 +28,10 @@ const ProductsPage: React.FunctionComponent<ProductPageType> = ({
         header={siteConfiguration.header}
         cartContext={cartContext}
       />
-      <ProductsSection title="Wszystkie produkty" products={products} />
+      <ProductsSection
+        title={collection.collection.store.title}
+        products={collection.products}
+      />
       <Footer footer={siteConfiguration.footer} />
     </div>
   );

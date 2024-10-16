@@ -17,7 +17,7 @@ type IconDescriptionCardsSectionType = {
 const IconDescriptionCard: React.FunctionComponent<
   IconDescriptionCardsSectionType
 > = ({ item }) => {
-  const imageSrc = urlFor(item.icon).width(64).height(64).url();
+  const imageSrc = urlFor(item.image).width(64).height(64).url();
 
   return (
     <div className={classes["icon-description-card"]}>

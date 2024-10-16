@@ -1,14 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import SectionWrapper from "@/components/SectionWrapper";
-import StyledParagraph from "@/components/StyledParagraph";
 import StyledTitle from "@/components/StyledTitle";
+import { ROUTES } from "@/config";
 import { AboutUsContentType } from "@/sanity/schemas/documents/about-us";
 
 import classes from "./TwoImagesSection.module.css";
-import { ROUTES } from "@/config";
-import { useRouter } from "next/navigation";
 
 type TwoImagesSectionType = {
   content: AboutUsContentType["twoImagesSection"];
@@ -53,9 +52,9 @@ const ProductPreview = ({ product }: { product: any }) => {
           <StyledTitle order={5} color="white">
             {product.title}
           </StyledTitle>
-          <StyledParagraph type="size-M-light" color="white">
-            bep bep
-          </StyledParagraph>
+          {/*<StyledParagraph type="size-M-light" color="white">*/}
+          {/*  bep bepTEXTTOCHANGE*/}
+          {/*</StyledParagraph>*/}
         </div>
       </div>
     </div>

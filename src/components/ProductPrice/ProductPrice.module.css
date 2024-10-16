@@ -1,4 +1,16 @@
 .product-section__price {
     display: flex;
     gap: 8px;
+    animation: rollout 0.4s;
+}
+
+@keyframes rollout {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
 }

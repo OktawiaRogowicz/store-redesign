@@ -1,11 +1,11 @@
 import React from "react";
 import cx from "classnames";
 import { Button, ButtonProps } from "@mantine/core";
+import Link from "next/link";
 
 import StyledParagraph from "@/components/StyledParagraph";
 
 import classes from "./StyledButton.module.css";
-import Link from "next/link";
 
 type StyledButtonPropsType = {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ type StyledButtonPropsType = {
   size?: "no-padding" | "S" | "M" | "L";
   href?: string;
   onClick?: () => void;
-} & ButtonProps;
+} & Omit<ButtonProps, "color">;
 
 const StyledButton: React.FunctionComponent<StyledButtonPropsType> = ({
   children,
@@ -28,8 +28,9 @@ const StyledButton: React.FunctionComponent<StyledButtonPropsType> = ({
         href={href}
         {...props}
         className={cx(classes["styled-button"], {
-          [classes["styled-button--transparent"]]:
-            props.variant === "transparent",
+          [classes[`styled-button--variant-${props.variant}`]]: props.variant,
+          [classes[`styled-button--variant-transparent-${color}`]]:
+            props.variant === "transparent" && color,
           [classes[`styled-button--${color}`]]: color,
           [classes[`styled-button--size-${size}`]]: size,
         })}
@@ -53,8 +54,9 @@ const StyledButton: React.FunctionComponent<StyledButtonPropsType> = ({
     <Button
       {...props}
       className={cx(classes["styled-button"], {
-        [classes["styled-button--transparent"]]:
-          props.variant === "transparent",
+        [classes[`styled-button--variant-${props.variant}`]]: props.variant,
+        [classes[`styled-button--variant-transparent-${color}`]]:
+          props.variant === "transparent" && color,
         [classes[`styled-button--${color}`]]: color,
         [classes[`styled-button--size-${size}`]]: size,
       })}

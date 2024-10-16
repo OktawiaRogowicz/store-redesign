@@ -47,3 +47,11 @@
     padding: 0 256px;
   }
 }
+
+.section-container--border-top {
+  border-top: 1px solid #2F240E;
+}
+
+.section-container--border-bottom {
+  border-bottom: 1px solid #2F240E;
+}

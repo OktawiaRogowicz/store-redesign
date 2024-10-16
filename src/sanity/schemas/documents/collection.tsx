@@ -5,6 +5,7 @@ import { getExtension } from "@sanity/asset-utils";
 import pluralize from "pluralize-esm";
 import ShopifyIcon from "@/icons/ShopifyIcon";
 import ShopifyDocumentStatus from "@/sanity/components/ShopifyDocumentStatus";
+import { SanityShopifyCollectionType } from "@/sanity/schemas/shopify/shopifyCollection";
 
 const GROUPS = [
   {
@@ -27,6 +28,13 @@ const GROUPS = [
   },
 ];
 
+export type SanityCollectionType = {
+  route: string;
+  titleProxy: string;
+  slugProxy: string;
+  store: SanityShopifyCollectionType;
+};
+
 export default defineType({
   name: "collection",
   title: "Collection",
@@ -46,6 +54,11 @@ export default defineType({
     //     return !isDeleted;
     //   },
     // }),
+    defineField({
+      name: "slug",
+      title: "Route",
+      type: "string",
+    }),
     // Title (proxy)
     defineField({
       name: "titleProxy",
