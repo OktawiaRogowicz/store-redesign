@@ -28,6 +28,10 @@ export const ROUTES = {
     key: "cart",
     href: "/products",
   },
+  category: {
+    key: "category",
+    href: "/category",
+  },
 };
 
 type HeaderConfigurationType = {

@@ -10,9 +10,9 @@ import HeaderMobile from "@/components/Header/components/HeaderMobile";
 import Menu from "@/components/Header/components/Menu";
 import Search from "@/components/Header/components/Search";
 import { CartContextType } from "@/contexts/Cart/CartProvider";
+import { HeaderContentType } from "@/sanity/schemas/documents/header";
 
 import classes from "./Header.module.css";
-import { HeaderContentType } from "@/sanity/schemas/documents/header";
 
 type HeaderPropsType = {
   header: HeaderContentType;
@@ -56,8 +56,7 @@ const Header: React.FunctionComponent<HeaderPropsType> = ({
       <div className={classes["header-wrapper"]}>
         <div
           className={cx(classes["header--color-off"], {
-            [classes["header--colored-on-mobile"]]:
-              colored && isScrolled && coloredOnMobile,
+            [classes["header--colored-on-mobile"]]: coloredOnMobile,
             [classes["header--color-on"]]: colored && isScrolled,
           })}
         />

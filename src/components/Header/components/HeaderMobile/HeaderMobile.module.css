@@ -26,3 +26,10 @@
   align-items: center;
   justify-content: flex-end;
 }
+
+.header-mobile__indicator {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  font-family: "Inter", serif;
+}

@@ -4,16 +4,17 @@ import React from "react";
 import { useMediaQuery } from "@mantine/hooks";
 import { useRouter } from "next/navigation";
 
+import ProductPrice from "@/components/ProductPrice";
+import StyledButton from "@/components/StyledButton";
 import StyledImage from "@/components/StyledImage";
 import StyledParagraph from "@/components/StyledParagraph";
 import { ROUTES } from "@/config";
 
 import classes from "./ProductCard.module.css";
-import StyledButton from "@/components/StyledButton";
-import ProductPrice from "@/components/ProductPrice";
+import { ShopifyCollectionProductType } from "@/shopify/helpers/getCollectionById";
 
 type ProductCardType = {
-  product: any;
+  product: ShopifyCollectionProductType;
   fill?: boolean;
 };
 
@@ -41,18 +42,17 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
       onClick={(e) =>
         handleClick({
           e,
-          path: `${ROUTES.products.href}/${product.slug.current}`,
+          path: `${ROUTES.products.href}/${product.slug}`,
         })
       }
     >
       <StyledImage
-        src={product?.previewImageUrl}
-        alt={product?.alt}
+        src={product.featuredImage.src}
+        alt={product.featuredImage.altText}
         {...(!fill && {
           width: isMobile ? 245 : 350,
           height: isMobile ? 350 : 500,
         })}
-        {...(fill && { aspectRatio: 35 / 50 })}
       >
         <div className={classes["product-card__hover-section"]}>
           <StyledButton variant="outline" fullWidth>
@@ -62,11 +62,13 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
       </StyledImage>
       <div className={classes["product-card__description"]}>
         <StyledParagraph type="size-M-light">{product?.title}</StyledParagraph>
-        <ProductPrice
-          type="size-M-semi-bold"
-          price={product.variants[0].price}
-          compare_at_price={product.variants[0].compare_at_price}
-        />
+        {product?.priceRange && (
+          <ProductPrice
+            type="size-M-semi-bold"
+            price={product.priceRange.minVariantPrice.amount}
+            compareAtPrice={product.priceRange.maxVariantPrice.amount}
+          />
+        )}
       </div>
     </div>
   );

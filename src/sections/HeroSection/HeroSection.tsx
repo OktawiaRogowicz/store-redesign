@@ -23,24 +23,24 @@ type HeroSectionType = {
   };
 };
 
-const setIndex = (array, currentIndex, onIndexChange) => {
-  if (currentIndex === array.length - 1) {
-    onIndexChange(0);
-  } else {
-    onIndexChange(currentIndex + 1);
-  }
-};
+// const setIndex = (array, currentIndex, onIndexChange) => {
+//   if (currentIndex === array.length - 1) {
+//     onIndexChange(0);
+//   } else {
+//     onIndexChange(currentIndex + 1);
+//   }
+// };
 
 const HeroSection: React.FunctionComponent<HeroSectionType> = ({
   title,
   button,
   images,
 }) => {
-  const isMobile = useMediaQuery("(max-width: 992px)");
+  // const isMobile = useMediaQuery("(max-width: 992px)");
   const [currentIndexLeft, setCurrentIndexLeft] = useState(0);
   const [currentIndexRight, setCurrentIndexRight] = useState(0);
 
-  const [animation, setAnimation] = useState(false);
+  // const [animation, setAnimation] = useState(false);
 
   // useEffect(() => {
   //   const changeImageIndexInterval = setInterval(() => {
@@ -73,12 +73,18 @@ const HeroSection: React.FunctionComponent<HeroSectionType> = ({
       />
       <div className={classes["hero-section__title"]}>
         <SectionContainer padding="XL">
-          <StyledTitle order={1} color="yellow" textWrap="wrap">
-            {title}
-          </StyledTitle>
-          <StyledButton variant="transparent" color="yellow">
-            {button.text}
-          </StyledButton>
+          <div className={classes["hero-section__title-content"]}>
+            <StyledTitle order={1} color="yellow" textWrap="wrap">
+              {title}
+            </StyledTitle>
+            <StyledButton
+              variant="transparent"
+              color="yellow"
+              href={button.href}
+            >
+              {button.text}
+            </StyledButton>
+          </div>
         </SectionContainer>
       </div>
     </div>

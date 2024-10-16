@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px 24px;
+    align-items: center;
 
     @media only screen and (min-width: 992px) {
         grid-template-columns: auto 1fr auto;

@@ -9,9 +9,11 @@ import { ROUTES } from "@/config";
 import { LogoIcon, SearchIcon } from "@/icons";
 
 import classes from "./HeaderDesktop.module.css";
+import { useTranslations } from "next-intl";
+import { useFavouritesContext } from "@/contexts/Favourites/useFavourites";
 
 type HeaderDesktopType = {
-  variant?: "black" | "yellow";
+  variant: "black" | "yellow";
   cartContext: CartContextType;
   isMenuOpen: boolean;
   isSearchOpen: boolean;
@@ -29,6 +31,9 @@ const HeaderDesktop: React.FunctionComponent<HeaderDesktopType> = ({
   handleSearchClick,
   isNonBlackFontColorApplied,
 }) => {
+  const t = useTranslations("components");
+  const favouritesContext = useFavouritesContext();
+
   return (
     <div className={classes["header-desktop"]}>
       <div className={classes["header__left-column"]}>
@@ -39,7 +44,7 @@ const HeaderDesktop: React.FunctionComponent<HeaderDesktopType> = ({
           size="no-padding"
           color={isNonBlackFontColorApplied ? variant : "black"}
         >
-          Menu
+          {t("header.menu")}
         </StyledButton>
       </div>
       <Link href={ROUTES.home.href}>
@@ -55,13 +60,31 @@ const HeaderDesktop: React.FunctionComponent<HeaderDesktopType> = ({
           onClick={() => handleSearchClick(!isSearchOpen)}
         />
         <StyledParagraph type="size-M-light" color="inherit">
-          ulubione (0)
+          {`${t("header.favourites")} (${favouritesContext.quantity})`}
         </StyledParagraph>
-        <div onClick={cartContext.openCartMenu}>
-          <StyledParagraph type="size-M-light" color="inherit">
-            koszyk (0)
+        <StyledButton
+          onClick={cartContext.openCartMenu}
+          fullWidth={false}
+          variant="text"
+          size="no-padding"
+        >
+          <StyledParagraph
+            type="size-M-light"
+            color={isNonBlackFontColorApplied ? variant : "black"}
+          >
+            {t("header.cart")}
+            <span>
+              (
+              <span
+                className={classes["header__animated-quantity"]}
+                key={cartContext.cart?.totalQuantity}
+              >
+                {cartContext.cart?.totalQuantity}
+              </span>
+              )
+            </span>
           </StyledParagraph>
-        </div>
+        </StyledButton>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import React, { useEffect, useRef, useState } from "react";
 import { IconHeart } from "@tabler/icons-react";
 
@@ -22,7 +23,8 @@ import ColorSwatch from "@/sections/ProductSection/components/ColorSwatch";
 import SizeSwatch from "@/sections/ProductSection/components/SizeSwatch";
 
 import classes from "./ProductSection.module.css";
-import { useTranslations } from "next-intl";
+import { convertProductToCartProduct } from "@/contexts/Cart/CartProvider";
+import { useNotifications } from "@/notifications";
 
 type ProductSectionType = {
   product: ProductType;
@@ -31,22 +33,19 @@ type ProductSectionType = {
 const convertToSizes = ({
   option,
   variants,
-  isChosen,
 }: {
-  option: ProductOptionType;
+  option?: ProductOptionType;
   variants: ProductVariantType[];
-  isChosen: boolean;
 }) => {
-  const result = option.values.map((size) => {
-    const products = variants.filter((variant) => variant.option1 === size);
+  if (option)
+    return option.values.map((size) => {
+      const products = variants.filter((variant) => variant.option1 === size);
 
-    return {
-      name: size,
-      isAvailable: products.length > 0,
-      isChosen: isChosen,
-    };
-  });
-  return result;
+      return {
+        name: size,
+        isAvailable: products.length > 0,
+      };
+    });
 };
 
 const ProductSection: React.FunctionComponent<ProductSectionType> = ({
@@ -56,13 +55,26 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
   const cartContext = useCartContext();
   const containerRef = useRef<HTMLDivElement | null>(null);
 
+  const { showNotification, showErrorNotification } = useNotifications();
+
   const sizes = convertToSizes({
-    option: product.product.options[0],
+    option: product.product.options.find((option) => option.name === "Size"),
     variants: product.product.variants,
   });
 
   const [isDetailsSectionVisible, setIsDetailsSectionVisible] = useState(false);
-  const [chosenSize, setChosenSize] = useState<string>(null);
+  const [chosenSize, setChosenSize] = useState<string>("");
+  const [addToCartButtonError, setAddToCartButtonError] = useState<string>("");
+  const price = chosenSize
+    ? (product.product.variants.find(
+        (variant) => variant.option1 === chosenSize,
+      ).price ?? product.product.priceRange.minVariantPrice)
+    : product.product.priceRange.minVariantPrice;
+  const compareAtPrice = chosenSize
+    ? (product.product.variants.find(
+        (variant) => variant.option1 === chosenSize,
+      ).compare_at_price ?? product.product.priceRange.maxVariantPrice)
+    : product.product.priceRange.maxVariantPrice;
 
   const handleSizeClick = (value: string) => {
     setChosenSize(value);
@@ -88,7 +100,27 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
     };
   }, [containerRef, options]);
 
-  console.log("product?: ", product);
+  const handleAddToCartButtonClick = () => {
+    if (!chosenSize) {
+      setAddToCartButtonError("bep");
+      showErrorNotification({ message: "Wybierz rozmiar produktu" });
+      return;
+    }
+
+    cartContext.addCartProducts({
+      product: convertProductToCartProduct({
+        product,
+        quantity: 1,
+        price,
+        compareAtPrice,
+        size: chosenSize,
+      }),
+      size: chosenSize,
+      quantity: 1,
+      price,
+      compareAtPrice,
+    });
+  };
 
   return (
     <>
@@ -97,6 +129,7 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
           {product.product.images.map((image) => {
             return (
               <StyledImage
+                key={image.id}
                 src={image.src}
                 alt={image.alt ?? product.product.title}
                 fill
@@ -125,26 +158,27 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
             <div className={classes["product-section__description"]}>
               <ProductPrice
                 type="size-L-semi-bold"
-                price={product.product.variants[0].price}
-                compare_at_price={product.product.variants[0].compare_at_price}
+                price={price}
+                compareAtPrice={compareAtPrice}
+                animationKey={chosenSize}
               />
               <HtmlContent htmlString={product.product.body_html} />
-              {product.product?.description?.more && (
-                <StyledAccordion
-                  items={[
-                    {
-                      item: { value: "description" },
-                      control: { text: "Więcej informacji" },
-                      panel: {
-                        text:
-                          product.description.more?.fabric +
-                          "\n" +
-                          product.description.more?.model,
-                      },
-                    },
-                  ]}
-                />
-              )}
+              {/*{product.product?.description?.more && (*/}
+              {/*  <StyledAccordion*/}
+              {/*    items={[*/}
+              {/*      {*/}
+              {/*        item: { value: "description" },*/}
+              {/*        control: { text: "Więcej informacji" },*/}
+              {/*        panel: {*/}
+              {/*          text:*/}
+              {/*            product.description.more?.fabric +*/}
+              {/*            "\n" +*/}
+              {/*            product.description.more?.model,*/}
+              {/*        },*/}
+              {/*      },*/}
+              {/*    ]}*/}
+              {/*  />*/}
+              {/*)}*/}
             </div>
 
             <ColorSwatch
@@ -160,7 +194,7 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
               <StyledButton
                 variant="filled"
                 fullWidth
-                onClick={() => cartContext.addCartProducts(product.store)}
+                onClick={handleAddToCartButtonClick}
               >
                 {t("product-section.buttons.add-to-cart")}
               </StyledButton>

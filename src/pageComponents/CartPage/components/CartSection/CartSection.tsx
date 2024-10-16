@@ -20,7 +20,7 @@ const CartSection: React.FunctionComponent<CartPageType> = ({
       <SectionContainer>
         <div className={classes["cart-section"]}>
           <div className={classes["cart-section__header"]}>
-            <StyledTitle order={2}>Koszyk</StyledTitle>
+            <StyledTitle order={2}>TEXTTOCHANGEKoszyk</StyledTitle>
             <StyledTitle order={3}>
               ({cartContext.cart?.totalQuantity ?? 0})
             </StyledTitle>

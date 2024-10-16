@@ -15,7 +15,7 @@ type SizeSwatchType = {
   chosenSize: string;
 };
 
-const getOrder = (size) => {
+const getOrder = (size: string) => {
   switch (size) {
     case "XXS":
       return 1;
@@ -50,6 +50,7 @@ const SizeSwatch: React.FunctionComponent<SizeSwatchType> = ({
           return (
             <StyledButton
               variant="text"
+              size="no-padding"
               onClick={() => handleSizeClick(size.name)}
               style={{ order: getOrder(size.name) }}
             >
@@ -67,6 +68,7 @@ const SizeSwatch: React.FunctionComponent<SizeSwatchType> = ({
         variant="underline"
         className={classes["size-swatch__guide-button"]}
         fullWidth={false}
+        size="no-padding"
       >
         {t("size-swatch.guide")}
       </StyledButton>

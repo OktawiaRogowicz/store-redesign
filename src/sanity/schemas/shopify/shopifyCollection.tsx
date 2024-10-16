@@ -1,5 +1,16 @@
 import { defineField } from "sanity";
 
+export type SanityShopifyCollectionType = {
+  title: string;
+  id: number;
+  gid: string;
+  slug: {
+    current: string;
+  };
+  description: string;
+  imageUrl: string;
+};
+
 export default defineField({
   name: "shopifyCollection",
   title: "Shopify",

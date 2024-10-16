@@ -6,12 +6,14 @@ import { unstable_setRequestLocale, getMessages } from "next-intl/server";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import "@mantine/core/styles.css";
-// import "@mantine/notifications/styles.css";
+import "@mantine/notifications/styles.css";
 import "./global.css";
 
 import { locales } from "@/config";
 import { themeConfiguration } from "@/theme/themeConfig";
 import CartProvider from "@/contexts/Cart/CartProvider";
+import FavouritesProvider from "@/contexts/Favourites/FavouritesProvider";
+import NotificationsContainer from "@/components/NotificationsContainer";
 // import NotificationsContainer from "@/components/NotificationsContainer";
 
 export function generateStaticParams() {
@@ -44,10 +46,12 @@ export default async function LocaleLayout({
             withGlobalClasses
             // withNormalizeCSS
           >
-            <CartProvider>
-              {/*<NotificationsContainer />*/}
-              {children}
-            </CartProvider>
+            <FavouritesProvider>
+              <CartProvider>
+                <NotificationsContainer />
+                {children}
+              </CartProvider>
+            </FavouritesProvider>
           </MantineProvider>
         </NextIntlClientProvider>
       </body>

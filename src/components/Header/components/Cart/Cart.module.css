@@ -14,7 +14,31 @@
     grid-template-columns: 1fr auto;
     background-color: #FAF6EF;
     border-bottom: 1px solid #2F240E;
-    padding: 24px 40px;
+    padding: 24px 16px;
+
+    @media only screen and (min-width: 475px) {
+        padding: 24px 24px;
+    }
+
+    @media only screen and (min-width: 992px) {
+        padding: 24px 40px;
+    }
+}
+
+.cart__animated-quantity {
+    display: inline-block;
+    animation: rollout 0.4s;
+}
+
+@keyframes rollout {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
 }
 
 .cart__title {
@@ -34,20 +58,36 @@
 
 .cart__body-inner {
     height: 100%;
-    padding: 24px 40px;
+    padding: 24px 16px;
     overflow-y: scroll;
 
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    @media only screen and (min-width: 475px) {
+        padding: 24px 24px;
+    }
+
+    @media only screen and (min-width: 992px) {
+        padding: 24px 40px;
+    }
 }
 
 .cart__footer {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 24px 40px;
+    padding: 24px 16px;
     border-top: 1px solid #2F240E;
+
+    @media only screen and (min-width: 475px) {
+        padding: 24px 24px;
+    }
+
+    @media only screen and (min-width: 992px) {
+        padding: 24px 40px;
+    }
 }
 
 .cart__footer-costs {

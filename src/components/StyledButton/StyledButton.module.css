@@ -2,7 +2,71 @@
     position: relative;
 }
 
-.styled-button--transparent::after {
+.styled-button--variant-underline {
+    position: relative;
+    height: fit-content;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #2F240E;
+    color: #2F240E;
+}
+.styled-button--variant-underline:hover {
+    background-color: transparent;
+    color: #2F240E;
+}
+
+.styled-button--variant-text {
+    position: relative;
+    height: fit-content;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    color: #2F240E;
+}
+.styled-button--variant-text:hover {
+    background-color: transparent;
+    color: #2F240E;
+}
+
+.styled-button--variant-transparent {
+    position: relative;
+    height: fit-content;
+    background-color: transparent;
+    border-radius: 0;
+}
+.styled-button--variant-transparent:hover {
+    background-color: transparent;
+    color: #2F240E;
+}
+
+.styled-button--variant-outline {
+    position: relative;
+    height: fit-content;
+    background-color: #FAF6EF;
+    border-radius: 0;
+    border: 1px solid #2F240E;
+    color: #2F240E;
+}
+.styled-button--variant-outline:hover {
+    background-color: #FAF6EF;
+    color: #2F240E;
+}
+
+.styled-button--variant-filled {
+    position: relative;
+    height: fit-content;
+    background-color: #2F240E;
+    border-radius: 0;
+    border: 1px solid #2F240E;
+    color: #FAF6EF;
+}
+.styled-button--variant-filled:hover {
+    background-color: #2F240E;
+    color: #FAF6EF;
+}
+
+.styled-button--variant-transparent::after {
     content: '';
     position: absolute;
     width: calc(100% - 48px);
@@ -15,19 +79,19 @@
     transition: transform 0.3s ease-out;
 }
 
-.styled-button--transparent-white::after {
+.styled-button--variant-transparent-white::after {
     background-color: #FAF6EF;
 }
 
-.styled-button--transparent-yellow::after {
+.styled-button--variant-transparent-yellow::after {
     background-color: #FADE85;
 }
 
-.styled-button--transparent-black::after {
+.styled-button--variant-transparent-black::after {
     background-color: #2F240E;
 }
 
-.styled-button--transparent-inherit::after {
+.styled-button--variant-transparent-inherit::after {
     background-color: inherit;
 }
 

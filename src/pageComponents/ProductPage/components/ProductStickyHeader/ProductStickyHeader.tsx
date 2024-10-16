@@ -31,7 +31,9 @@ const ProductStickyHeader: React.FunctionComponent<ProductPageType> = ({
     >
       <div className={classes["product-sticky-header__header"]}>
         <StyledTitle order={4}>{product.product.title}</StyledTitle>
-        <StyledParagraph type="size-M-semi-bold">0 PLN</StyledParagraph>
+        <StyledParagraph type="size-M-semi-bold">
+          TEXTTOCHANGE0 PLN
+        </StyledParagraph>
       </div>
       <div className={classes["product-sticky-header__buttons"]}>
         <StyledButton

@@ -36,9 +36,9 @@ const ReturnsPage: React.FunctionComponent<ReturnsPageType> = ({
           <div
             style={{ display: "flex", flexDirection: "column", gap: "40px" }}
           >
-            <StyledTitle order={1}>Zwroty</StyledTitle>
+            <StyledTitle order={1}>ZwrotyTEXTTOCHANGE</StyledTitle>
             <StyledParagraph type="size-M-light">
-              beoboeoeoeobeoebepbebp
+              beoboeoeoeobeoebepbebpTEXTTOCHANGE
             </StyledParagraph>
           </div>
         </SectionContainer>

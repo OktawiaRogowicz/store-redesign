@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 
 import StyledCheckbox from "@/components/StyledCheckbox";
 import SectionContainer from "@/components/SectionContainer";
@@ -19,19 +20,21 @@ type FooterPropsType = {
 };
 
 const Footer: React.FunctionComponent<FooterPropsType> = ({ footer }) => {
+  const t = useTranslations("components");
   const [checked, setChecked] = useState(false);
   const [newsletterInputValue, setNewsletterInputValue] = useState("");
 
   const designComponent = (
     <StyledParagraph type="size-S-light" color="beige">
       {footer?.credits}
-      {"\n"}Design & development: Oktawia Rogowicz
+      {"\n"}
+      {t("footer.designed-by")}
     </StyledParagraph>
   );
 
   return (
     <SectionWrapper>
-      <SectionContainer>
+      <SectionContainer border={{ top: true }}>
         <div className={classes["footer"]}>
           <div className={classes["footer__column-wrapper"]}>
             <div className={classes["footer__column"]}>
@@ -83,7 +86,7 @@ const Footer: React.FunctionComponent<FooterPropsType> = ({ footer }) => {
           {footer?.newsletter && (
             <div className={classes["footer__info-column"]}>
               <StyledParagraph type="size-S-semi-bold">
-                newsletter
+                {t("footer.newsletter.title")}
               </StyledParagraph>
               <StyledParagraph type="size-M-light">
                 {footer.newsletter.description}

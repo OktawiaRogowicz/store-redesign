@@ -4,12 +4,21 @@ export type HeaderContentType = {
   name: string;
   menu: {
     selected: {
+      slug: string;
+      route: string;
       title: string;
-      slug: { current: string };
       isColored?: boolean;
     }[];
-    collections: { title: string; slug: { current: string } }[];
-    categories: { title: string; slug: { current: string } }[];
+    collections: {
+      slug: string;
+      route: string;
+      title: string;
+    }[];
+    categories: {
+      slug: string;
+      route: string;
+      title: string;
+    }[];
   };
 };
 
@@ -52,7 +61,7 @@ export const header = defineType({
                 defineField({
                   name: "Link",
                   type: "reference",
-                  to: [{ type: "page" }],
+                  to: [{ type: "collection" }],
                 }),
                 defineField({
                   name: "isColored",
@@ -92,7 +101,7 @@ export const header = defineType({
                 defineField({
                   name: "Link",
                   type: "reference",
-                  to: [{ type: "page" }],
+                  to: [{ type: "collection" }],
                 }),
               ],
             },
@@ -124,7 +133,7 @@ export const header = defineType({
                 defineField({
                   name: "Link",
                   type: "reference",
-                  to: [{ type: "category" }],
+                  to: [{ type: "collection" }],
                 }),
               ],
             },

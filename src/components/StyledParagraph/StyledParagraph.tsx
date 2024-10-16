@@ -15,7 +15,14 @@ export type StyledParagraphType = {
     | "size-M-light"
     | "size-S-light"
     | "size-M-regular";
-  color?: "black" | "beige" | "yellow" | "white" | "red" | "inherit";
+  color?:
+    | "black"
+    | "beige"
+    | "yellow"
+    | "white"
+    | "red"
+    | "inherit"
+    | undefined;
   alignment?: "left" | "center" | "right";
   textDecoration?: {
     underline?: boolean;
