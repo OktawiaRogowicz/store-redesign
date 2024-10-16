@@ -7,7 +7,6 @@ import { IconHeart } from "@tabler/icons-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import HtmlContent from "@/components/HtmlContent";
 import ProductPrice from "@/components/ProductPrice";
-import StyledAccordion from "@/components/StyledAccordion";
 import StyledButton from "@/components/StyledButton";
 import StyledImage from "@/components/StyledImage";
 import StyledTitle from "@/components/StyledTitle";

@@ -1,3 +1,5 @@
+import React from "react";
+
 import { LockIcon } from "@sanity/icons";
 import { Box, Text, TextInput, Tooltip } from "@sanity/ui";
 import {
