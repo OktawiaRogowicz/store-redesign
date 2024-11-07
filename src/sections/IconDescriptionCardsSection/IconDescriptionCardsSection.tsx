@@ -10,7 +10,8 @@ import StyledParagraph from "@/components/StyledParagraph";
 
 type IconDescriptionCardsSectionType = {
   items: {
-    image: StaticImageData | string;
+    id: string;
+    icon: StaticImageData | string;
     title: string;
     description: string;
   }[];
@@ -26,7 +27,7 @@ const IconDescriptionCardsSection: React.FunctionComponent<
           <StyledParagraph type="size-S-semi-bold">•</StyledParagraph>
           <div className={classes["icon-description-cards-section__products"]}>
             {items?.map((item) => {
-              return <IconDescriptionCard item={item} />;
+              return <IconDescriptionCard key={item.id} item={item} />;
             })}
           </div>
           <StyledParagraph type="size-S-semi-bold">•</StyledParagraph>

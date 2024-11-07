@@ -11,6 +11,7 @@ export type AboutUsContentType = {
     image: any;
   };
   iconDescriptionsSection: {
+    id: string;
     icon: any;
     title: string;
     description: string;

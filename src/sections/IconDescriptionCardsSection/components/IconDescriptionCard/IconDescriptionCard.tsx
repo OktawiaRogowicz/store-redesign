@@ -8,6 +8,7 @@ import classes from "./IconDescriptionCard.module.css";
 
 type IconDescriptionCardsSectionType = {
   item: {
+    id: string;
     icon: StaticImageData | string;
     title: string;
     description: string;

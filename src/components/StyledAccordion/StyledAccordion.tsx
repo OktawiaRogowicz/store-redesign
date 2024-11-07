@@ -40,7 +40,7 @@ const StyledAccordion: React.FunctionComponent<StyledTextInputType> = ({
     >
       {items.map((item) => {
         return (
-          <Accordion.Item {...item.item}>
+          <Accordion.Item key={item.item.key} {...item.item}>
             <Accordion.Control {...item.control}>
               <StyledParagraph type="size-M-regular">
                 {item.control.text}

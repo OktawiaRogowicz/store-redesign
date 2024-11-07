@@ -15,11 +15,12 @@ type PageParamsType = {
   };
 };
 
-async function generateStaticParams() {
+export async function generateStaticParams() {
   const products = await getProducts();
-  return products.map((product) => ({
-    slug: product.slug,
+  const staticParams = products.map((product) => ({
+    slug: product.store.slug.current,
   }));
+  return staticParams;
 }
 
 export default async function Product({ params }: PageParamsType) {

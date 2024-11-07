@@ -76,7 +76,10 @@ const Footer: React.FunctionComponent<FooterPropsType> = ({ footer }) => {
               {footer.menu.map((menuItem) => {
                 if (!menuItem?.slug.current) return;
                 return (
-                  <StyledParagraph type="size-M-light">
+                  <StyledParagraph
+                    type="size-M-light"
+                    key={menuItem.slug.current}
+                  >
                     <a href={`/${menuItem.slug.current}`}>{menuItem.title}</a>
                   </StyledParagraph>
                 );

@@ -14,7 +14,7 @@ type PageParamsType = {
   };
 };
 
-async function generateStaticParams(): Promise<any> {
+export async function generateStaticParams(): Promise<any> {
   return await getProducts({});
 }
 
@@ -30,8 +30,6 @@ export default async function Home({ params }: PageParamsType) {
 
   const siteConfiguration = await getSiteConfiguration();
 
-  console.log("products: ", products);
-
   return (
     <ProductsPage
       siteConfiguration={siteConfiguration}
@@ -41,7 +39,7 @@ export default async function Home({ params }: PageParamsType) {
             title: "Wszystko",
           },
         },
-        products: products.products,
+        products: products,
       }}
     />
   );

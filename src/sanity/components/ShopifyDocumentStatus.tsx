@@ -82,5 +82,6 @@ const ShopifyDocumentStatus = forwardRef<HTMLDivElement, Props>(
     );
   },
 );
+ShopifyDocumentStatus.displayName = "ShopifyDocumentStatus";
 
 export default ShopifyDocumentStatus;

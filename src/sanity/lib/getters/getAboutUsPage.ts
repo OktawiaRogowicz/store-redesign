@@ -8,6 +8,7 @@ export async function getAboutUsPage() {
     slug,
     headerSection,
     iconDescriptionsSection[] {
+      "id": icon.assetId,
       title,
       "icon": icon.asset,
       description

@@ -13,9 +13,8 @@ const ColorSwatch: React.FunctionComponent<ColorSwatchType> = ({ colors }) => {
     <div className={classes["color-swatch"]}>
       {colors?.map((color) => {
         return (
-          <Tooltip label={color.name} position="bottom">
+          <Tooltip key={color?.id} label={color.name} position="bottom">
             <div
-              key={color?.id}
               className={cx(classes["color-swatch"], {
                 [classes["color-swatch--is-picked"]]: color.isPicked,
               })}

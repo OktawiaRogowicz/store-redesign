@@ -26,6 +26,8 @@ module.exports = {
     quotes: [1, "double", { avoidEscape: true }],
     "prefer-const": "off",
     "@typescript-eslint/no-explicit-any": ["off"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn"
   },
   settings: {
     "import/resolver": {

@@ -3,10 +3,10 @@ import { notFound } from "next/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 import { locales } from "@/config";
+import ProductsPage from "@/pageComponents/ProductsPage";
 import { getCollection } from "@/sanity/lib/getters/getCollection";
 import { getCollections } from "@/sanity/lib/getters/getCollections";
 import { getSiteConfiguration } from "@/sanity/lib/getters/getSiteConfiguration";
-import ProductsPage from "@/pageComponents/ProductsPage";
 
 type PageParamsType = {
   params: {
@@ -15,14 +15,16 @@ type PageParamsType = {
   };
 };
 
-async function generateStaticParams() {
+export async function generateStaticParams() {
   const collections = await getCollections();
 
-  return collections.map((collection) => {
+  const staticParams = collections.map((collection) => {
     return {
-      slug: collection.route,
+      slug: collection.slugProxy,
     };
   });
+
+  return staticParams;
 }
 
 export default async function Product({ params }: PageParamsType) {

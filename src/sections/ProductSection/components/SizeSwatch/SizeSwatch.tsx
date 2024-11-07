@@ -49,6 +49,7 @@ const SizeSwatch: React.FunctionComponent<SizeSwatchType> = ({
         {sizes?.map((size) => {
           return (
             <StyledButton
+              key={size.name}
               variant="text"
               size="no-padding"
               onClick={() => handleSizeClick(size.name)}

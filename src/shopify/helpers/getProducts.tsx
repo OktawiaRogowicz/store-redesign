@@ -58,11 +58,5 @@ export const getProducts = async ({
 
   const response = await shopifyStorefrontCollectionResponse.json();
 
-  console.log(
-    "response: ",
-    response.data,
-    convertShopifyCollectionResponse(response.data),
-  );
-
-  return convertShopifyCollectionResponse(response.data);
+  return convertShopifyCollectionResponse(response.data).products;
 };

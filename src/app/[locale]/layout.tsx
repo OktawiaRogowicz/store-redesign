@@ -16,7 +16,7 @@ import FavouritesProvider from "@/contexts/Favourites/FavouritesProvider";
 import NotificationsContainer from "@/components/NotificationsContainer";
 // import NotificationsContainer from "@/components/NotificationsContainer";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 

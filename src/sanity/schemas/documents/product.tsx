@@ -1,3 +1,4 @@
+import React from "react";
 import { defineField, defineType } from "sanity";
 import { TagIcon } from "@sanity/icons";
 import pluralize from "pluralize-esm";
