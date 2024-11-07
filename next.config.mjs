@@ -9,6 +9,7 @@ const nextConfig = {
     output: 'export',
     images: {
         loader: "akamai",
+        path: "",
         unoptimized: true, // Disable default image optimization
         dangerouslyAllowSVG: true,
         domains: ["cdn.sanity.io", "cdn.shopify.com"],
