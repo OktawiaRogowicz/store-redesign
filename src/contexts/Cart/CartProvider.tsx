@@ -319,8 +319,6 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  console.log("cart: ", cart);
-
   return (
     <CartContext.Provider
       value={{

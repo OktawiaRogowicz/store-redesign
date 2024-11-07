@@ -7,7 +7,11 @@ export async function getAboutUsPage() {
     name,
     slug,
     headerSection,
-    iconDescriptionsSection,
+    iconDescriptionsSection[] {
+      title,
+      "icon": icon.asset,
+      description
+    },
     "twoImagesSection": {
       "productLeft": twoImagesSection.productLeft->store,
       "productRight": twoImagesSection.productRight->store
@@ -15,6 +19,8 @@ export async function getAboutUsPage() {
   }`;
 
   const aboutUsPage = await client.fetch(query, { cache: "no-store" } as any);
+
+  console.log("aboutUsPageaboutUsPageaboutUsPageaboutUsPage: ", aboutUsPage);
 
   return aboutUsPage;
 }

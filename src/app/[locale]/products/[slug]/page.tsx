@@ -15,8 +15,11 @@ type PageParamsType = {
   };
 };
 
-async function generateStaticParams(): Promise<any[]> {
-  return await getProducts();
+async function generateStaticParams() {
+  const products = await getProducts();
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
 }
 
 export default async function Product({ params }: PageParamsType) {

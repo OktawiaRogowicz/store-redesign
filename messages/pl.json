@@ -1,11 +1,14 @@
 {
-
   "components": {
     "cart": {
-      "title": "Koszyk",
+      "title": "Cart",
       "empty-state": {
-        "description": "Koszyk jest pusty",
-        "cta": "Kontynuuj zakupy"
+        "description": "The cart is empty",
+        "cta": "Continue shopping"
+      },
+      "cart-product": {
+        "size": "Size",
+        "delete": "Delete"
       }
     },
     "cart-summary": {
@@ -14,8 +17,8 @@
       "shipment": "Shipment",
       "sum": "Sum",
       "buttons": {
-        "continue": "Przejdź do płatności",
-        "cart": "Koszyk"
+        "continue": "Continue to payment",
+        "cart": "Cart"
       },
       "accordion": {
         "title": "Discount code"
@@ -39,13 +42,13 @@
       },
       "tr": {
         "product": "Product",
-        "price": "Cena",
-        "quantity": "ilość",
-        "sum": "Suma"
+        "price": "Price",
+        "quantity": "Quantity",
+        "sum": "Sum"
       },
       "empty-state": {
-        "description": "Koszyk jest pusty",
-        "cta": "Kontynuuj zakupy"
+        "description": "The cart is empty",
+        "cta": "Continue shopping"
       }
     },
     "size-swatch": {

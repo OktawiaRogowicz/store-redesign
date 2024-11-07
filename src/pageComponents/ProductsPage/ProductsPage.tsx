@@ -12,7 +12,10 @@ import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationTy
 
 type ProductPageType = {
   siteConfiguration: SiteConfigurationContentType;
-  collection: any;
+  collection: {
+    collection: any;
+    products: any[];
+  };
 };
 
 const ProductsPage: React.FunctionComponent<ProductPageType> = ({

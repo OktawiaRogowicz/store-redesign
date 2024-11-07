@@ -46,7 +46,6 @@ export type ShopifyCollectionType = {
 const convertShopifyCollectionResponse = (
   response: ShopifyCollectionResponseType,
 ): ShopifyCollectionType => {
-  console.log(" convertShopifyCollectionResponse: ", response);
   return {
     title: response.collection.title,
     handle: response.collection.handle,

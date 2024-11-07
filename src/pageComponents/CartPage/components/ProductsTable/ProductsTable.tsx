@@ -19,7 +19,7 @@ type ProductsTableType = {
 const ProductsTable: React.FunctionComponent<ProductsTableType> = ({
   cartContext,
 }) => {
-  const t = useTranslations("sections");
+  const t = useTranslations("components");
 
   const rows = cartContext.cart?.products.map((product) => (
     <div key={product.name} className={classes["products-table__tr"]}>

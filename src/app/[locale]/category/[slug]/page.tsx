@@ -15,17 +15,8 @@ type PageParamsType = {
   };
 };
 
-async function generateStaticParams(): Promise<any[]> {
+async function generateStaticParams() {
   const collections = await getCollections();
-
-  console.log(
-    "collections: ",
-    collections.map((collection) => {
-      return {
-        slug: collection.route,
-      };
-    }),
-  );
 
   return collections.map((collection) => {
     return {

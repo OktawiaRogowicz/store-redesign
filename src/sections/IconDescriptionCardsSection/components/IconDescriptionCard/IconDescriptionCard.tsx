@@ -8,7 +8,7 @@ import classes from "./IconDescriptionCard.module.css";
 
 type IconDescriptionCardsSectionType = {
   item: {
-    image: StaticImageData | string;
+    icon: StaticImageData | string;
     title: string;
     description: string;
   };
@@ -17,7 +17,7 @@ type IconDescriptionCardsSectionType = {
 const IconDescriptionCard: React.FunctionComponent<
   IconDescriptionCardsSectionType
 > = ({ item }) => {
-  const imageSrc = urlFor(item.image).width(64).height(64).url();
+  const imageSrc = urlFor(item.icon).width(64).height(64).url();
 
   return (
     <div className={classes["icon-description-card"]}>

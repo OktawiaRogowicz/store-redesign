@@ -4,8 +4,8 @@ import { unstable_setRequestLocale } from "next-intl/server";
 
 import { locales } from "@/config";
 import ProductsPage from "@/pageComponents/ProductsPage";
-import { getProducts } from "@/sanity/lib/getters/getProducts";
 import { getSiteConfiguration } from "@/sanity/lib/getters/getSiteConfiguration";
+import { getProducts } from "@/shopify/helpers/getProducts";
 
 type PageParamsType = {
   params: {
@@ -14,15 +14,15 @@ type PageParamsType = {
   };
 };
 
-async function generateStaticParams(): Promise<any[]> {
-  return await getProducts();
+async function generateStaticParams(): Promise<any> {
+  return await getProducts({});
 }
 
 export default async function Home({ params }: PageParamsType) {
   if (!locales.includes(params.locale)) notFound();
   unstable_setRequestLocale(params.locale);
 
-  const products = await getProducts();
+  const products = await getProducts({});
 
   if (!products) {
     return notFound();
@@ -30,7 +30,19 @@ export default async function Home({ params }: PageParamsType) {
 
   const siteConfiguration = await getSiteConfiguration();
 
+  console.log("products: ", products);
+
   return (
-    <ProductsPage siteConfiguration={siteConfiguration} products={products} />
+    <ProductsPage
+      siteConfiguration={siteConfiguration}
+      collection={{
+        collection: {
+          store: {
+            title: "Wszystko",
+          },
+        },
+        products: products.products,
+      }}
+    />
   );
 }

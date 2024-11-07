@@ -20,8 +20,6 @@ const Menu: React.FunctionComponent<MenuType> = ({
   handleClose,
   menuContent,
 }) => {
-  console.log("menuContent: ", menuContent);
-
   return (
     <Modal.Root
       opened={isOpen}
