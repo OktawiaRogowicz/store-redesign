@@ -6,7 +6,9 @@ const isProd = process.env.NODE_ENV === 'production';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'export',
     images: {
+        loader: "akamai",
         unoptimized: true, // Disable default image optimization
         dangerouslyAllowSVG: true,
         domains: ["cdn.sanity.io", "cdn.shopify.com"],
@@ -22,7 +24,6 @@ const nextConfig = {
     },
     assetPrefix: isProd ? '/store-redesign/' : '',
     basePath: isProd ? '/store-redesign' : '',
-    output: 'export',
     typescript: {
         ignoreBuildErrors: true,
     },
