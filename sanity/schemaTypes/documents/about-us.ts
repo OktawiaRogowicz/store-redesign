@@ -23,7 +23,7 @@ export type AboutUsContentType = {
   };
 };
 
-export const aboutUs = defineType({
+export const aboutUsType = defineType({
   name: "aboutUsPage",
   title: "About us page",
   type: "document",

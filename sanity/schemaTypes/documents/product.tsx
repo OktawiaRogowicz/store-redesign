@@ -14,6 +14,19 @@ export const productType = defineType({
   groups: GROUPS,
   fields: [
     defineField({
+      name: "moreProductsSection",
+      title: "Similar products section",
+      type: "array",
+      of: [
+        defineField({
+          name: "product",
+          type: "reference",
+          to: [{ type: "product" }],
+        }),
+      ],
+      group: "editorial",
+    }),
+    defineField({
       name: 'hidden',
       type: 'string',
       components: {

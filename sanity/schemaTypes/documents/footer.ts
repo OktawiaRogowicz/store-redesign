@@ -31,7 +31,7 @@ export type FooterContentType = {
   };
 };
 
-export const footer = defineType({
+export const footerType = defineType({
   name: "footer",
   title: "Footer",
   type: "document",

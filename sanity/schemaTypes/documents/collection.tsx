@@ -26,6 +26,11 @@ export const collectionType = defineType({
       },
     }),
     defineField({
+      name: "route",
+      title: "Route",
+      type: "string",
+    }),
+    defineField({
       name: 'titleProxy',
       title: 'Title',
       type: 'proxyString',

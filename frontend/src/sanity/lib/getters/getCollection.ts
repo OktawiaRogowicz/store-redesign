@@ -25,7 +25,7 @@ const convertCollectionResultToCollectionType = ({
 export async function getCollection({ slug }: { slug: string }) {
   const query = groq`*[_type == "collection" && route == "${slug}"][0] {
     title,
-    slug,
+    "slug": route,
     store,
   }`;
 

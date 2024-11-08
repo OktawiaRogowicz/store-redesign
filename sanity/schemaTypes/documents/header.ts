@@ -22,7 +22,7 @@ export type HeaderContentType = {
   };
 };
 
-export const header = defineType({
+export const headerType = defineType({
   name: "header",
   title: "Header",
   type: "document",

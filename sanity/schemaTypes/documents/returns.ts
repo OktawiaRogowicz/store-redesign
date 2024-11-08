@@ -1,14 +1,14 @@
 import { MdOutlineCategory } from "react-icons/md";
 
-import { defineType, defineField } from "@sanity-typed/types";
+import { defineType, defineField } from "sanity";
 
-export type RegulationsContentType = {
+export type ReturnsContentType = {
   name: string;
 };
 
-export const regulations = defineType({
-  name: "regulationsPage",
-  title: "Regulations page",
+export const returnsType = defineType({
+  name: "returnsPage",
+  title: "Returns page",
   type: "document",
   icon: MdOutlineCategory,
   fields: [
