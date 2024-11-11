@@ -1,27 +1,5 @@
 import { defineType, defineField } from "sanity";
 
-export type HeaderContentType = {
-  name: string;
-  menu: {
-    selected: {
-      slug: string;
-      route: string;
-      title: string;
-      isColored?: boolean;
-    }[];
-    collections: {
-      slug: string;
-      route: string;
-      title: string;
-    }[];
-    categories: {
-      slug: string;
-      route: string;
-      title: string;
-    }[];
-  };
-};
-
 export const headerType = defineType({
   name: "header",
   title: "Header",
@@ -29,6 +7,7 @@ export const headerType = defineType({
   fields: [
     defineField({
       name: "name",
+      title: "Internal name",
       type: "string",
     }),
     defineField({

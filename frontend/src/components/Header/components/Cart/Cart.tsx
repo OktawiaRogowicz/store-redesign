@@ -2,15 +2,15 @@ import React from "react";
 import { Modal } from "@mantine/core";
 import { useTranslations } from "next-intl";
 
-import StyledButton from "../../../StyledButton";
-import Divider from "../../../Divider";
-import CartProduct from "./components/CartProduct";
-import StyledParagraph from "../../../StyledParagraph";
-import StyledTitle from "../../../StyledTitle";
-import { CartContextType } from "../../../../contexts/Cart/CartProvider";
-import CartSummary from "../../../../pageComponents/CartPage/components/CartSummary";
+import Divider from "@/components/Divider";
+import StyledButton from "@/components/StyledButton";
+import StyledParagraph from "@/components/StyledParagraph";
+import StyledTitle from "@/components/StyledTitle";
+import { CartContextType } from "@/contexts/Cart/CartProvider";
+import CartSummary from "@/pageComponents/CartPage/components/CartSummary";
 
 import classes from "./Cart.module.css";
+import CartProduct from "./components/CartProduct";
 
 type CartType = {
   cartContext: CartContextType;

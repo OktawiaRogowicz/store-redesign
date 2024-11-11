@@ -1,8 +1,7 @@
 import { groq } from "next-sanity";
 
-import { client } from "../client";
-import { SanityProductType } from "../../types/SanityProductType";
-import { ProductContentType } from "../../schemas/documents/product";
+import { client } from "@/sanity/lib/client";
+import { ProductContentType } from "@/sanity/types/documents/ProductContentType";
 
 type ShopifyImageType = {
   id: number;

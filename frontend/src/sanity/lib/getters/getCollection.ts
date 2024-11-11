@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 
-import { client } from "../client";
-import { getCollectionById } from "../../../shopify/helpers/getCollectionById";
+import { client } from "@/sanity/lib/client";
+import { getCollectionById } from "@/shopify/helpers/getCollectionById";
 
 type SanityCollectionType = {
   id: number;

@@ -2,13 +2,13 @@
 
 import React from "react";
 
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import { useCartContext } from "../../contexts/Cart/useCart";
-import { SiteConfigurationContentType } from "../../sanity/types/SiteConfigurationType";
-import AboutUsHeroSection from "../../sections/AboutUsHeroSection";
-import IconDescriptionCardsSection from "../../sections/IconDescriptionCardsSection";
-import TwoImagesSection from "../../sections/TwoImagesSection";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { useCartContext } from "@/contexts/Cart/useCart";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
+import AboutUsHeroSection from "@/sections/AboutUsHeroSection";
+import IconDescriptionCardsSection from "@/sections/IconDescriptionCardsSection";
+import TwoImagesSection from "@/sections/TwoImagesSection";
 
 import classes from "./AboutUsPage.module.css";
 

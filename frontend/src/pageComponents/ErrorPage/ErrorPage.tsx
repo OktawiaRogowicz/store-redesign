@@ -2,18 +2,16 @@
 
 import React from "react";
 
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import StyledParagraph from "../../components/StyledParagraph";
-import StyledTitle from "../../components/StyledTitle";
-import { useCartContext } from "../../contexts/Cart/useCart";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import SectionContainer from "@/components/SectionContainer";
+import SectionWrapper from "@/components/SectionWrapper";
+import StyledParagraph from "@/components/StyledParagraph";
+import StyledTitle from "@/components/StyledTitle";
+import { useCartContext } from "@/contexts/Cart/useCart";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 
 import classes from "./ErrorPage.module.css";
-import SectionWrapper from "../../components/SectionWrapper";
-import SectionContainer from "../../components/SectionContainer";
-import { FooterContentType } from "../../sanity/schemas/documents/footer";
-import { HeaderContentType } from "../../sanity/schemas/documents/header";
-import { SiteConfigurationContentType } from "../../sanity/types/SiteConfigurationType";
 
 type ErrorPageType = {
   siteConfiguration: SiteConfigurationContentType;

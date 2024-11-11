@@ -1,16 +1,16 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-import { CartContextType } from "../../../../contexts/Cart/CartProvider";
-import StyledButton from "../../../StyledButton";
-import StyledIconButton from "../../../StyledIconButton";
-import StyledParagraph from "../../../StyledParagraph";
-import { ROUTES } from "../../../../config";
-import { LogoIcon, SearchIcon } from "../../../../icons";
+import { CartContextType } from "@/contexts/Cart/CartProvider";
+import StyledButton from "@/components/StyledButton";
+import StyledIconButton from "@/components/StyledIconButton";
+import StyledParagraph from "@/components/StyledParagraph";
+import { ROUTES } from "@/config";
+import { useFavouritesContext } from "@/contexts/Favourites/useFavourites";
+import { LogoIcon, SearchIcon } from "@/icons";
 
 import classes from "./HeaderDesktop.module.css";
-import { useTranslations } from "next-intl";
-import { useFavouritesContext } from "../../../../contexts/Favourites/useFavourites";
 
 type HeaderDesktopType = {
   variant: "black" | "yellow";

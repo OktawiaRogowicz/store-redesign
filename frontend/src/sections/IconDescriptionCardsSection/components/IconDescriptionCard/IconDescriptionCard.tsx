@@ -1,8 +1,8 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 
-import StyledParagraph from "../../../../components/StyledParagraph";
-import { urlFor } from "../../../../sanity/lib/image";
+import StyledParagraph from "@/components/StyledParagraph";
+import { urlFor } from "@/sanity/lib/image";
 
 import classes from "./IconDescriptionCard.module.css";
 

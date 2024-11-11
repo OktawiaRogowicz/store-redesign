@@ -2,15 +2,14 @@
 
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-
-import StyledCheckbox from "../StyledCheckbox";
-import SectionContainer from "../SectionContainer";
-import StyledIconButton from "../StyledIconButton";
-import StyledParagraph from "../StyledParagraph";
-import StyledTextInput from "../StyledTextInput";
-import SectionWrapper from "../SectionWrapper";
-import { ArrowRightIconSmall } from "../../icons";
-import { FooterContentType } from "../../sanity/schemas/documents/footer";
+import StyledCheckbox from "@/components/StyledCheckbox";
+import SectionContainer from "@/components/SectionContainer";
+import StyledIconButton from "@/components/StyledIconButton";
+import StyledParagraph from "@/components/StyledParagraph";
+import StyledTextInput from "@/components/StyledTextInput";
+import SectionWrapper from "@/components/SectionWrapper";
+import { ArrowRightIconSmall } from "@/icons";
+import { FooterContentType } from "@/sanity/types/documents/FooterContentType";
 
 import classes from "./Footer.module.css";
 

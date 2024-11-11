@@ -1,12 +1,12 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 
-import StyledParagraph from "../../../../components/StyledParagraph";
-import Divider from "../../../../components/Divider";
-import ProductPrice from "../../../../components/ProductPrice";
-import StyledButton from "../../../../components/StyledButton";
-import { ROUTES } from "../../../../config";
-import { useCartContext } from "../../../../contexts/Cart/useCart";
+import StyledParagraph from "@/components/StyledParagraph";
+import Divider from "@/components/Divider";
+import ProductPrice from "@/components/ProductPrice";
+import StyledButton from "@/components/StyledButton";
+import { ROUTES } from "@/config";
+import { useCartContext } from "@/contexts/Cart/useCart";
 
 import classes from "./CartSummary.module.css";
 

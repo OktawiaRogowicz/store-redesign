@@ -1,5 +1,5 @@
-import { FooterContentType } from "../schemas/documents/footer";
-import { HeaderContentType } from "../schemas/documents/header";
+import { HeaderContentType } from "@/sanity/types/documents/HeaderContentType";
+import { FooterContentType } from "@/sanity/types/documents/FooterContentType";
 
 export type SiteConfigurationContentType = {
   header: HeaderContentType;

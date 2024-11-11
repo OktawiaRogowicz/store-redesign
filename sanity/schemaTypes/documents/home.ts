@@ -1,21 +1,5 @@
 import { MdOutlineCategory } from "react-icons/md";
 import { defineType, defineField } from "sanity";
-import { SanityProductType } from "../../../frontend/src/sanity/types/SanityProductType";
-
-export type HomeContentType = {
-  name: string;
-  slug: string;
-  heroSection: {
-    title: string;
-    button: string;
-    slug: string;
-    images: { left: any; right: any }[];
-  };
-  productsSliderSection: {
-    title: string;
-    products: SanityProductType[];
-  };
-};
 
 export const homeDocumentType = defineType({
   name: "homePage",

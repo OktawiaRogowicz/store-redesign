@@ -3,10 +3,10 @@ import { Indicator } from "@mantine/core";
 import Link from "next/link";
 import { IconMenu2, IconSearch, IconShoppingCart } from "@tabler/icons-react";
 
-import { CartContextType } from "../../../../contexts/Cart/CartProvider";
-import StyledIconButton from "../../../StyledIconButton";
-import { ROUTES } from "../../../../config";
-import LogoIconMobile from "../../../../icons/LogoIconMobile";
+import { CartContextType } from "@/contexts/Cart/CartProvider";
+import StyledIconButton from "@/components/StyledIconButton";
+import { ROUTES } from "@/config";
+import LogoIconMobile from "@/icons/LogoIconMobile";
 
 import classes from "./HeaderMobile.module.css";
 

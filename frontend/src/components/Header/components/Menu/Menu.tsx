@@ -2,10 +2,10 @@ import React from "react";
 import { Modal } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
 
-import StyledIconButton from "../../../StyledIconButton";
-import StyledParagraph from "../../../StyledParagraph";
-import { ROUTES } from "../../../../config";
-import { HeaderContentType } from "../../../../sanity/schemas/documents/header";
+import StyledIconButton from "@/components/StyledIconButton";
+import StyledParagraph from "@/components/StyledParagraph";
+import { ROUTES } from "@/config";
+import { HeaderContentType } from "@/sanity/types/documents/HeaderContentType";
 
 import classes from "./Menu.module.css";
 

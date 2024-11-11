@@ -2,14 +2,14 @@
 
 import React from "react";
 
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import SectionContainer from "../../components/SectionContainer";
-import SectionWrapper from "../../components/SectionWrapper";
-import StyledParagraph from "../../components/StyledParagraph";
-import StyledTitle from "../../components/StyledTitle";
-import { useCartContext } from "../../contexts/Cart/useCart";
-import { SiteConfigurationContentType } from "../../sanity/types/SiteConfigurationType";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import SectionContainer from "@/components/SectionContainer";
+import SectionWrapper from "@/components/SectionWrapper";
+import StyledParagraph from "@/components/StyledParagraph";
+import StyledTitle from "@/components/StyledTitle";
+import { useCartContext } from "@/contexts/Cart/useCart";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 
 import classes from "./RegulationsPage.module.css";
 

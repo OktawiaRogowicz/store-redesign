@@ -1,16 +1,16 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
-import Divider from "../../../../components/Divider";
-import StyledButton from "../../../../components/StyledButton";
-import StyledNumberInput from "../../../../components/StyledNumberInput";
-import StyledParagraph from "../../../../components/StyledParagraph";
-import StyledTitle from "../../../../components/StyledTitle";
-import { CartContextType } from "../../../../contexts/Cart/CartProvider";
-import CartSummary from "../CartSummary";
+import Divider from "@/components/Divider";
+import StyledButton from "@/components/StyledButton";
+import StyledNumberInput from "@/components/StyledNumberInput";
+import StyledParagraph from "@/components/StyledParagraph";
+import StyledTitle from "@/components/StyledTitle";
+import { CartContextType } from "@/contexts/Cart/CartProvider";
 
 import classes from "./ProductsTable.module.css";
-import { useTranslations } from "next-intl";
+import CartSummary from "../CartSummary";
 
 type ProductsTableType = {
   cartContext: CartContextType;
@@ -62,6 +62,7 @@ const ProductsTable: React.FunctionComponent<ProductsTableType> = ({
           value={product.quantity}
           handleIncrement={() => console.log("+")}
           handleDecrement={() => console.log("-")}
+          onChange={() => console.log("to do")}
         />
         <StyledParagraph type="size-M-semi-bold" alignment="right">
           {product.sum}

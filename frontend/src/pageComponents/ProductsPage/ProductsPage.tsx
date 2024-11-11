@@ -2,13 +2,13 @@
 
 import React from "react";
 
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import { useCartContext } from "../../contexts/Cart/useCart";
-import ProductsSection from "../../sections/ProductsSection";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { useCartContext } from "@/contexts/Cart/useCart";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
+import ProductsSection from "@/sections/ProductsSection";
 
 import classes from "./ProductsPage.module.css";
-import { SiteConfigurationContentType } from "../../sanity/types/SiteConfigurationType";
 
 type ProductPageType = {
   siteConfiguration: SiteConfigurationContentType;

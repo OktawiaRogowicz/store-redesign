@@ -2,10 +2,10 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
 
-import { locales } from "../../../config";
-import ProductsPage from "../../../pageComponents/ProductsPage";
-import { getSiteConfiguration } from "../../../sanity/lib/getters/getSiteConfiguration";
-import { getProducts } from "../../../shopify/helpers/getProducts";
+import { locales } from "@/config";
+import ProductsPage from "@/pageComponents/ProductsPage";
+import { getSiteConfiguration } from "@/sanity/lib/getters/getSiteConfiguration";
+import { getProducts } from "@/shopify/helpers/getProducts";
 
 type PageParamsType = {
   params: {

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 
-import StyledButton from "../../../../../StyledButton";
-import StyledImage from "../../../../../StyledImage";
-import StyledNumberInput from "../../../../../StyledNumberInput";
-import StyledParagraph from "../../../../../StyledParagraph";
-import StyledTitle from "../../../../../StyledTitle";
-import { CartContextType, CartProductType } from "../../../../../../contexts/Cart/CartProvider";
+import ProductPrice from "@/components/ProductPrice";
+import StyledButton from "@/components/StyledButton";
+import StyledImage from "@/components/StyledImage";
+import StyledNumberInput from "@/components/StyledNumberInput";
+import StyledParagraph from "@/components/StyledParagraph";
+import StyledTitle from "@/components/StyledTitle";
+import { CartContextType, CartProductType } from "@/contexts/Cart/CartProvider";
 
 import classes from "./CartProduct.module.css";
-import ProductPrice from "../../../../../ProductPrice";
-import { useTranslations } from "next-intl";
 
 type CartType = {
   product: CartProductType;

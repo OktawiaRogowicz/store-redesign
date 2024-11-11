@@ -2,15 +2,13 @@
 
 import React from "react";
 
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import { useCartContext } from "../../contexts/Cart/useCart";
-import CartSection from "./components/CartSection";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { useCartContext } from "@/contexts/Cart/useCart";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
 
 import classes from "./CartPage.module.css";
-import { FooterContentType } from "../../sanity/schemas/documents/footer";
-import { HeaderContentType } from "../../sanity/schemas/documents/header";
-import { SiteConfigurationContentType } from "../../sanity/types/SiteConfigurationType";
+import CartSection from "./components/CartSection";
 
 type CartPageType = {
   siteConfiguration: SiteConfigurationContentType;

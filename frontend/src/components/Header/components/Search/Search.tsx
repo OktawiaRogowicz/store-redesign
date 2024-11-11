@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Modal } from "@mantine/core";
+import { IconArrowRight, IconSearch } from "@tabler/icons-react";
 
-import SectionContainer from "../../../SectionContainer";
-import StyledIconButton from "../../../StyledIconButton";
-import StyledTextInput from "../../../StyledTextInput";
-import { SearchIcon, ArrowRightIconSmall } from "../../../../icons";
+import SectionContainer from "@/components/SectionContainer";
+import StyledIconButton from "@/components/StyledIconButton";
+import StyledTextInput from "@/components/StyledTextInput";
 
 import classes from "./Search.module.css";
-import { IconArrowRight, IconSearch } from "@tabler/icons-react";
 
 type SearchType = {
   isOpen: boolean;

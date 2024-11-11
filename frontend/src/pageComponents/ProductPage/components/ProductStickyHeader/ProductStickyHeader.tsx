@@ -2,15 +2,15 @@
 
 import React from "react";
 import cx from "classnames";
+import { IconHeart } from "@tabler/icons-react";
 
-import StyledButton from "../../../../components/StyledButton";
-import StyledParagraph from "../../../../components/StyledParagraph";
-import StyledTitle from "../../../../components/StyledTitle";
-import { useCartContext } from "../../../../contexts/Cart/useCart";
+import StyledButton from "@/components/StyledButton";
+import StyledParagraph from "@/components/StyledParagraph";
+import StyledTitle from "@/components/StyledTitle";
+import { useCartContext } from "@/contexts/Cart/useCart";
+import { ProductType } from "@/sanity/lib/getters/getProduct";
 
 import classes from "./ProductStickyHeader.module.css";
-import { IconHeart } from "@tabler/icons-react";
-import { ProductType } from "../../../../sanity/lib/getters/getProduct";
 
 type ProductPageType = {
   product: ProductType;

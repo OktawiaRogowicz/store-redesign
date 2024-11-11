@@ -2,10 +2,10 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
 
-import { locales } from "../../../config";
-import ReturnsPage from "../../../pageComponents/ReturnsPage";
-import { getSiteConfiguration } from "../../../sanity/lib/getters/getSiteConfiguration";
-import { getReturnsPage } from "../../../sanity/lib/getters/getReturnsPage";
+import { locales } from "@/config";
+import ReturnsPage from "@/pageComponents/ReturnsPage";
+import { getSiteConfiguration } from "@/sanity/lib/getters/getSiteConfiguration";
+import { getReturnsPage } from "@/sanity/lib/getters/getReturnsPage";
 
 type PageParamsType = {
   params: {

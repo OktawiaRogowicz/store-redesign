@@ -4,14 +4,14 @@ import React from "react";
 import { useMediaQuery } from "@mantine/hooks";
 import { useRouter } from "next/navigation";
 
-import ProductPrice from "../../../../components/ProductPrice";
-import StyledButton from "../../../../components/StyledButton";
-import StyledImage from "../../../../components/StyledImage";
-import StyledParagraph from "../../../../components/StyledParagraph";
-import { ROUTES } from "../../../../config";
+import ProductPrice from "@/components/ProductPrice";
+import StyledButton from "@/components/StyledButton";
+import StyledImage from "@/components/StyledImage";
+import StyledParagraph from "@/components/StyledParagraph";
+import { ROUTES } from "@/config";
+import { ShopifyCollectionProductType } from "@/shopify/helpers/getCollectionById";
 
 import classes from "./ProductCard.module.css";
-import { ShopifyCollectionProductType } from "../../../../shopify/helpers/getCollectionById";
 
 type ProductCardType = {
   product: ShopifyCollectionProductType;

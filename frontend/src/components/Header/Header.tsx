@@ -3,16 +3,16 @@
 import React, { useEffect, useState } from "react";
 import cx from "classnames";
 
-import SectionContainer from "../SectionContainer";
+import SectionContainer from "@/components/SectionContainer";
+import { CartContextType } from "@/contexts/Cart/CartProvider";
+import { HeaderContentType } from "@/sanity/types/documents/HeaderContentType";
+
+import classes from "./Header.module.css";
 import Cart from "./components/Cart";
 import HeaderDesktop from "./components/HeaderDesktop";
 import HeaderMobile from "./components/HeaderMobile";
 import Menu from "./components/Menu";
 import Search from "./components/Search";
-import { CartContextType } from "../../contexts/Cart/CartProvider";
-import { HeaderContentType } from "../../sanity/schemas/documents/header";
-
-import classes from "./Header.module.css";
 
 type HeaderPropsType = {
   header: HeaderContentType;

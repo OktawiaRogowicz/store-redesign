@@ -96,14 +96,13 @@ import {pageType} from './documents/page'
 import {productType} from './documents/product'
 import {productVariantType} from './documents/productVariant'
 import {aboutUsType} from "./documents/about-us";
-import {categoryType} from "./documents/category";
 import {headerType} from "./documents/header";
 import {regulationsType} from "./documents/regulations";
 import {returnsType} from "./documents/returns";
 import {homeDocumentType} from "./documents/home";
 
 const documents = [collectionType, colorThemeType, pageType, productType, productVariantType,
-  aboutUsType, categoryType, footerType, headerType, regulationsType, returnsType, homeDocumentType];
+  aboutUsType, footerType, headerType, regulationsType, returnsType, homeDocumentType];
 
 import {homeType} from './singletons/homeType'
 import {settingsType} from './singletons/settingsType'

@@ -1,27 +1,5 @@
 import { MdOutlineCategory } from "react-icons/md";
 import { defineType, defineField } from "sanity";
-import { SanityProductType } from "../../types/SanityProductType";
-
-export type AboutUsContentType = {
-  name: string;
-  slug: string;
-  headerSection: {
-    title: string;
-    description: string;
-    image: any;
-  };
-  iconDescriptionsSection: {
-    id: string;
-    icon: any;
-    title: string;
-    description: string;
-  }[];
-  twoImagesSection: {
-    title: string;
-    productLeft: SanityProductType;
-    productRight: SanityProductType;
-  };
-};
 
 export const aboutUsType = defineType({
   name: "aboutUsPage",

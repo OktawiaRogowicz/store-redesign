@@ -1,4 +1,12 @@
-import { MdCallToAction } from "react-icons/md";
+import {
+    MdCallToAction,
+    MdAutoStories,
+    MdCheckroom,
+    MdHome,
+    MdStore,
+    MdLocalPolice,
+    MdLocalShipping, MdSettings, MdVerticalAlignTop, MdVerticalAlignBottom, MdFolderCopy
+} from "react-icons/md";
 import {ListItemBuilder, StructureResolver} from 'sanity/structure';
 import collections from './collectionStructure'
 import colorThemes from './colorThemeStructure'
@@ -6,6 +14,7 @@ import home from './homeStructure'
 import pages from './pageStructure'
 import products from './productStructure'
 import settings from './settingStructure'
+
 
 /**
  * Structure overrides
@@ -45,23 +54,24 @@ export const structure: StructureResolver = (S, context) =>
         .title("Base")
         .items([
             S.divider(),
-            S.listItem().title("Collections").child(S.documentTypeList("collection")),
-            S.listItem().title("Products").child(S.documentTypeList("product")),
+            S.listItem().title("Collections").icon(MdAutoStories).child(S.documentTypeList("collection")),
+            S.listItem().title("Products").icon(MdCheckroom).child(S.documentTypeList("product")),
             S.listItem()
                 .title("Custom pages")
+                .icon(MdFolderCopy)
                 .child(
                     S.list()
                         .title("Custom pages")
                         .items([
                             S.listItem()
                                 .title("Homepage")
-                                .icon(MdCallToAction)
+                                .icon(MdHome)
                                 .child(
                                     S.editor().schemaType("homePage").documentId("homePage"),
                                 ),
                             S.listItem()
                                 .title("About us")
-                                .icon(MdCallToAction)
+                                .icon(MdStore)
                                 .child(
                                     S.editor()
                                         .schemaType("aboutUsPage")
@@ -69,7 +79,7 @@ export const structure: StructureResolver = (S, context) =>
                                 ),
                             S.listItem()
                                 .title("Returns")
-                                .icon(MdCallToAction)
+                                .icon(MdLocalShipping)
                                 .child(
                                     S.editor()
                                         .schemaType("returnsPage")
@@ -77,7 +87,7 @@ export const structure: StructureResolver = (S, context) =>
                                 ),
                             S.listItem()
                                 .title("Regulations")
-                                .icon(MdCallToAction)
+                                .icon(MdLocalPolice)
                                 .child(
                                     S.editor()
                                         .schemaType("regulationsPage")
@@ -88,17 +98,18 @@ export const structure: StructureResolver = (S, context) =>
             S.divider(),
             S.listItem()
                 .title("Settings")
+                .icon(MdSettings)
                 .child(
                     S.list()
                         .title("Settings Documents")
                         .items([
                             S.listItem()
                                 .title("HeaderDesktop Settings")
-                                .icon(MdCallToAction)
+                                .icon(MdVerticalAlignTop)
                                 .child(S.editor().schemaType("header").documentId("header")),
                             S.listItem()
                                 .title("Footer Settings")
-                                .icon(MdCallToAction)
+                                .icon(MdVerticalAlignBottom)
                                 .child(S.editor().schemaType("footer").documentId("footer")),
                         ]),
                 ),

@@ -1,12 +1,12 @@
 import React from "react";
 
-import SectionContainer from "../../../../components/SectionContainer";
-import SectionWrapper from "../../../../components/SectionWrapper";
-import StyledTitle from "../../../../components/StyledTitle";
-import { CartContextType } from "../../../../contexts/Cart/CartProvider";
-import ProductsTable from "../ProductsTable";
+import SectionContainer from "@/components/SectionContainer";
+import SectionWrapper from "@/components/SectionWrapper";
+import StyledTitle from "@/components/StyledTitle";
+import { CartContextType } from "@/contexts/Cart/CartProvider";
 
 import classes from "./CartSection.module.css";
+import ProductsTable from "../ProductsTable";
 
 type CartPageType = {
   cartContext: CartContextType;

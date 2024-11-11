@@ -2,15 +2,15 @@
 
 import React from "react";
 
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import { useCartContext } from "../../contexts/Cart/useCart";
-import HeroSection from "../../sections/HeroSection";
-import ProductsSliderSection from "../../sections/ProductsSliderSection";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { ROUTES } from "@/config";
+import { useCartContext } from "@/contexts/Cart/useCart";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
+import HeroSection from "@/sections/HeroSection";
+import ProductsSliderSection from "@/sections/ProductsSliderSection";
 
 import classes from "./HomePage.module.css";
-import { SiteConfigurationContentType } from "../../sanity/types/SiteConfigurationType";
-import { ROUTES } from "../../config";
 
 type SectionContainerType = {
   siteConfiguration: SiteConfigurationContentType;

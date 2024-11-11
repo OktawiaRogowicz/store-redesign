@@ -2,11 +2,11 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
 
-import { locales } from "../../../../config";
-import ProductPage from "../../../../pageComponents/ProductPage";
-import { getProduct } from "../../../../sanity/lib/getters/getProduct";
-import { getProducts } from "../../../../sanity/lib/getters/getProducts";
-import { getSiteConfiguration } from "../../../../sanity/lib/getters/getSiteConfiguration";
+import { locales } from "@/config";
+import ProductPage from "@/pageComponents/ProductPage";
+import { getProduct } from "@/sanity/lib/getters/getProduct";
+import { getProducts } from "@/sanity/lib/getters/getProducts";
+import { getSiteConfiguration } from "@/sanity/lib/getters/getSiteConfiguration";
 
 type PageParamsType = {
   params: {

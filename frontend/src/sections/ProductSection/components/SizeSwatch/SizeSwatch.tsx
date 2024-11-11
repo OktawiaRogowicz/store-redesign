@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 
-import StyledButton from "../../../../components/StyledButton";
-import StyledParagraph from "../../../../components/StyledParagraph";
+import StyledButton from "@/components/StyledButton";
+import StyledParagraph from "@/components/StyledParagraph";
 
 import classes from "./SizeSwatch.module.css";
 

@@ -2,13 +2,13 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import { useCartContext } from "../../contexts/Cart/useCart";
-import { ProductType } from "../../sanity/lib/getters/getProduct";
-import { SiteConfigurationContentType } from "../../sanity/types/SiteConfigurationType";
-import ProductSection from "../../sections/ProductSection";
-import ProductsSliderSection from "../../sections/ProductsSliderSection";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { useCartContext } from "@/contexts/Cart/useCart";
+import { ProductType } from "@/sanity/lib/getters/getProduct";
+import { SiteConfigurationContentType } from "@/sanity/types/SiteConfigurationType";
+import ProductSection from "@/sections/ProductSection";
+import ProductsSliderSection from "@/sections/ProductsSliderSection";
 
 import classes from "./ProductPage.module.css";
 

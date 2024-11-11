@@ -2,10 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import SectionWrapper from "../../components/SectionWrapper";
-import StyledTitle from "../../components/StyledTitle";
-import { ROUTES } from "../../config";
-import { AboutUsContentType } from "../../sanity/schemas/documents/about-us";
+import SectionWrapper from "@/components/SectionWrapper";
+import StyledTitle from "@/components/StyledTitle";
+import { ROUTES } from "@/config";
+import { AboutUsContentType } from "@/sanity/types/documents/AboutUsContentType";
 
 import classes from "./TwoImagesSection.module.css";
 
