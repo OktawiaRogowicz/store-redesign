@@ -3,6 +3,7 @@
 import React from "react";
 import { useMediaQuery } from "@mantine/hooks";
 import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 
 import ProductPrice from "@/components/ProductPrice";
 import StyledButton from "@/components/StyledButton";
@@ -24,6 +25,7 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
 }) => {
   const isMobile = useMediaQuery("(max-width: 992px)");
   const router = useRouter();
+  const locale = useLocale();
 
   const handleClick = ({
     e,
@@ -42,7 +44,7 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
       onClick={(e) =>
         handleClick({
           e,
-          path: `${ROUTES.products.href}/${product.slug}`,
+          path: `${locale}/${ROUTES.products.href}/${product.slug}`,
         })
       }
     >

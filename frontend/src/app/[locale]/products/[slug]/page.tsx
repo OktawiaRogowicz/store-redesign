@@ -20,6 +20,7 @@ export async function generateStaticParams() {
   const staticParams = products.map((product) => ({
     slug: product.store.slug.current,
   }));
+  console.log("staticParams: ", staticParams);
   return staticParams;
 }
 

@@ -15,7 +15,9 @@ type PageParamsType = {
 };
 
 export async function generateStaticParams(): Promise<any> {
-  return await getProducts({});
+  const result = await getProducts({});
+  console.log("result: ", result);
+  return result;
 }
 
 export default async function Home({ params }: PageParamsType) {

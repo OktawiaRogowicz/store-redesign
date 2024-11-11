@@ -14,10 +14,6 @@ type PageParamsType = {
   };
 };
 
-export async function generateStaticParams() {
-  return staticParams;
-}
-
 export default async function Home({ params: { locale } }: PageParamsType) {
   if (!locales.includes(locale)) notFound();
   unstable_setRequestLocale(locale);
