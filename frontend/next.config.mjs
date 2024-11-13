@@ -22,8 +22,8 @@ const nextConfig = {
             },
         ],
     },
-    assetPrefix: isProd ? '/store-redesign/' : '',
-    basePath: isProd ? '/store-redesign' : '',
+    // assetPrefix: isProd ? '/store-redesign/' : '',
+    // basePath: isProd ? '/store-redesign' : '',
     typescript: {
         ignoreBuildErrors: true,
     },
