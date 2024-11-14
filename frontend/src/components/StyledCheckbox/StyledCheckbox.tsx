@@ -22,35 +22,41 @@ const StyledCheckbox: React.FunctionComponent<StyledTextInputType> = ({
   );
 
   return (
-    <Checkbox
-      icon={CheckboxIcon}
-      iconColor="#2F240E"
-      label={
-        <StyledParagraph type="size-M-light" color={error ? "red" : "black"}>
-          {label}
+    <div className={classes["styled-checkbox__container"]}>
+      <Checkbox
+        icon={CheckboxIcon}
+        iconColor="#2F240E"
+        label={
+          <StyledParagraph type="size-M-light" color={error ? "red" : "black"}>
+            {label}
+          </StyledParagraph>
+        }
+        description={
+          <StyledParagraph type="size-S-light" color={error ? "red" : "black"}>
+            {description}
+          </StyledParagraph>
+        }
+        {...props}
+        classNames={{
+          root: classes["styled-checkbox__root"],
+          input: cx(classes["styled-checkbox__input"], {
+            [classes["styled-checkbox__input--error"]]: error,
+          }),
+          icon: classes["styled-checkbox__icon"],
+          inner: classes["styled-checkbox__inner"],
+          body: classes["styled-checkbox__body"],
+          labelWrapper: classes["styled-checkbox__label-wrapper"],
+          label: classes["styled-checkbox__label"],
+          description: classes["styled-checkbox__description"],
+          error: classes["styled-checkbox__error"],
+        }}
+      />
+      {error && (
+        <StyledParagraph type="size-S-light" color="red">
+          {error}
         </StyledParagraph>
-      }
-      description={
-        <StyledParagraph type="size-S-light" color={error ? "red" : "black"}>
-          {description}
-        </StyledParagraph>
-      }
-      error={error}
-      {...props}
-      classNames={{
-        root: classes["styled-checkbox__root"],
-        input: cx(classes["styled-checkbox__input"], {
-          [classes["styled-checkbox__input--error"]]: error,
-        }),
-        icon: classes["styled-checkbox__icon"],
-        inner: classes["styled-checkbox__inner"],
-        body: classes["styled-checkbox__body"],
-        labelWrapper: classes["styled-checkbox__label-wrapper"],
-        label: classes["styled-checkbox__label"],
-        description: classes["styled-checkbox__description"],
-        error: classes["styled-checkbox__error"],
-      }}
-    />
+      )}
+    </div>
   );
 };
 

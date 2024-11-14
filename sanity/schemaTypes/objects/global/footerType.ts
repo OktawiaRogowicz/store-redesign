@@ -2,7 +2,7 @@ import {defineField} from 'sanity'
 
 export const footerType = defineField({
   name: 'footerSettings',
-  title: 'FooterNewsletter',
+  title: 'Footer',
   type: 'object',
   options: {
     collapsed: false,

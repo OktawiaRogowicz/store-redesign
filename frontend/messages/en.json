@@ -27,7 +27,16 @@
     "footer": {
       "designed-by": "Design & development: Oktawia Rogowicz",
       "newsletter": {
-        "title": "Newsletter"
+        "title": "Newsletter",
+        "form": {
+          "email": {
+            "placeholder": "Enter your e-mail address",
+            "error": "Invalid e-mail address."
+          },
+          "terms-of-service": {
+            "error": "To process, terms of service have to be accepted."
+          }
+        }
       }
     },
     "header": {

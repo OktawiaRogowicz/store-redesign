@@ -1,3 +1,9 @@
+.styled-checkbox__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .styled-checkbox__root {
     --checkbox-size: 16px;
 }
