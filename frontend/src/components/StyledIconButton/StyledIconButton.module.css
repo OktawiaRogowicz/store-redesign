@@ -11,6 +11,13 @@
     color: #2F240E;
 }
 
+.styled-icon-button--red {
+    color: #D84646;
+}
+.styled-icon-button--red:hover {
+    color: #D84646;
+}
+
 .styled-icon-button--black {
     color: #2F240E;
 }

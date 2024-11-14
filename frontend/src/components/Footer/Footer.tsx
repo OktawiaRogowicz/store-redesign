@@ -1,17 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useTranslations } from "next-intl";
-import StyledCheckbox from "@/components/StyledCheckbox";
+
 import SectionContainer from "@/components/SectionContainer";
-import StyledIconButton from "@/components/StyledIconButton";
 import StyledParagraph from "@/components/StyledParagraph";
-import StyledTextInput from "@/components/StyledTextInput";
 import SectionWrapper from "@/components/SectionWrapper";
-import { ArrowRightIconSmall } from "@/icons";
 import { FooterContentType } from "@/sanity/types/documents/FooterContentType";
 
 import classes from "./Footer.module.css";
+import FooterNewsletter from "./components/FooterNewsletter";
 
 type FooterPropsType = {
   footer: FooterContentType;
@@ -20,8 +18,6 @@ type FooterPropsType = {
 
 const Footer: React.FunctionComponent<FooterPropsType> = ({ footer }) => {
   const t = useTranslations("components");
-  const [checked, setChecked] = useState(false);
-  const [newsletterInputValue, setNewsletterInputValue] = useState("");
 
   const designComponent = (
     <StyledParagraph type="size-S-light" color="beige">
@@ -85,34 +81,7 @@ const Footer: React.FunctionComponent<FooterPropsType> = ({ footer }) => {
               })}
             </div>
           )}
-          {footer?.newsletter && (
-            <div className={classes["footer__info-column"]}>
-              <StyledParagraph type="size-S-semi-bold">
-                {t("footer.newsletter.title")}
-              </StyledParagraph>
-              <StyledParagraph type="size-M-light">
-                {footer.newsletter.description}
-              </StyledParagraph>
-              <StyledTextInput
-                placeholder="Wpisz swój adres e-mail"
-                rightSection={
-                  <StyledIconButton
-                    icon={<ArrowRightIconSmall />}
-                    onClick={() => console.log("to do")}
-                  />
-                }
-                value={newsletterInputValue}
-                onChange={(event) =>
-                  setNewsletterInputValue(event.currentTarget.value)
-                }
-              />
-              <StyledCheckbox
-                label={footer.newsletter.termsOfService}
-                checked={checked}
-                onChange={(event) => setChecked(event.currentTarget.checked)}
-              />
-            </div>
-          )}
+          {footer?.newsletter && <FooterNewsletter footer={footer} />}
           <div className={classes["footer__design--mobile"]}>
             {designComponent}
           </div>

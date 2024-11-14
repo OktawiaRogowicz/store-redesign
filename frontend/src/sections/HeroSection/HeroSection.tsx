@@ -40,6 +40,8 @@ const HeroSection: React.FunctionComponent<HeroSectionType> = ({
   const [currentIndexLeft, setCurrentIndexLeft] = useState(0);
   const [currentIndexRight, setCurrentIndexRight] = useState(0);
 
+  console.log("button: ", button.text, button.href);
+
   // const [animation, setAnimation] = useState(false);
 
   // useEffect(() => {

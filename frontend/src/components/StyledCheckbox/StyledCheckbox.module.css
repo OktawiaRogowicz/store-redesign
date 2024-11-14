@@ -18,6 +18,10 @@
     border: 1px solid #2F240E;
 }
 
+.styled-checkbox__input--error {
+    border-color: #D84646;
+}
+
 .styled-checkbox__icon {
 }
 
@@ -42,6 +46,6 @@
 }
 
 .styled-checkbox__error {
-
+    color: #D84646;
 }
 

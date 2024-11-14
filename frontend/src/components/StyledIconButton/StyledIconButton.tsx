@@ -8,18 +8,21 @@ import classes from "./StyledIconButton.module.css";
 type StyledIconButtonType = {
   image?: StaticImageData | string;
   icon?: React.ReactNode;
-  color?: "black" | "beige" | "yellow" | "white" | "inherit";
+  color?: "red" | "black" | "beige" | "yellow" | "white" | "inherit";
   onClick?: () => void;
+  type?: "submit";
 } & Omit<ButtonProps, "color">;
 
 const StyledIconButton: React.FunctionComponent<StyledIconButtonType> = ({
   image,
   icon,
   color,
+  type,
   ...props
 }) => {
   return (
     <Button
+      type={type}
       {...props}
       className={cx(classes["styled-icon-button"], {
         [classes[`styled-icon-button--${color}`]]: color,

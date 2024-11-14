@@ -1,18 +1,22 @@
 import React from "react";
+import cx from "classnames";
 import { Checkbox, CheckboxProps } from "@mantine/core";
+import { IconX } from "@tabler/icons-react";
 
-import StyledParagraph from "../StyledParagraph";
+import StyledParagraph from "@/components/StyledParagraph";
 
 import classes from "./StyledCheckbox.module.css";
-import { IconX } from "@tabler/icons-react";
 
 type StyledTextInputType = CheckboxProps;
 
 const StyledCheckbox: React.FunctionComponent<StyledTextInputType> = ({
   label,
   description,
+  error,
   ...props
 }) => {
+  console.log("error: ", error);
+
   const CheckboxIcon: CheckboxProps["icon"] = ({ ...others }) => (
     <IconX height="24px" width="24px" {...others} />
   );
@@ -21,14 +25,23 @@ const StyledCheckbox: React.FunctionComponent<StyledTextInputType> = ({
     <Checkbox
       icon={CheckboxIcon}
       iconColor="#2F240E"
-      label={<StyledParagraph type="size-M-light">{label}</StyledParagraph>}
-      description={
-        <StyledParagraph type="size-S-light">{description}</StyledParagraph>
+      label={
+        <StyledParagraph type="size-M-light" color={error ? "red" : "black"}>
+          {label}
+        </StyledParagraph>
       }
+      description={
+        <StyledParagraph type="size-S-light" color={error ? "red" : "black"}>
+          {description}
+        </StyledParagraph>
+      }
+      error={error}
       {...props}
       classNames={{
         root: classes["styled-checkbox__root"],
-        input: classes["styled-checkbox__input"],
+        input: cx(classes["styled-checkbox__input"], {
+          [classes["styled-checkbox__input--error"]]: error,
+        }),
         icon: classes["styled-checkbox__icon"],
         inner: classes["styled-checkbox__inner"],
         body: classes["styled-checkbox__body"],
