@@ -13,7 +13,7 @@
 .header__left-column {
   display: flex;
   gap: 40px;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .header__logo {

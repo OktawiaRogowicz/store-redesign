@@ -1,6 +1,6 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 import { locales } from "@/config";
 import ProductsPage from "@/pageComponents/ProductsPage";
@@ -15,12 +15,14 @@ type PageParamsType = {
 };
 
 export async function generateStaticParams(): Promise<any> {
-  return await getProducts({});
+  const result = await getProducts({});
+  console.log("result: ", result);
+  return result;
 }
 
 export default async function Home({ params }: PageParamsType) {
   if (!locales.includes(params.locale)) notFound();
-  unstable_setRequestLocale(params.locale);
+  setRequestLocale(params.locale);
 
   const products = await getProducts({});
 

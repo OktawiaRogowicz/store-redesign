@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import Head from "next/head";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { unstable_setRequestLocale, getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import "@mantine/core/styles.css";
@@ -29,32 +29,47 @@ export default async function LocaleLayout({
   children,
   params: { locale },
 }: Props) {
-  if (!locales.includes(locale)) notFound();
-  unstable_setRequestLocale(locale);
+  if (!locales.includes(locale)) {
+    notFound();
+  }
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 
   return (
     <html lang={locale}>
-      <Head>
-        <ColorSchemeScript />
-      </Head>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <MantineProvider
-            theme={themeConfiguration}
-            withGlobalClasses
-            // withNormalizeCSS
-          >
-            <FavouritesProvider>
-              <CartProvider>
-                <NotificationsContainer />
-                {children}
-              </CartProvider>
-            </FavouritesProvider>
-          </MantineProvider>
-        </NextIntlClientProvider>
+        <MantineProvider
+          theme={themeConfiguration}
+          withGlobalClasses
+          // withNormalizeCSS
+        >
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </MantineProvider>
       </body>
     </html>
+    // <html lang={locale}>
+    //   <Head>
+    //     <ColorSchemeScript />
+    //   </Head>
+    //   <body>
+    //     <NextIntlClientProvider locale={locale} messages={messages}>
+    //       <MantineProvider
+    //         theme={themeConfiguration}
+    //         withGlobalClasses
+    //         // withNormalizeCSS
+    //       >
+    //         <FavouritesProvider>
+    //           <CartProvider>
+    //             <NotificationsContainer />
+    //             {children}
+    //           </CartProvider>
+    //         </FavouritesProvider>
+    //       </MantineProvider>
+    //     </NextIntlClientProvider>
+    //   </body>
+    // </html>
   );
 }

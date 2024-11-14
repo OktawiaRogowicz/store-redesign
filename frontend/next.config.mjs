@@ -6,7 +6,6 @@ const isProd = process.env.NODE_ENV === 'production';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
     images: {
         loader: "akamai",
         path: "",
@@ -23,8 +22,8 @@ const nextConfig = {
             },
         ],
     },
-    assetPrefix: isProd ? '/store-redesign/' : '',
-    basePath: isProd ? '/store-redesign' : '',
+    // assetPrefix: isProd ? '/store-redesign/' : '',
+    // basePath: isProd ? '/store-redesign' : '',
     typescript: {
         ignoreBuildErrors: true,
     },
