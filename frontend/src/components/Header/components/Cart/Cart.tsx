@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from "@mantine/core";
+import { FocusTrap, Modal } from "@mantine/core";
 import { useTranslations } from "next-intl";
 
 import Divider from "@/components/Divider";
@@ -36,6 +36,7 @@ const Cart: React.FunctionComponent<CartType> = ({ cartContext }) => {
         transitionProps={{ transition: "slide-left" }}
       >
         <Modal.Body className={classes["cart__body"]}>
+          <FocusTrap.InitialFocus />
           <div className={classes["cart__header"]}>
             <div className={classes["cart__title"]}>
               <StyledTitle order={3}>{t("cart.title")}</StyledTitle>

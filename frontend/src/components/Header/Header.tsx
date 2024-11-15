@@ -13,6 +13,7 @@ import HeaderDesktop from "./components/HeaderDesktop";
 import HeaderMobile from "./components/HeaderMobile";
 import Menu from "./components/Menu";
 import Search from "./components/Search";
+import { usePathname } from "@/i18n/routing";
 
 type HeaderPropsType = {
   header: HeaderContentType;
@@ -33,6 +34,9 @@ const Header: React.FunctionComponent<HeaderPropsType> = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  const pathname = usePathname();
+  const isSearchPage = pathname.startsWith("/search");
+
   const isNonBlackFontColorApplied = !isScrolled && !isSearchOpen;
 
   useEffect(() => {
@@ -45,6 +49,10 @@ const Header: React.FunctionComponent<HeaderPropsType> = ({
 
   const handleMenuClose = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleSearchIconClick = (value: boolean) => {
+    if (!isSearchPage) setIsSearchOpen(value);
   };
 
   const handleSearchClose = () => {
@@ -73,7 +81,7 @@ const Header: React.FunctionComponent<HeaderPropsType> = ({
               isMenuOpen={isMenuOpen}
               isSearchOpen={isSearchOpen}
               handleMenuClick={(value) => setIsMenuOpen(value)}
-              handleSearchClick={(value) => setIsSearchOpen(value)}
+              handleSearchClick={(value) => handleSearchIconClick(value)}
               isNonBlackFontColorApplied={isNonBlackFontColorApplied}
             />
             <HeaderMobile
@@ -82,7 +90,7 @@ const Header: React.FunctionComponent<HeaderPropsType> = ({
               isMenuOpen={isMenuOpen}
               isSearchOpen={isSearchOpen}
               handleMenuClick={(value) => setIsMenuOpen(value)}
-              handleSearchClick={(value) => setIsSearchOpen(value)}
+              handleSearchClick={(value) => handleSearchIconClick(value)}
               isNonBlackFontColorApplied={isNonBlackFontColorApplied}
             />
           </div>

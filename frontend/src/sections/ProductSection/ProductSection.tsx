@@ -1,29 +1,32 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { PortableText } from "@portabletext/react";
 import React, { useEffect, useRef, useState } from "react";
 import { IconHeart } from "@tabler/icons-react";
 
-import Breadcrumbs from "../../components/Breadcrumbs";
-import HtmlContent from "../../components/HtmlContent";
-import ProductPrice from "../../components/ProductPrice";
-import StyledButton from "../../components/StyledButton";
-import StyledImage from "../../components/StyledImage";
-import StyledTitle from "../../components/StyledTitle";
-import { ROUTES } from "../../config";
-import { useCartContext } from "../../contexts/Cart/useCart";
-import ProductStickyHeader from "../../pageComponents/ProductPage/components/ProductStickyHeader";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import ProductPrice from "@/components/ProductPrice";
+import SizeGuideModal from "@/components/SizeGuideModal";
+import StyledButton from "@/components/StyledButton";
+import StyledImage from "@/components/StyledImage";
+import StyledTitle from "@/components/StyledTitle";
+import { ROUTES } from "@/config";
+import { convertProductToCartProduct } from "@/contexts/Cart/CartProvider";
+import { useCartContext } from "@/contexts/Cart/useCart";
+import { useSizeGuideModal } from "@/hooks/useSizeGuideModal";
+import { useNotifications } from "@/notifications";
+import ProductStickyHeader from "@/pageComponents/ProductPage/components/ProductStickyHeader";
 import {
   ProductOptionType,
   ProductType,
   ProductVariantType,
-} from "../../sanity/lib/getters/getProduct";
-import ColorSwatch from "./components/ColorSwatch";
-import SizeSwatch from "./components/SizeSwatch";
+} from "@/sanity/lib/getters/getProduct";
 
 import classes from "./ProductSection.module.css";
-import { convertProductToCartProduct } from "../../contexts/Cart/CartProvider";
-import { useNotifications } from "../../notifications";
+import ColorSwatch from "./components/ColorSwatch";
+import SizeSwatch from "./components/SizeSwatch";
+import StyledPortableText from "@/components/StyledPortableText";
 
 type ProductSectionType = {
   product: ProductType;
@@ -53,6 +56,11 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
   const t = useTranslations("sections");
   const cartContext = useCartContext();
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const { isOpen, openSizeGuideModal, closeSizeGuideModal } =
+    useSizeGuideModal();
+
+  console.log("product: ", product);
 
   const { showNotification, showErrorNotification } = useNotifications();
 
@@ -121,6 +129,8 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
     });
   };
 
+  console.log("product: ", product);
+
   return (
     <>
       <div className={classes["product-section"]}>
@@ -141,16 +151,16 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
         <div ref={containerRef} className={classes["product-section__details"]}>
           <div className={classes["product-section__details-content"]}>
             <div className={classes["product-section__header"]}>
-              <Breadcrumbs
-                items={[
-                  { href: ROUTES.home.href, title: "MIIÓ", id: "miió" },
-                  {
-                    href: ROUTES.home.href,
-                    title: "to do",
-                    id: "category",
-                  },
-                ]}
-              />
+              {/*<Breadcrumbs*/}
+              {/*  items={[*/}
+              {/*    { href: ROUTES.home.href, title: "MIIÓ", id: "miió" },*/}
+              {/*    {*/}
+              {/*      href: ROUTES.home.href,*/}
+              {/*      title: "to do",*/}
+              {/*      id: "category",*/}
+              {/*    },*/}
+              {/*  ]}*/}
+              {/*/>*/}
               <StyledTitle order={2}>{product.product.title}</StyledTitle>
             </div>
 
@@ -161,9 +171,9 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
                 compareAtPrice={compareAtPrice}
                 animationKey={chosenSize}
               />
-              <HtmlContent htmlString={product.product.body_html} />
+              <StyledPortableText value={product.sections.body} />
               {/*{product.product?.description?.more && (*/}
-              {/*  <StyledAccordion*/}
+              {/*  <SizeGuideModal*/}
               {/*    items={[*/}
               {/*      {*/}
               {/*        item: { value: "description" },*/}
@@ -187,6 +197,7 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
               sizes={sizes}
               handleSizeClick={handleSizeClick}
               chosenSize={chosenSize}
+              handleSizeGuideOpen={openSizeGuideModal}
             />
 
             <div className={classes["product-section__buttons"]}>
@@ -209,6 +220,11 @@ const ProductSection: React.FunctionComponent<ProductSectionType> = ({
       <ProductStickyHeader
         product={product}
         isVisible={!isDetailsSectionVisible}
+      />
+      <SizeGuideModal
+        isOpen={isOpen}
+        handleClose={closeSizeGuideModal}
+        sizeChart={product.sections.sizeChart}
       />
     </>
   );

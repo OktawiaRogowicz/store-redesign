@@ -10,6 +10,7 @@ type StyledIconButtonType = {
   icon?: React.ReactNode;
   color?: "red" | "black" | "beige" | "yellow" | "white" | "inherit";
   onClick?: () => void;
+  autoFocus?: boolean;
   type?: "submit";
 } & Omit<ButtonProps, "color">;
 
@@ -18,11 +19,13 @@ const StyledIconButton: React.FunctionComponent<StyledIconButtonType> = ({
   icon,
   color,
   type,
+  autoFocus,
   ...props
 }) => {
   return (
     <Button
       type={type}
+      autoFocus={autoFocus}
       {...props}
       className={cx(classes["styled-icon-button"], {
         [classes[`styled-icon-button--${color}`]]: color,

@@ -17,8 +17,8 @@
       "shipment": "Shipment",
       "sum": "Sum",
       "buttons": {
-        "continue": "Continue to payment",
-        "cart": "Cart"
+        "continue": "Przejdź do płatności",
+        "cart": "Koszyk"
       },
       "accordion": {
         "title": "Discount code"

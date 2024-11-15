@@ -11,24 +11,44 @@
     cursor: pointer;
 }
 
-.styled-paragraph--black-color, .styled-paragraph > a {
+.styled-paragraph--black-color, .styled-paragraph--black-color > a {
     color: #2F240E;
+    text-decoration-color: #2F240E;
+    &::after {
+         background-color: #2F240E;
+    }
 }
 
-.styled-paragraph--beige-color, .styled-paragraph > a {
+.styled-paragraph--beige-color, .styled-paragraph--beige-color > a {
     color: #95897A;
+    text-decoration-color: #95897A;
+    &::after {
+        background-color: #95897A;
+    }
 }
 
-.styled-paragraph--yellow-color, .styled-paragraph > a {
-    color: #FADE85
+.styled-paragraph--yellow-color, .styled-paragraph--yellow-color > a {
+    color: #FADE85;
+    text-decoration-color:#FADE85;
+    &::after {
+        background-color: #FADE85;
+    }
 }
 
-.styled-paragraph--white-color, .styled-paragraph > a {
+.styled-paragraph--white-color, .styled-paragraph--white-color > a {
     color: #FAF6EF;
+    text-decoration-color: #FAF6EF;
+    &::after {
+        background-color: #FAF6EF;
+    }
 }
 
-.styled-paragraph--red-color, .styled-paragraph > a {
+.styled-paragraph--red-color, .styled-paragraph--red-color > a {
     color: #D84646;
+    text-decoration-color: #D84646;
+    &::after {
+        background-color: #D84646;
+    }
 }
 
 .styled-paragraph--inherit-color, .styled-paragraph > a {

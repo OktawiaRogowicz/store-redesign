@@ -26,6 +26,12 @@ export const productType = defineType({
       ],
       group: "editorial",
     }),
+    {
+      name: 'sizeChart',
+      title: 'Size Chart',
+      type: 'table',
+      group: "editorial",
+    },
     defineField({
       name: 'hidden',
       type: 'string',

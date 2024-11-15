@@ -43,6 +43,7 @@ const StyledButton: React.FunctionComponent<StyledButtonPropsType> = ({
                 ? "size-S-light"
                 : "size-M-semi-bold"
           }
+          alignment="center"
           color={props.variant === "transparent" ? color : "inherit"}
         >
           {children}

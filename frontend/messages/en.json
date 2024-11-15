@@ -18,7 +18,7 @@
       "sum": "Sum",
       "buttons": {
         "continue": "Continue to payment",
-        "cart": "Cart"
+        "cart": "Go to cart"
       },
       "accordion": {
         "title": "Discount code"

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "@mantine/core";
+import { useForm } from "@mantine/form";
 import { IconArrowRight, IconSearch } from "@tabler/icons-react";
 
 import SectionContainer from "@/components/SectionContainer";
@@ -17,7 +18,12 @@ const Search: React.FunctionComponent<SearchType> = ({
   isOpen,
   handleClose,
 }) => {
-  const [searchValue, setSearchValue] = useState("");
+  const form = useForm({
+    mode: "uncontrolled",
+    initialValues: {
+      search: "",
+    },
+  });
 
   return (
     <Modal.Root
@@ -37,17 +43,22 @@ const Search: React.FunctionComponent<SearchType> = ({
       >
         <Modal.Body className={classes["search__body"]}>
           <SectionContainer padding="XL">
-            <StyledTextInput
-              placeholder="Czego szukasz?"
-              leftSection={<IconSearch stroke="1px" width={24} height={24} />}
-              rightSection={
-                <StyledIconButton
-                  icon={<IconArrowRight stroke="1px" width={24} height={24} />}
-                />
-              }
-              value={searchValue}
-              onChange={(event) => setSearchValue(event.currentTarget.value)}
-            />
+            <form onSubmit={form.onSubmit((values) => console.log(values))}>
+              <StyledTextInput
+                placeholder="Czego szukasz?"
+                leftSection={<IconSearch stroke="1px" width={24} height={24} />}
+                rightSection={
+                  <StyledIconButton
+                    type="submit"
+                    icon={
+                      <IconArrowRight stroke="1px" width={24} height={24} />
+                    }
+                  />
+                }
+                key={form.key("search")}
+                {...form.getInputProps("search")}
+              />
+            </form>
           </SectionContainer>
 
           {/*<div className={classes["search__title"]}>*/}
