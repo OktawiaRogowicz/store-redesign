@@ -30,22 +30,22 @@ const CartSummary: React.FunctionComponent = () => {
             animationKey={subtotalAmount}
           />
         </div>
-        <div className={classes["cart-summary__info-row"]}>
-          <StyledParagraph type="size-M-light">
-            {t("cart-summary.discount-code")}
-          </StyledParagraph>
-          <StyledParagraph type="size-L-semi-bold">
-            TEXTTOCHANGE62 pln
-          </StyledParagraph>
-        </div>
-        <div className={classes["cart-summary__info-row"]}>
-          <StyledParagraph type="size-M-light">
-            {t("cart-summary.shipment")}
-          </StyledParagraph>
-          <StyledParagraph type="size-L-semi-bold">
-            TEXTTOCHANGE30 pln
-          </StyledParagraph>
-        </div>
+        {/*<div className={classes["cart-summary__info-row"]}>*/}
+        {/*  <StyledParagraph type="size-M-light">*/}
+        {/*    {t("cart-summary.discount-code")}*/}
+        {/*  </StyledParagraph>*/}
+        {/*  <StyledParagraph type="size-L-semi-bold">*/}
+        {/*    TEXTTOCHANGE62 pln*/}
+        {/*  </StyledParagraph>*/}
+        {/*</div>*/}
+        {/*<div className={classes["cart-summary__info-row"]}>*/}
+        {/*  <StyledParagraph type="size-M-light">*/}
+        {/*    {t("cart-summary.shipment")}*/}
+        {/*  </StyledParagraph>*/}
+        {/*  <StyledParagraph type="size-L-semi-bold">*/}
+        {/*    TEXTTOCHANGE30 pln*/}
+        {/*  </StyledParagraph>*/}
+        {/*</div>*/}
       </div>
       <Divider />
       <div className={classes["cart-summary__info-row"]}>
@@ -62,13 +62,13 @@ const CartSummary: React.FunctionComponent = () => {
         <StyledButton variant="filled" size="L" fullWidth>
           {t("cart-summary.buttons.continue")}
         </StyledButton>
-        <StyledButton variant="outline" href={ROUTES.cart.href}>
+        <StyledButton variant="outline" href={ROUTES.cart.href} fullWidth>
           {t("cart-summary.buttons.cart")}
         </StyledButton>
       </div>
-      <StyledParagraph type="size-M-light">
-        {t("cart-summary.accordion.title")}
-      </StyledParagraph>
+      {/*<StyledParagraph type="size-M-light">*/}
+      {/*  {t("cart-summary.accordion.title")}*/}
+      {/*</StyledParagraph>*/}
     </div>
   );
 };

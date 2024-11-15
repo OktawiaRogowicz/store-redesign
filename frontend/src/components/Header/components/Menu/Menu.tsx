@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from "@mantine/core";
+import { FocusTrap, Modal } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
 
 import StyledIconButton from "@/components/StyledIconButton";
@@ -38,6 +38,7 @@ const Menu: React.FunctionComponent<MenuType> = ({
         transitionProps={{ transition: "slide-right" }}
       >
         <Modal.Body className={classes["menu__body"]}>
+          <FocusTrap.InitialFocus />
           <div className={classes["menu__header"]}>
             <StyledIconButton
               icon={<IconX stroke="1px" />}

@@ -91,6 +91,8 @@ export type ShopifyProductResponse = {
 export type ProductType = {
   sections: {
     moreProductSection: ProductContentType["moreProductsSection"];
+    sizeChart: ProductContentType["sizeChart"];
+    body: ProductContentType["body"];
   };
   product: ShopifyProductResponse["product"] & {
     priceRange: {
@@ -110,6 +112,8 @@ const convertToDetailedProductType = ({
   return {
     sections: {
       moreProductSection: sanityProduct.moreProductsSection,
+      sizeChart: sanityProduct.sizeChart,
+      body: sanityProduct.body,
     },
     product: {
       ...shopifyProduct.product,
@@ -125,6 +129,12 @@ export async function getProduct({
 }): Promise<ProductType> {
   const query = groq`*[_type == "product" && store.slug.current == "${slug}"][0] {
     "moreProductsSection": moreProductsSection[]->store,
+    sizeChart {
+      rows[] {
+        cells[]
+      }
+    },
+    body,
     store,
   }`;
 

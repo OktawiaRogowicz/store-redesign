@@ -12,7 +12,7 @@ import { ROUTES } from "../../config";
 import StyledParagraph from "../../components/StyledParagraph";
 
 type ProductsSliderSectionType = {
-  title: string;
+  title: string | React.ReactNode;
   products: any[];
 };
 
@@ -34,15 +34,24 @@ const ProductsSection: React.FunctionComponent<ProductsSliderSectionType> = ({
             ]}
             withIcon
           />
-          <div className={classes["products-section__header"]}>
-            <div className={classes["products-section__title"]}>
-              <StyledTitle order={2}>{title}</StyledTitle>
-              <StyledTitle order={3}>({products?.length ?? 0})</StyledTitle>
+          {typeof title === "string" ? (
+            <div className={classes["products-section__header"]}>
+              <div className={classes["products-section__title"]}>
+                <StyledTitle order={2}>{title}</StyledTitle>
+                <StyledTitle order={3}>({products?.length ?? 0})</StyledTitle>
+              </div>
+              <StyledButton variant="underline" size="no-padding">
+                Filtruj
+              </StyledButton>
             </div>
-            <StyledButton variant="underline" size="no-padding">
-              Filtruj
-            </StyledButton>
-          </div>
+          ) : (
+            <div>
+              {title}
+              <StyledButton variant="underline" size="no-padding">
+                Filtruj
+              </StyledButton>
+            </div>
+          )}
           {products?.length > 0 ? (
             <div className={classes["products-section__products"]}>
               {products.map((product) => {

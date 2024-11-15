@@ -1,0 +1,28 @@
+.size-guide-modal__title {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.size-guide-modal__header {
+}
+
+.size-guide-modal__close-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.size-guide-modal__content {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.size-guide-modal__body {
+    background-color: #FAF6EF;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 40px 40px 40px;
+}

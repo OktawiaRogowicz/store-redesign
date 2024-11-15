@@ -6,15 +6,6 @@ import StyledParagraph from "@/components/StyledParagraph";
 
 import classes from "./SizeSwatch.module.css";
 
-type SizeSwatchType = {
-  sizes: {
-    name: string;
-    isAvailable: boolean;
-  }[];
-  handleSizeClick: (value: string) => void;
-  chosenSize: string;
-};
-
 const getOrder = (size: string) => {
   switch (size) {
     case "XXS":
@@ -34,10 +25,21 @@ const getOrder = (size: string) => {
   }
 };
 
+type SizeSwatchType = {
+  sizes: {
+    name: string;
+    isAvailable: boolean;
+  }[];
+  handleSizeClick: (value: string) => void;
+  chosenSize: string;
+  handleSizeGuideOpen: () => void;
+};
+
 const SizeSwatch: React.FunctionComponent<SizeSwatchType> = ({
   sizes,
   handleSizeClick,
   chosenSize,
+  handleSizeGuideOpen,
 }) => {
   const t = useTranslations("components");
   return (
@@ -70,6 +72,7 @@ const SizeSwatch: React.FunctionComponent<SizeSwatchType> = ({
         className={classes["size-swatch__guide-button"]}
         fullWidth={false}
         size="no-padding"
+        onClick={handleSizeGuideOpen}
       >
         {t("size-swatch.guide")}
       </StyledButton>
