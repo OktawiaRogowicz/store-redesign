@@ -44,7 +44,7 @@ const ProductCard: React.FunctionComponent<ProductCardType> = ({
       onClick={(e) =>
         handleClick({
           e,
-          path: `${locale}/${ROUTES.products.href}/${product.slug}`,
+          path: `${ROUTES.products.href}/${product.slug}`,
         })
       }
     >

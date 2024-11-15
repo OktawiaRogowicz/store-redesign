@@ -108,7 +108,7 @@ export const structure: StructureResolver = (S, context) =>
                                 .icon(MdVerticalAlignTop)
                                 .child(S.editor().schemaType("header").documentId("header")),
                             S.listItem()
-                                .title("Footer Settings")
+                                .title("FooterNewsletter Settings")
                                 .icon(MdVerticalAlignBottom)
                                 .child(S.editor().schemaType("footer").documentId("footer")),
                         ]),

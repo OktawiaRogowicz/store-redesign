@@ -3,7 +3,7 @@ import { defineType, defineField } from "sanity";
 
 export const footerType = defineType({
   name: "footer",
-  title: "Footer",
+  title: "FooterNewsletter",
   type: "document",
   icon: MdOutlineCategory,
   fields: [

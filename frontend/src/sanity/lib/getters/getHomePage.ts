@@ -8,7 +8,7 @@ export async function getHomePage() {
     heroSection {
       title,
       button,
-      "slug": link->slugProxy,
+      "slug": link->route,
       "images": {
         "left": images[].left.asset->url,
         "right": images[].right.asset->url,

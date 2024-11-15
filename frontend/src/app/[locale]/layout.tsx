@@ -38,38 +38,25 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <Head>
+        <ColorSchemeScript />
+      </Head>
       <body>
-        <MantineProvider
-          theme={themeConfiguration}
-          withGlobalClasses
-          // withNormalizeCSS
-        >
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </MantineProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <MantineProvider
+            theme={themeConfiguration}
+            withGlobalClasses
+            // withNormalizeCSS
+          >
+            <FavouritesProvider>
+              <CartProvider>
+                <NotificationsContainer />
+                {children}
+              </CartProvider>
+            </FavouritesProvider>
+          </MantineProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
-    // <html lang={locale}>
-    //   <Head>
-    //     <ColorSchemeScript />
-    //   </Head>
-    //   <body>
-    //     <NextIntlClientProvider locale={locale} messages={messages}>
-    //       <MantineProvider
-    //         theme={themeConfiguration}
-    //         withGlobalClasses
-    //         // withNormalizeCSS
-    //       >
-    //         <FavouritesProvider>
-    //           <CartProvider>
-    //             <NotificationsContainer />
-    //             {children}
-    //           </CartProvider>
-    //         </FavouritesProvider>
-    //       </MantineProvider>
-    //     </NextIntlClientProvider>
-    //   </body>
-    // </html>
   );
 }

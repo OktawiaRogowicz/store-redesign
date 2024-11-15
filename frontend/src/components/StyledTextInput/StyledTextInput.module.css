@@ -1,3 +1,9 @@
+.styled-text-input__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .styled-text-input__wrapper {
 }
 
@@ -16,6 +22,10 @@
     font-size: 14px;
     font-weight: 300;
     color: #2F240E;
+}
+
+.styled-text-input__input--error {
+    border-color: #D84646;
 }
 
 .styled-text-input__input--with-left-section {
